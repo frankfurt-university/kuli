@@ -1,4 +1,4 @@
 kuli
 ====
 
-ku-li kundenlizenzen pprojekt programing exercises Herr Orth
+ku-li kundenlizenzen projekt programming exercises SS2014 Herrn Orth
