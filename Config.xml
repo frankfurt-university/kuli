@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For FH Server -->
+<DATABASE>
+<CREDENTIALS TYPE="jdbc" ENABLED="Y">
+<HOST>10.18.2.44</HOST>
+<URLPREFIX>jdbc:mysql://</URLPREFIX>
+<USER>user</USER>
+<DBNAME>mydb</DBNAME>
+<DRIVER>com.mysql.jdbc.Driver</DRIVER>
+<PASS>programmingLab</PASS>
+<PORT>3306</PORT>
+</CREDENTIALS>
+</DATABASE>
+
+<!-- For Localhost 
+<DATABASE>
+<CREDENTIALS TYPE="jdbc" ENABLED="Y">
+<HOST>127.0.0.1</HOST>
+<URLPREFIX>jdbc:mysql://</URLPREFIX>
+<USER>root</USER>
+<DBNAME>programminglab</DBNAME>
+<DRIVER>com.mysql.jdbc.Driver</DRIVER>
+<PASS></PASS>
+<PORT>3306</PORT>
+</CREDENTIALS>
+</DATABASE>
+-->

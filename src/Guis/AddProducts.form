@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="productsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="vendorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="versionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="sysRegLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="infoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="versionTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="vendorTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="productTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="systemRegTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="infoTextField" alignment="0" pref="64" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="addButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="exitButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="vendorTextField" min="-2" max="-2" attributes="0"/>
+                                          <Component id="vendorLabel" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="productTextField" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="productsLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="versionTextField" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="versionLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="systemRegTextField" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="sysRegLabel" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="infoTextField" min="-2" max="-2" attributes="0"/>
+                  <Component id="infoLabel" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="69" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="addButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="exitButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JTextField" name="vendorTextField">
+    </Component>
+    <Component class="javax.swing.JTextField" name="productTextField">
+    </Component>
+    <Component class="javax.swing.JTextField" name="versionTextField">
+    </Component>
+    <Component class="javax.swing.JTextField" name="systemRegTextField">
+    </Component>
+    <Component class="javax.swing.JTextField" name="infoTextField">
+    </Component>
+    <Component class="javax.swing.JLabel" name="vendorLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="H&#xe4;ndler:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="productsLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Produkt:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="versionLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Version:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="sysRegLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="System Reg.:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="infoLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Info:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="addButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="exitButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Exit"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitButtonActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
