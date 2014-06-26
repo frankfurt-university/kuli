@@ -211,8 +211,10 @@ public class GuiKuli extends javax.swing.JFrame{
     }//GEN-LAST:event_startFikuActionPerformed
 
     private void startPerkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPerkuActionPerformed
-        Perku newPerku = new Perku();
-        newPerku.setVisible(true);
+        //Perku newPerku = new Perku();
+        //newPerku.setVisible(true);
+        Contacts newContacts = new Contacts();
+        newContacts.setVisible(true);
     }//GEN-LAST:event_startPerkuActionPerformed
 
     private void startProduktActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProduktActionPerformed

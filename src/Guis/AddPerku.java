@@ -22,7 +22,7 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
  */
 public class AddPerku extends javax.swing.JFrame {
    
-    public String getComboText(int combo){
+/*    public String getComboText(int combo){
         String returnValue= null;
         switch(combo){
             case 1: String sub =(String)jComboBoxCompanyID.getSelectedItem();
@@ -39,11 +39,14 @@ public class AddPerku extends javax.swing.JFrame {
                     break;
         }
         return returnValue;
-    }
+    }*/
     /**
      * Creates new form AddPerku
      */
-    public AddPerku(java.awt.Frame parent, boolean modal) {
+    public AddPerku(java.awt.Frame parent, boolean modal){
+        initComponents();
+    }
+/*    public AddPerku(java.awt.Frame parent, boolean modal) {
         //super(parent, modal);
         initComponents();
         DBServiceInvoker invoke = new DBServiceInvoker();
@@ -99,7 +102,7 @@ public class AddPerku extends javax.swing.JFrame {
            
         }catch(SQLException sqlex){System.out.println(sqlex);}
     }
-
+*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -119,8 +122,8 @@ public class AddPerku extends javax.swing.JFrame {
         lName = new javax.swing.JLabel();
         title = new javax.swing.JLabel();
         sex = new javax.swing.JLabel();
-        Add = new javax.swing.JButton();
-        Cancel = new javax.swing.JButton();
+        jButtonCancel = new javax.swing.JButton();
+        jButtonSave = new javax.swing.JButton();
         jLabelPosition = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         positionTextField = new javax.swing.JTextField();
@@ -133,12 +136,12 @@ public class AddPerku extends javax.swing.JFrame {
         jTextFieldBuilding = new javax.swing.JTextField();
         jTextFieldRoom = new javax.swing.JTextField();
         jLabelRoom = new javax.swing.JLabel();
-        jComboBoxDeptID = new javax.swing.JComboBox();
-        jComboBoxCompanyID = new javax.swing.JComboBox();
-        jComboBoxWorkplaceID = new javax.swing.JComboBox();
         jLabelWorkplace = new javax.swing.JLabel();
+        jButtonSelectPlace = new javax.swing.JButton();
+        jButtonSelectFiku = new javax.swing.JButton();
+        jButtonSelectDept = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         titleTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,17 +167,17 @@ public class AddPerku extends javax.swing.JFrame {
 
         sex.setText("Sex:");
 
-        Add.setText("Add");
-        Add.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCancel.setText("Cancel");
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddActionPerformed(evt);
+                jButtonCancelActionPerformed(evt);
             }
         });
 
-        Cancel.setText("Cancel");
-        Cancel.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSave.setText("Save");
+        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelActionPerformed(evt);
+                jButtonSaveActionPerformed(evt);
             }
         });
 
@@ -210,13 +213,13 @@ public class AddPerku extends javax.swing.JFrame {
 
         jLabelRoom.setText("Room:");
 
-        jComboBoxDeptID.setToolTipText("Choose Department");
-
-        jComboBoxCompanyID.setToolTipText("Choose Company ID");
-
-        jComboBoxWorkplaceID.setToolTipText("Choose Workplace ID ");
-
         jLabelWorkplace.setText("Workplace:");
+
+        jButtonSelectPlace.setText("Select");
+
+        jButtonSelectFiku.setText("Select Company");
+
+        jButtonSelectDept.setText("Select Department");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,9 +229,9 @@ public class AddPerku extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Add)
-                        .addGap(83, 83, 83)
-                        .addComponent(Cancel))
+                        .addComponent(jButtonCancel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSave))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(deptID)
@@ -256,15 +259,17 @@ public class AddPerku extends javax.swing.JFrame {
                             .addComponent(jTextFieldEmail)
                             .addComponent(jTextFieldFax)
                             .addComponent(jTextFieldRoom)
-                            .addComponent(jComboBoxDeptID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxCompanyID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxWorkplaceID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButtonSelectPlace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonSelectFiku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonSelectDept)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -273,13 +278,13 @@ public class AddPerku extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(companyID)
-                                                    .addComponent(jComboBoxCompanyID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(21, 21, 21)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(companyID)
+                                                    .addComponent(jButtonSelectFiku))
+                                                .addGap(19, 19, 19)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(deptID)
-                                                    .addComponent(jComboBoxDeptID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(jButtonSelectDept))
                                                 .addGap(18, 18, 18)
                                                 .addComponent(fNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(fName))
@@ -320,12 +325,12 @@ public class AddPerku extends javax.swing.JFrame {
                     .addComponent(jLabelRoom))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxWorkplaceID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelWorkplace))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                    .addComponent(jLabelWorkplace)
+                    .addComponent(jButtonSelectPlace))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Add)
-                    .addComponent(Cancel))
+                    .addComponent(jButtonCancel)
+                    .addComponent(jButtonSave))
                 .addContainerGap())
         );
 
@@ -340,7 +345,7 @@ public class AddPerku extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sexTextFieldActionPerformed
 
-    private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         // TODO add your handling code here:
        DBServiceInvoker invoke = new DBServiceInvoker();
         StringBuilder stringBuild = new StringBuilder();
@@ -394,11 +399,11 @@ public class AddPerku extends javax.swing.JFrame {
         attribut = "`idPerKu`, `FiKu_idFiKu`, `Departments_idDepartments`, `FName`, `LName`, `Title`, `Sex`, `Position`, `Phone`, `Email`, `Fax`, `Building`, `Room`, `FiKu_has_Place_FiKu_idFiKu`, `FiKu_has_Place_Place_idPlace`";
         invoke.invokeInsert("perku",attribut,stringBuild.toString());
         this.setVisible(false);
-    }//GEN-LAST:event_AddActionPerformed
+    }//GEN-LAST:event_jButtonCancelActionPerformed
 
-    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
+    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
        this.setVisible(false);
-    }//GEN-LAST:event_CancelActionPerformed
+    }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
         // TODO add your handling code here:
@@ -437,7 +442,7 @@ public class AddPerku extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+/*        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 AddPerku dialog = new AddPerku(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -448,19 +453,19 @@ public class AddPerku extends javax.swing.JFrame {
                 });
                 dialog.setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Add;
-    private javax.swing.JButton Cancel;
     private javax.swing.JLabel companyID;
     private javax.swing.JLabel deptID;
     private javax.swing.JLabel fName;
     private javax.swing.JTextField fNameTextField;
-    private javax.swing.JComboBox jComboBoxCompanyID;
-    private javax.swing.JComboBox jComboBoxDeptID;
-    private javax.swing.JComboBox jComboBoxWorkplaceID;
+    private javax.swing.JButton jButtonCancel;
+    private javax.swing.JButton jButtonSave;
+    private javax.swing.JButton jButtonSelectDept;
+    private javax.swing.JButton jButtonSelectFiku;
+    private javax.swing.JButton jButtonSelectPlace;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelBuilding;
     private javax.swing.JLabel jLabelEmail;
