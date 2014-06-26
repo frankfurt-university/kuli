@@ -48,6 +48,8 @@ public class AddPerku extends javax.swing.JFrame {
         initComponents();
         DBServiceInvoker invoke = new DBServiceInvoker();
         DefaultComboBoxModel model = new DefaultComboBoxModel();
+        DefaultComboBoxModel model1 = new DefaultComboBoxModel();
+        DefaultComboBoxModel model2 = new DefaultComboBoxModel();
         try {
             List<String> list= invoke.invokeSelect("fiku"," ");
             Iterator<String> i = list.iterator();
@@ -63,6 +65,38 @@ public class AddPerku extends javax.swing.JFrame {
            jComboBoxCompanyID.setModel(model);
             
             
+        }catch(SQLException sqlex){System.out.println(sqlex);}
+        
+        try {
+            List<String> list= invoke.invokeSelect("departments"," ");
+            Iterator<String> i = list.iterator();
+            while(i.hasNext()){
+                StringBuilder stringBuild = new StringBuilder();
+                String[] substring = i.next().split(Pattern.quote(" "));
+                for(int j=0;j<2;j++){
+                    stringBuild.append(substring[j]);
+                    stringBuild.append(" ");
+                }
+                model1.addElement(stringBuild.toString());
+            }
+           jComboBoxDeptID.setModel(model1);
+           
+        }catch(SQLException sqlex){System.out.println(sqlex);}
+        
+        try {
+            List<String> list= invoke.invokeSelect("fiku_has_place"," ");
+            Iterator<String> i = list.iterator();
+            while(i.hasNext()){
+                StringBuilder stringBuild = new StringBuilder();
+                String[] substring = i.next().split(Pattern.quote(" "));
+                for(int j=0;j<2;j++){
+                    stringBuild.append(substring[j]);
+                    stringBuild.append(" ");
+                }
+                model2.addElement(stringBuild.toString());
+            }
+           jComboBoxDeptID.setModel(model2);
+           
         }catch(SQLException sqlex){System.out.println(sqlex);}
     }
 
@@ -357,7 +391,7 @@ public class AddPerku extends javax.swing.JFrame {
         stringBuild.append("NULL");
         
         String attribut;
-        attribut = "`PerKu_id`, `Vorname`, `Nachname`, `Anrede`, `Telefon`, `Mobiltelefon`, `E-Mail`, `Standort_Standort_id`, `Standort_FirmenKunde_FiKu_id`, `FirmenKunde_FiKu_id`";
+        attribut = "`idPerKu`, `FiKu_idFiKu`, `Departments_idDepartments`, `FName`, `LName`, `Title`, `Sex`, `Position`, `Phone`, `Email`, `Fax`, `Building`, `Room`, `FiKu_has_Place_FiKu_idFiKu`, `FiKu_has_Place_Place_idPlace`";
         invoke.invokeInsert("perku",attribut,stringBuild.toString());
         this.setVisible(false);
     }//GEN-LAST:event_AddActionPerformed
