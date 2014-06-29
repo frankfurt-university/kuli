@@ -54,21 +54,19 @@
                   <Component id="filler1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonAdd" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonOpen" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jButtonRefresh" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonClose" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane3" alignment="0" pref="899" max="32767" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonAdd" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonOpen" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="603" max="32767" attributes="0"/>
-                      <Component id="jButtonRefresh" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonClose" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -77,24 +75,19 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace pref="104" max="32767" attributes="0"/>
                   <Component id="filler1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonOpen" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonClose" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane3" min="-2" pref="137" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonOpen" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonAdd" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonClose" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" pref="103" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="76" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
