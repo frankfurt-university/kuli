@@ -8,6 +8,7 @@ package Guis;
 
 import dbServices.DBServiceInvoker;
 import java.awt.Frame;
+import java.util.regex.Pattern;
 import utils.*;
 import javax.swing.ComboBoxModel;
 
@@ -16,7 +17,9 @@ import javax.swing.ComboBoxModel;
  * @author Kain
  */
 public class AddFiku extends javax.swing.JFrame {
-
+    String id;
+    String idRecord;
+    
     /**
      * Creates new form AddFiku
      */
@@ -24,7 +27,29 @@ public class AddFiku extends javax.swing.JFrame {
         //super(parent, modal);
         initComponents();
     }
-
+    
+    /** Creates new AddFiku form with selected loaded values
+     * 
+     */
+    public AddFiku(String id) {
+        initComponents();
+        this.id=id;
+        if(!id.equals("")){
+        
+            System.out.println(id);
+            String[] substring = id.split(Pattern.quote(" "));
+            System.out.println(substring.length);
+            this.idRecord = substring[0];
+            nameTextField.setText(substring[1]);
+            wirtIDTextField.setText(substring[2]);
+            umstIDTextField.setText(substring[3]);
+            urlTextField.setText(substring[4]);
+            
+            System.out.println(idRecord);
+        
+        
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
