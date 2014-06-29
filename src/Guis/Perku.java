@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Kain
  */
 public class Perku extends javax.swing.JFrame {
+    private JPanel jPanel2;
     
     
     private void showTable() {
@@ -50,30 +52,7 @@ public class Perku extends javax.swing.JFrame {
                 String fiKuHasPlaceFiKuIdFiKu = subString[13];
                 String fiKuHasPlacePlaceIdPlace = subString[14];
                 
-/*
-                StringBuilder whereFiKu = new StringBuilder();
-                whereFiKu.append("where idFiKu = ");
-                whereFiKu.append(idFiKu);
-                List<String> fiKu = invoke.invokeSelect("FiKu", whereFiKu.toString());
-                Iterator<String> j = fiKu.iterator();
-                while (j.hasNext()) {
-                    String[] subStringFiku = j.next().split(Pattern.quote(" "));
-                    fiKuName = subStringFiku[3];
-                }
-                
-                StringBuilder whereStandort = new StringBuilder();
-                whereStandort.append("where  idPlace = ");
-                whereStandort.append(fiKuHasPlacePlaceIdPlace);
-                List<String> place = invoke.invokeSelect("Place", whereStandort.toString());
-                Iterator<String> k = place.iterator();
-                while (k.hasNext()) {
-                    String[] subStringFiku = k.next().split(Pattern.quote(" "));
-                    city = subStringFiku[2];
 
-                }
-                if (defaultTable.getRowCount() == 1) {
-                    defaultTable.removeRow(0);
-                }*/
                 defaultTable.addRow(new Object[]{idPerKu, idFiKu, departmentsIdDepartments, fName, lName, title, sex, position, phone, eMail, fax, building, room, fiKuHasPlaceFiKuIdFiKu, 
                     fiKuHasPlacePlaceIdPlace/*, fiKuName, city*/});
             }
@@ -88,6 +67,53 @@ public class Perku extends javax.swing.JFrame {
         }
 
     }
+    private void showTable2() {
+        DefaultTableModel defaultTable = (DefaultTableModel) Perku2Table.getModel();
+
+        try {
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            String fiKuName = "";
+            String city = "";
+
+            List<String> pers = invoke.invokeSelect("PerKu", "");
+
+            Iterator<String> i = pers.iterator();
+            while (i.hasNext()) {
+                System.out.println(pers);
+                String[] subString = i.next().split(Pattern.quote(" "));
+
+                String idPerKu = subString[0];
+                String idFiKu = subString[1];
+                String departmentsIdDepartments = subString[2];
+                String fName = subString[3];
+                String lName = subString[4];
+                String title = subString[5];
+                String sex = subString[6];
+                String position = subString[7];
+                String phone = subString[8];
+                String eMail = subString[9];
+                String fax = subString[10];
+                String building = subString[11];
+                String room = subString[12];
+                String fiKuHasPlaceFiKuIdFiKu = subString[13];
+                String fiKuHasPlacePlaceIdPlace = subString[14];
+                
+
+                defaultTable.addRow(new Object[]{idPerKu, idFiKu, departmentsIdDepartments, fName, lName, title, sex, position, phone, eMail, fax, building, room, fiKuHasPlaceFiKuIdFiKu, 
+                    fiKuHasPlacePlaceIdPlace/*, fiKuName, city*/});
+            }
+            invoke.cleanErrorString();
+
+        } catch (SQLException sqlex) {
+
+            System.out.println("SQL Error : " + sqlex.getMessage());
+        } catch (Exception e) {
+
+            System.out.println("Error : " + e.getMessage());
+        }
+
+    }
+    
     /**
      * Creates new form Place(s)
      * and fills the table with data
@@ -95,10 +121,16 @@ public class Perku extends javax.swing.JFrame {
     public Perku() {
         initComponents();
         showTable();
-        //FikuTable.setModel((SetModelToList.getModels());
+    }
+    /**
+    * Creates a new Place(s) 
+    * just with a Table and one Button
+    */
+    public Perku(boolean value){
+        initComponents2();
+        showTable2();
     }
     
-
     /**
      * l
      * This method is called from within the constructor to initialize the form.
@@ -240,7 +272,8 @@ public class Perku extends javax.swing.JFrame {
 
     private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
         try{
-        showTable();
+            PerkuTable.clearSelection();
+            showTable();
         }catch(Exception e){
             System.out.println("Could not write the Data to List!");
         }
@@ -257,13 +290,27 @@ public class Perku extends javax.swing.JFrame {
             }
         }
         new AddPerku(id.toString()).setVisible(true);
-        this.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonOpenActionPerformed
 
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButtonCloseActionPerformed
+    /**
+     * This Method mesures which row get´s clicked
+     * 
+     */
+    private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt){
+        int count = Perku2Table.getSelectedRow();
+        StringBuilder id = new StringBuilder();
+        if (count > -1) {
 
+            for (int i = 0; i < Perku2Table.getColumnCount() - 2; i++) {
+                id.append(Perku2Table.getValueAt(count, i));
+                id.append(" ");
+            }
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -310,4 +357,114 @@ public class Perku extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
+    
+    //Variables declaration do modify if nessesary
+    private javax.swing.JTable Perku2Table;
+    private javax.swing.Box.Filler filler3;
+    private javax.swing.Box.Filler filler4;
+    private javax.swing.JButton jButtonOk;
+    //private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane4;
+    //End of variables decleration
+    private void initComponents2() {
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Perku2Table = new javax.swing.JTable();
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
+        jButtonOk = new javax.swing.JButton();
+        jButtonClose = new javax.swing.JButton();
+        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Contacts");
+
+        jPanel2.setToolTipText("");
+
+        Perku2Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Person's ID", "Company ID", "Dept. ID", "First Name", "Last Name", "Title", "Sex", "Position", "Phone", "E-mail", "Fax", "Building", "Room", "Place FikuID", "Place PlaceID"
+            }
+        ));
+        Perku2Table.setColumnSelectionAllowed(true);
+        jScrollPane4.setViewportView(Perku2Table);
+        Perku2Table.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        jButtonOk.setText("Ok");
+        jButtonOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOkActionPerformed(evt);
+            }
+        });
+
+        jButtonClose.setText("Close");
+        jButtonClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCloseActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButtonOk)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonClose)
+                        .addGap(7, 7, 7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 511, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(316, 316, 316))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(filler4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(442, 442, 442))))))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 899, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(148, Short.MAX_VALUE)
+                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonOk)
+                    .addComponent(jButtonClose))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(filler4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addGap(43, 43, 43)))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }
 }
