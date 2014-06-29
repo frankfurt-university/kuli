@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Kain
  */
-public class SetModelToList {
+public class NotUsedSetModelToList {
     
     public static DefaultTableModel getModels(ResultSet resultSet)throws SQLException{
     DBServiceInvoker invoke = new DBServiceInvoker();

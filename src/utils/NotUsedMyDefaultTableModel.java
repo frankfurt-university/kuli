@@ -10,7 +10,7 @@ package utils;
  *
  * @author Juraj
  */
-public class MyDefaultTableModel {
+public class NotUsedMyDefaultTableModel {
     
     
 }

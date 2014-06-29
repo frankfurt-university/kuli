@@ -11,7 +11,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 import javax.swing.table.DefaultTableModel;
-import utils.SetModelToList;
 
 /**
  *
