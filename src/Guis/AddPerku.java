@@ -288,6 +288,11 @@ public class AddPerku extends javax.swing.JFrame {
         jLabelWorkplace.setText("Workplace:");
 
         SelectPlaceButton.setText("Select");
+        SelectPlaceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectPlaceButtonActionPerformed(evt);
+            }
+        });
 
         SelectFikuButton.setText("Select");
         SelectFikuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -297,6 +302,11 @@ public class AddPerku extends javax.swing.JFrame {
         });
 
         SelectDeptButton.setText("Select");
+        SelectDeptButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectDeptButtonActionPerformed(evt);
+            }
+        });
 
         jTextFieldFikuId.setText("###");
 
@@ -513,10 +523,19 @@ public class AddPerku extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldRoomActionPerformed
 
     private void SelectFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectFikuButtonActionPerformed
-       Fiku newFiku = new Fiku(1);
-       newFiku.setVisible(true);
+       //Fiku newFiku = new Fiku(1);
+       //newFiku.setVisible(true);
           
     }//GEN-LAST:event_SelectFikuButtonActionPerformed
+
+    private void SelectDeptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectDeptButtonActionPerformed
+        //Perku newPerku = new Perku(1);
+        //newPerku.setVisible(true);
+    }//GEN-LAST:event_SelectDeptButtonActionPerformed
+
+    private void SelectPlaceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectPlaceButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SelectPlaceButtonActionPerformed
 
     /**
      * @param args the command line arguments
