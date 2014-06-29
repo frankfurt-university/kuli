@@ -16,7 +16,7 @@ import javax.swing.DefaultListModel;
  *
  * @author Kain
  */
-public class CompanyPlaces extends javax.swing.JFrame {
+public class NotUsedCompanyPlaces extends javax.swing.JFrame {
     // wE NEED join FUNCTIONALITY HERE AND NOT EMPTY where CLAUSE
     public DefaultListModel getModels(String table, String where){
     DBServiceInvoker invoke = new DBServiceInvoker();
@@ -42,7 +42,7 @@ public class CompanyPlaces extends javax.swing.JFrame {
     /**
      * Creates new form CompanyPlaces
      */
-    public CompanyPlaces() {
+    public NotUsedCompanyPlaces() {
         initComponents();
     }
 
@@ -194,20 +194,20 @@ public class CompanyPlaces extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CompanyPlaces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotUsedCompanyPlaces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CompanyPlaces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotUsedCompanyPlaces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CompanyPlaces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotUsedCompanyPlaces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CompanyPlaces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotUsedCompanyPlaces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CompanyPlaces().setVisible(true);
+                new NotUsedCompanyPlaces().setVisible(true);
             }
         });
     }

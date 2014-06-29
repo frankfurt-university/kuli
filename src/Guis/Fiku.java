@@ -173,6 +173,7 @@ public class Fiku extends javax.swing.JFrame {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         AddFiku addFiku = new AddFiku(null, true);
         addFiku.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void refreshFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshFikuButtonActionPerformed
@@ -186,6 +187,7 @@ public class Fiku extends javax.swing.JFrame {
     private void editFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFikuButtonActionPerformed
         EditFiku newEditFiku = new EditFiku();
         newEditFiku.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_editFikuButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed

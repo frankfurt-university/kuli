@@ -163,10 +163,14 @@ public class AddFiku extends javax.swing.JFrame {
         String attribut = "WirtID, USTID, Name, URL";
         invoke.invokeInsert("fiku",attribut,stringBuild.toString());
         this.setVisible(false);
+        Fiku newFiku = new Fiku();
+        newFiku.setVisible(true);
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
         this.setVisible(false);
+        Fiku newFiku = new Fiku();
+        newFiku.setVisible(true);
     }//GEN-LAST:event_jButtonCloseActionPerformed
 
     private void jButtonSelectAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelectAddressActionPerformed

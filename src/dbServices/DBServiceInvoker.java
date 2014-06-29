@@ -91,6 +91,27 @@ public class DBServiceInvoker {
                 return select.getAllInfo();
 		
 	}
+        public List<String> invokeSelectWithPreparedStatement(int id) throws SQLException{
+		
+                Select select = null;
+                date = new Date();
+                List<String> searchedRecords = new ArrayList<String>();
+		try {
+			
+			if(this.conn==null || this.conn.isClosed())
+				openConnection();
+			
+			select = new Select(this.conn);
+			searchedRecords = select.doSelectWithPreparedStatement(id);
+			select.closeDB();
+		} catch (Exception e) {
+			
+			System.out.println("IOError : " + e.getMessage());
+                        errorString = "Time : " + date.toString() + " - Error Message : " + e.getMessage();
+		}
+                return searchedRecords;
+		
+	}
         
         public boolean invokeInsert(String table,String attribute,String add){
             boolean success = false;

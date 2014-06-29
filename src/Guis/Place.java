@@ -171,6 +171,7 @@ public class Place extends javax.swing.JFrame {
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         AddPlace addPlace = new AddPlace(null, true);
         addPlace.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
@@ -184,6 +185,7 @@ public class Place extends javax.swing.JFrame {
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
         EditFiku newEditFiku = new EditFiku();
         newEditFiku.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonEditActionPerformed
 
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed

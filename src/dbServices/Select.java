@@ -4,6 +4,7 @@
 package dbServices;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -61,7 +62,31 @@ public class Select {
             return success;
 
         }
-	
+	public List<String> doSelectWithPreparedStatement(int id){
+        
+            List<String> records = new ArrayList<String>();
+            String idOfData = "", name = "", surname = "";
+            
+            try {
+                
+                String selectSQL = "SELECT * FROM info WHERE id = ?";
+                PreparedStatement preparedStatement = conn.prepareStatement(selectSQL);
+                preparedStatement.setInt(1, id);
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                   
+                    name = rs.getString("name");
+                    records.add(name);
+                    surname = rs.getString("surname");
+                    records.add(surname);
+                }
+            } catch (Exception e) {
+                
+                System.out.println("Error : " + e.getMessage());
+            }
+            
+            return records;
+        }
 	public boolean closeDB(){
 		
 		boolean success = false;
