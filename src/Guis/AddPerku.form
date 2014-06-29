@@ -26,45 +26,53 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="deptID" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="fName" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lName" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="title" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="sex" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="companyID" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelPosition" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelFax" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelBuilding" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelRoom" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelWorkplace" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="CancelButton" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="CancelButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="SaveButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldDepartmentId" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="SelectDeptButton" min="-2" pref="63" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Component id="jTextFieldBuilding" max="32767" attributes="0"/>
+                  <Component id="fNameTextField" max="32767" attributes="0"/>
+                  <Component id="lNameTextField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="titleTextField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="sexTextField" max="32767" attributes="0"/>
+                  <Component id="positionTextField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldPhone" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldEmail" max="32767" attributes="0"/>
+                  <Component id="jTextFieldFax" max="32767" attributes="0"/>
+                  <Component id="jTextFieldRoom" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jTextFieldCompany" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="SelectFikuButton" min="-2" pref="63" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jTextFieldFikuId" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="deptID" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="fName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="title" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="sex" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="companyID" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelPosition" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelFax" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelBuilding" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelRoom" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelWorkplace" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldBuilding" max="32767" attributes="0"/>
-                          <Component id="fNameTextField" max="32767" attributes="0"/>
-                          <Component id="lNameTextField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="titleTextField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="sexTextField" max="32767" attributes="0"/>
-                          <Component id="positionTextField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldPhone" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldEmail" max="32767" attributes="0"/>
-                          <Component id="jTextFieldFax" max="32767" attributes="0"/>
-                          <Component id="jTextFieldRoom" alignment="0" max="32767" attributes="0"/>
-                          <Component id="SelectPlaceButton" alignment="0" max="32767" attributes="0"/>
-                          <Component id="SelectFikuButton" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="SelectDeptButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jTextFieldPlaceId" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                              <Component id="SelectPlaceButton" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="SaveButton" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -87,13 +95,15 @@
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="companyID" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="SelectFikuButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jTextFieldCompany" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="deptID" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="SelectDeptButton" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="deptID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="SelectDeptButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jTextFieldDepartmentId" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                               <Component id="fNameTextField" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="fName" min="-2" max="-2" attributes="0"/>
@@ -151,8 +161,10 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelWorkplace" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="SelectPlaceButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldFikuId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldPlaceId" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="CancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="SaveButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -298,12 +310,29 @@
     </Component>
     <Component class="javax.swing.JButton" name="SelectFikuButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Select Company"/>
+        <Property name="text" type="java.lang.String" value="Select"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SelectFikuButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="SelectDeptButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Select Department"/>
+        <Property name="text" type="java.lang.String" value="Select"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldCompany">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldDepartmentId">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldFikuId">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="###"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldPlaceId">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="###"/>
       </Properties>
     </Component>
   </SubComponents>

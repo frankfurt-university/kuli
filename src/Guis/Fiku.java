@@ -21,6 +21,10 @@ public class Fiku extends javax.swing.JFrame {
         //FikuTable.setModel((SetModelToList.getModels());
     }
 
+    Fiku(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * l
      * This method is called from within the constructor to initialize the form.

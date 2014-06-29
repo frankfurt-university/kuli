@@ -239,9 +239,6 @@ public class Perku extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRefreshActionPerformed
 
     private void jButtonOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpenActionPerformed
-        /*AddPerku addperku = new AddPerku(null, true);
-        addperku.setVisible(true);
-        this.setVisible(false);*/
         int count = PerkuTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
