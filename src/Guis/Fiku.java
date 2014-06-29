@@ -45,9 +45,7 @@ public class Fiku extends javax.swing.JFrame {
                 String ustId = subString[2];
                 String name = subString[3];
                 String url = subString[4];
-                if (defaultTable.getRowCount() == 1) {
-                    defaultTable.removeRow(0);
-                }
+                
                 defaultTable.addRow(new Object[]{idFiKu, wirtId, ustId, name, url});
             }
             invoke.cleanErrorString();
