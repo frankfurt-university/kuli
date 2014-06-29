@@ -135,7 +135,7 @@ public class Fiku extends javax.swing.JFrame {
 
         FikuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Company ID", "Wirt. ID", "UmSt. ID", "Company Name", "URL"
