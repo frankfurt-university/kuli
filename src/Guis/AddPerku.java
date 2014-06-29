@@ -347,7 +347,7 @@ public class AddPerku extends javax.swing.JFrame {
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
         this.setVisible(false);
-        Contacts newContacts = new Contacts();
+        Perku newContacts = new Perku();
         newContacts.setVisible(true);
     }//GEN-LAST:event_CancelButtonActionPerformed
 
@@ -404,7 +404,7 @@ public class AddPerku extends javax.swing.JFrame {
         attribut = "`idPerKu`, `FiKu_idFiKu`, `Departments_idDepartments`, `FName`, `LName`, `Title`, `Sex`, `Position`, `Phone`, `Email`, `Fax`, `Building`, `Room`, `FiKu_has_Place_FiKu_idFiKu`, `FiKu_has_Place_Place_idPlace`";
         invoke.invokeInsert("perku",attribut,stringBuild.toString());
         this.setVisible(false);
-       Contacts newContacts = new Contacts();
+       Perku newContacts = new Perku();
        newContacts.setVisible(true);
     }//GEN-LAST:event_SaveButtonActionPerformed
 

@@ -213,7 +213,7 @@ public class GuiKuli extends javax.swing.JFrame{
     private void startPerkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPerkuActionPerformed
         //Perku newPerku = new Perku();
         //newPerku.setVisible(true);
-        Contacts newContacts = new Contacts();
+        Perku newContacts = new Perku();
         newContacts.setVisible(true);
     }//GEN-LAST:event_startPerkuActionPerformed
 

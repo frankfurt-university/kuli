@@ -5,22 +5,99 @@
  */
 package Guis;
 
+import dbServices.DBServiceInvoker;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.regex.Pattern;
+import javax.swing.table.DefaultTableModel;
 import utils.SetModelToList;
 
 /**
  *
  * @author Kain
  */
-public class Contacts extends javax.swing.JFrame {
+public class Perku extends javax.swing.JFrame {
+    
+    
+    private void showTable() {
+        DefaultTableModel defaultTable = (DefaultTableModel) PerkuTable.getModel();
 
+        try {
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            String fiKuName = "";
+            String city = "";
+
+            List<String> pers = invoke.invokeSelect("PerKu", "");
+
+            Iterator<String> i = pers.iterator();
+            while (i.hasNext()) {
+                String[] subString = i.next().split(Pattern.quote(" "));
+
+                String idPerKu = subString[0];
+                String idFiKu = subString[1];
+                String departmentsIdDepartments = subString[2];
+                String fName = subString[3];
+                String lName = subString[4];
+                String title = subString[5];
+                String sex = subString[6];
+                String position = subString[7];
+                String phone = subString[8];
+                String eMail = subString[9];
+                String fax = subString[10];
+                String building = subString[11];
+                String room = subString[12];
+                String fiKuHasPlaceFiKuIdFiKu = subString[13];
+                String fiKuHasPlacePlaceIdPlace = subString[14];
+                
+
+                StringBuilder whereFiKu = new StringBuilder();
+                whereFiKu.append("where idFiKu = ");
+                whereFiKu.append(idFiKu);
+                List<String> fiKu = invoke.invokeSelect("FiKu", whereFiKu.toString());
+                Iterator<String> j = fiKu.iterator();
+                while (j.hasNext()) {
+                    String[] subStringFiku = j.next().split(Pattern.quote(" "));
+                    fiKuName = subStringFiku[3];
+                }
+                
+                StringBuilder whereStandort = new StringBuilder();
+                whereStandort.append("where  idPlace = ");
+                whereStandort.append(fiKuHasPlacePlaceIdPlace);
+                List<String> place = invoke.invokeSelect("Place", whereStandort.toString());
+                Iterator<String> k = place.iterator();
+                while (k.hasNext()) {
+                    String[] subStringFiku = k.next().split(Pattern.quote(" "));
+                    city = subStringFiku[2];
+
+                }
+                if (defaultTable.getRowCount() == 1) {
+                    defaultTable.removeRow(0);
+                }
+                defaultTable.addRow(new Object[]{idPerKu, idFiKu, departmentsIdDepartments, fName, lName, title, sex, position, phone, eMail, fax, building, room, fiKuHasPlaceFiKuIdFiKu, 
+                    fiKuHasPlacePlaceIdPlace/*, fiKuName, city*/});
+            }
+            invoke.cleanErrorString();
+
+        } catch (SQLException sqlex) {
+
+            System.out.println("SQL Error : " + sqlex.getMessage());
+        } catch (Exception e) {
+
+            System.out.println("Error : " + e.getMessage());
+        }
+
+    }
     /**
      * Creates new form Place(s)
      * and fills the table with data
      */
-    public Contacts() {
+    public Perku() {
         initComponents();
+        showTable();
         //FikuTable.setModel((SetModelToList.getModels());
     }
+    
 
     /**
      * l
@@ -34,7 +111,7 @@ public class Contacts extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        FikuTable = new javax.swing.JTable();
+        PerkuTable = new javax.swing.JTable();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         jButtonAdd = new javax.swing.JButton();
         jButtonOpen = new javax.swing.JButton();
@@ -46,7 +123,7 @@ public class Contacts extends javax.swing.JFrame {
 
         jPanel1.setToolTipText("");
 
-        FikuTable.setModel(new javax.swing.table.DefaultTableModel(
+        PerkuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {"", null, null, null, null, null, null, null, null, null, null, null, null},
@@ -57,9 +134,9 @@ public class Contacts extends javax.swing.JFrame {
                 "Person's ID", "Company ID", "Dept. ID", "First Name", "Last Name", "Title", "Sex", "Position", "Phone", "E-mail", "Fax", "Building", "Room"
             }
         ));
-        FikuTable.setColumnSelectionAllowed(true);
-        jScrollPane3.setViewportView(FikuTable);
-        FikuTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        PerkuTable.setColumnSelectionAllowed(true);
+        jScrollPane3.setViewportView(PerkuTable);
+        PerkuTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jButtonAdd.setText("Add new");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +171,7 @@ public class Contacts extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(583, Short.MAX_VALUE)
+                .addContainerGap(581, Short.MAX_VALUE)
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(316, 316, 316))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -147,10 +224,7 @@ public class Contacts extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    /**
-     *
-     *
-     */
+    
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         AddPerku addperku = new AddPerku(null, true);
         addperku.setVisible(true);
@@ -159,7 +233,7 @@ public class Contacts extends javax.swing.JFrame {
 
     private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
         try{
-        //FikuTable.setModel((SetModelToList.getModels("fiku", " ")));
+        showTable();
         }catch(Exception e){
             System.out.println("Could not write the Data to List!");
         }
@@ -192,26 +266,26 @@ public class Contacts extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Contacts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Perku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Contacts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Perku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Contacts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Perku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Contacts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Perku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Contacts().setVisible(true);
+                new Perku().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable FikuTable;
+    private javax.swing.JTable PerkuTable;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonClose;
