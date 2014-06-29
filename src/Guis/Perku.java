@@ -290,7 +290,7 @@ public class Perku extends javax.swing.JFrame {
             }
         }
         new AddPerku(id.toString()).setVisible(true);
-        this.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_jButtonOpenActionPerformed
 
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
