@@ -16,7 +16,7 @@ import javax.swing.DefaultListModel;
  *
  * @author Kain
  */
-public class Perku extends javax.swing.JFrame {
+public class NotUsedPerku extends javax.swing.JFrame {
     public DefaultListModel getModels(String table, String where){
     DBServiceInvoker invoke = new DBServiceInvoker();
     DefaultListModel model = new DefaultListModel();
@@ -41,7 +41,7 @@ public class Perku extends javax.swing.JFrame {
     /**
      * Creates new form Perku
      */
-    public Perku() {
+    public NotUsedPerku() {
         initComponents();
     }
 
@@ -230,20 +230,20 @@ public class Perku extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Perku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotUsedPerku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Perku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotUsedPerku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Perku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotUsedPerku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Perku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotUsedPerku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Perku().setVisible(true);
+                new NotUsedPerku().setVisible(true);
             }
         });
     }

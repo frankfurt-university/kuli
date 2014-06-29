@@ -44,6 +44,8 @@ public class Contacts extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Contacts");
 
+        jPanel1.setToolTipText("");
+
         FikuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -147,6 +149,7 @@ public class Contacts extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     /**
      *
@@ -155,6 +158,7 @@ public class Contacts extends javax.swing.JFrame {
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         AddPerku addperku = new AddPerku(null, true);
         addperku.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
@@ -168,6 +172,7 @@ public class Contacts extends javax.swing.JFrame {
     private void jButtonOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpenActionPerformed
         AddPerku addperku = new AddPerku(null, true);
         addperku.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonOpenActionPerformed
 
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed

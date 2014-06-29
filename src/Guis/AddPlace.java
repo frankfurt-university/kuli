@@ -161,10 +161,14 @@ public class AddPlace extends javax.swing.JFrame {
         String attribut = "ZIP, City, Street, House#, POBox";
         invoke.invokeInsert("place",attribut,stringBuild.toString());
         this.setVisible(false);
+        Place newPlace = new Place();
+        newPlace.setVisible(true);
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         this.setVisible(false);
+        Place newPlace = new Place();
+        newPlace.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**

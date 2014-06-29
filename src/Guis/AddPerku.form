@@ -27,9 +27,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jButtonCancel" min="-2" max="-2" attributes="0"/>
+                      <Component id="CancelButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButtonSave" min="-2" max="-2" attributes="0"/>
+                      <Component id="SaveButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -59,10 +59,10 @@
                           <Component id="jTextFieldEmail" max="32767" attributes="0"/>
                           <Component id="jTextFieldFax" max="32767" attributes="0"/>
                           <Component id="jTextFieldRoom" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonSelectPlace" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonSelectFiku" alignment="0" max="32767" attributes="0"/>
+                          <Component id="SelectPlaceButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="SelectFikuButton" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jButtonSelectDept" min="-2" max="-2" attributes="0"/>
+                              <Component id="SelectDeptButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -86,12 +86,12 @@
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="companyID" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jButtonSelectFiku" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="SelectFikuButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="deptID" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jButtonSelectDept" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="SelectDeptButton" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="fNameTextField" min="-2" max="-2" attributes="0"/>
@@ -150,12 +150,12 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelWorkplace" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonSelectPlace" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="SelectPlaceButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="22" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonCancel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonSave" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="SaveButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -207,20 +207,20 @@
         <Property name="text" type="java.lang.String" value="Sex:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonCancel">
+    <Component class="javax.swing.JButton" name="CancelButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancel"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonSave">
+    <Component class="javax.swing.JButton" name="SaveButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Save"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelPosition">
@@ -291,17 +291,17 @@
         <Property name="text" type="java.lang.String" value="Workplace:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonSelectPlace">
+    <Component class="javax.swing.JButton" name="SelectPlaceButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Select"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonSelectFiku">
+    <Component class="javax.swing.JButton" name="SelectFikuButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Select Company"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonSelectDept">
+    <Component class="javax.swing.JButton" name="SelectDeptButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Select Department"/>
       </Properties>
