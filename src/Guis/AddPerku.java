@@ -21,7 +21,8 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
  * @author Kain
  */
 public class AddPerku extends javax.swing.JFrame {
-   
+   String id;
+   String id_entry;
 /*    public String getComboText(int combo){
         String returnValue= null;
         switch(combo){
@@ -45,6 +46,73 @@ public class AddPerku extends javax.swing.JFrame {
      */
     public AddPerku(java.awt.Frame parent, boolean modal){
         initComponents();
+    }
+
+    public AddPerku(String id) {
+        initComponents();
+        this.id = id;
+
+        if (id.equals("")) {
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            //DefaultComboBoxModel model = new DefaultComboBoxModel();
+            try {
+                List<String> list = invoke.invokeSelect("fiku", " ");
+                Iterator<String> i = list.iterator();
+                while (i.hasNext()) {
+                    StringBuilder sb = new StringBuilder();
+                    String[] substring = i.next().split(Pattern.quote(" "));
+                    for (int j = 0; j < 2; j++) {
+                        sb.append(substring[j]);
+                        sb.append(" ");
+                    }
+                    //model.addElement(sb.toString());
+                }
+               // SelectFikuButton.setModel(model);
+
+            } catch (SQLException sqlex) {
+                System.out.println(sqlex);
+            }
+
+        } else {
+            String[] substring = id.split(Pattern.quote(" "));
+            
+            jTextFieldCompany.setText(substring[1]);
+            jTextFieldDepartmentId.setText(substring[2]);        
+            fNameTextField.setText(substring[3]);
+            lNameTextField.setText(substring[4]);
+            titleTextField.setText(substring[5]);
+            sexTextField.setText(substring[6]);
+            positionTextField.setText(substring[7]);
+            jTextFieldPhone.setText(substring[8]);
+            jTextFieldEmail.setText(substring[9]);
+            jTextFieldFax.setText(substring[10]);
+            jTextFieldBuilding.setText(substring[11]);
+            jTextFieldRoom.setText(substring[12]);
+            jTextFieldFikuId.setText(substring[13]);
+            jTextFieldPlaceId.setText(substring[14]);
+            this.id_entry = substring[0];
+
+            /*DBServiceInvoker invoke = new DBServiceInvoker();
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            try {
+                List<String> list = invoke.invokeSelect("fiku", " ");
+                Iterator<String> i = list.iterator();
+                while (i.hasNext()) {
+                    StringBuilder sb = new StringBuilder();
+                    String[] substring2 = i.next().split(Pattern.quote(" "));
+                    for (int j = 0; j < 2; j++) {
+                        sb.append(substring2[j]);
+                        sb.append(" ");
+                    }
+                    model.addElement(sb.toString());
+                }
+                SelectFikuButton.setModel(model);
+
+            } catch (SQLException sqlex) {
+                System.out.println(sqlex);
+            }*/
+
+        }
     }
 /*    public AddPerku(java.awt.Frame parent, boolean modal) {
         //super(parent, modal);
@@ -140,6 +208,10 @@ public class AddPerku extends javax.swing.JFrame {
         SelectPlaceButton = new javax.swing.JButton();
         SelectFikuButton = new javax.swing.JButton();
         SelectDeptButton = new javax.swing.JButton();
+        jTextFieldCompany = new javax.swing.JTextField();
+        jTextFieldDepartmentId = new javax.swing.JTextField();
+        jTextFieldFikuId = new javax.swing.JTextField();
+        jTextFieldPlaceId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -217,9 +289,18 @@ public class AddPerku extends javax.swing.JFrame {
 
         SelectPlaceButton.setText("Select");
 
-        SelectFikuButton.setText("Select Company");
+        SelectFikuButton.setText("Select");
+        SelectFikuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectFikuButtonActionPerformed(evt);
+            }
+        });
 
-        SelectDeptButton.setText("Select Department");
+        SelectDeptButton.setText("Select");
+
+        jTextFieldFikuId.setText("###");
+
+        jTextFieldPlaceId.setText("###");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,42 +309,49 @@ public class AddPerku extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deptID)
+                    .addComponent(fName)
+                    .addComponent(lName)
+                    .addComponent(title)
+                    .addComponent(sex)
+                    .addComponent(jLabel8)
+                    .addComponent(companyID)
+                    .addComponent(jLabelPosition)
+                    .addComponent(jLabelEmail)
+                    .addComponent(jLabelFax)
+                    .addComponent(jLabelBuilding)
+                    .addComponent(jLabelRoom)
+                    .addComponent(jLabelWorkplace)
+                    .addComponent(CancelButton))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(CancelButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(SaveButton))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextFieldDepartmentId)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(SelectDeptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldBuilding)
+                    .addComponent(fNameTextField)
+                    .addComponent(lNameTextField)
+                    .addComponent(titleTextField)
+                    .addComponent(sexTextField)
+                    .addComponent(positionTextField)
+                    .addComponent(jTextFieldPhone)
+                    .addComponent(jTextFieldEmail)
+                    .addComponent(jTextFieldFax)
+                    .addComponent(jTextFieldRoom)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTextFieldCompany)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(SelectFikuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTextFieldFikuId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deptID)
-                            .addComponent(fName)
-                            .addComponent(lName)
-                            .addComponent(title)
-                            .addComponent(sex)
-                            .addComponent(jLabel8)
-                            .addComponent(companyID)
-                            .addComponent(jLabelPosition)
-                            .addComponent(jLabelEmail)
-                            .addComponent(jLabelFax)
-                            .addComponent(jLabelBuilding)
-                            .addComponent(jLabelRoom)
-                            .addComponent(jLabelWorkplace))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldBuilding)
-                            .addComponent(fNameTextField)
-                            .addComponent(lNameTextField)
-                            .addComponent(titleTextField)
-                            .addComponent(sexTextField)
-                            .addComponent(positionTextField)
-                            .addComponent(jTextFieldPhone)
-                            .addComponent(jTextFieldEmail)
-                            .addComponent(jTextFieldFax)
-                            .addComponent(jTextFieldRoom)
-                            .addComponent(SelectPlaceButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SelectFikuButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(SelectDeptButton)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jTextFieldPlaceId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addComponent(SelectPlaceButton))
+                            .addComponent(SaveButton, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -280,12 +368,14 @@ public class AddPerku extends javax.swing.JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(companyID)
-                                                    .addComponent(SelectFikuButton))
-                                                .addGap(19, 19, 19)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(SelectFikuButton)
+                                                    .addComponent(jTextFieldCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(15, 15, 15)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(deptID)
-                                                    .addComponent(SelectDeptButton))
-                                                .addGap(18, 18, 18)
+                                                    .addComponent(SelectDeptButton)
+                                                    .addComponent(jTextFieldDepartmentId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(22, 22, 22)
                                                 .addComponent(fNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(fName))
                                         .addGap(18, 18, 18)
@@ -326,8 +416,10 @@ public class AddPerku extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelWorkplace)
-                    .addComponent(SelectPlaceButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                    .addComponent(SelectPlaceButton)
+                    .addComponent(jTextFieldFikuId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPlaceId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CancelButton)
                     .addComponent(SaveButton))
@@ -354,9 +446,9 @@ public class AddPerku extends javax.swing.JFrame {
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         DBServiceInvoker invoke = new DBServiceInvoker();
         StringBuilder stringBuild = new StringBuilder();
-        stringBuild.append("NULL");
+        stringBuild.append(jTextFieldCompany.getText());
         stringBuild.append(",");
-        stringBuild.append("NULL");
+        stringBuild.append(jTextFieldDepartmentId.getText());
         stringBuild.append(",");
         stringBuild.append("'");
         stringBuild.append(fNameTextField.getText());
@@ -398,7 +490,10 @@ public class AddPerku extends javax.swing.JFrame {
         stringBuild.append(jTextFieldRoom.getText());
         stringBuild.append("'");
         stringBuild.append(",");
-        stringBuild.append("NULL");
+        stringBuild.append(jTextFieldFikuId.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append(jTextFieldPlaceId.getText());
         
         String attribut;
         attribut = "`idPerKu`, `FiKu_idFiKu`, `Departments_idDepartments`, `FName`, `LName`, `Title`, `Sex`, `Position`, `Phone`, `Email`, `Fax`, `Building`, `Room`, `FiKu_has_Place_FiKu_idFiKu`, `FiKu_has_Place_Place_idPlace`";
@@ -416,6 +511,12 @@ public class AddPerku extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jTextFieldRoomActionPerformed
+
+    private void SelectFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectFikuButtonActionPerformed
+       Fiku newFiku = new Fiku(1);
+       newFiku.setVisible(true);
+          
+    }//GEN-LAST:event_SelectFikuButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -477,9 +578,13 @@ public class AddPerku extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelRoom;
     private javax.swing.JLabel jLabelWorkplace;
     private javax.swing.JTextField jTextFieldBuilding;
+    private javax.swing.JTextField jTextFieldCompany;
+    private javax.swing.JTextField jTextFieldDepartmentId;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldFax;
+    private javax.swing.JTextField jTextFieldFikuId;
     private javax.swing.JTextField jTextFieldPhone;
+    private javax.swing.JTextField jTextFieldPlaceId;
     private javax.swing.JTextField jTextFieldRoom;
     private javax.swing.JLabel lName;
     private javax.swing.JTextField lNameTextField;
