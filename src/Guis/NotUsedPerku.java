@@ -181,8 +181,8 @@ public class NotUsedPerku extends javax.swing.JFrame {
 
     private void newPerkuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPerkuButtonActionPerformed
         // TODO add your handling code here:
-        AddPerku newPerku = new AddPerku(null,true);
-        newPerku.setVisible(true);
+        //AddPerku newPerku = new AddPerku(null,true);
+        //newPerku.setVisible(true);
     }//GEN-LAST:event_newPerkuButtonActionPerformed
 
     private void editPerkuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPerkuButtonActionPerformed

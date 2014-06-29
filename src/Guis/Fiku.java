@@ -24,7 +24,7 @@ public class Fiku extends javax.swing.JFrame {
      */
     public Fiku() {
         initComponents();
-        //FikuTable.setModel((SetModelToList.getModels());
+        showTable();
     }
     private void showTable() {
         DefaultTableModel defaultTable = (DefaultTableModel) FikuTable.getModel();
@@ -38,7 +38,6 @@ public class Fiku extends javax.swing.JFrame {
 
             Iterator<String> i = pers.iterator();
             while (i.hasNext()) {
-                System.out.println(pers);
                 String[] subString = i.next().split(Pattern.quote(" "));
 
                 String idFiKu = subString[0];
@@ -46,38 +45,6 @@ public class Fiku extends javax.swing.JFrame {
                 String ustId = subString[2];
                 String name = subString[3];
                 String url = subString[4];
-/*                String title = subString[5];
-                String sex = subString[6];
-                String position = subString[7];
-                String phone = subString[8];
-                String eMail = subString[9];
-                String fax = subString[10];
-                String building = subString[11];
-                String room = subString[12];
-                String fiKuHasPlaceFiKuIdFiKu = subString[13];
-                String fiKuHasPlacePlaceIdPlace = subString[14];
-  */              
-/*
-                StringBuilder whereFiKu = new StringBuilder();
-                whereFiKu.append("where idFiKu = ");
-                whereFiKu.append(idFiKu);
-                List<String> fiKu = invoke.invokeSelect("FiKu", whereFiKu.toString());
-                Iterator<String> j = fiKu.iterator();
-                while (j.hasNext()) {
-                    String[] subStringFiku = j.next().split(Pattern.quote(" "));
-                    fiKuName = subStringFiku[3];
-                }
-                
-                StringBuilder whereStandort = new StringBuilder();
-                whereStandort.append("where  idPlace = ");
-                whereStandort.append(fiKuHasPlacePlaceIdPlace);
-                List<String> place = invoke.invokeSelect("Place", whereStandort.toString());
-                Iterator<String> k = place.iterator();
-                while (k.hasNext()) {
-                    String[] subStringFiku = k.next().split(Pattern.quote(" "));
-                    city = subStringFiku[2];
-
-                }*/
                 if (defaultTable.getRowCount() == 1) {
                     defaultTable.removeRow(0);
                 }
