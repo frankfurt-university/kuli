@@ -70,10 +70,10 @@ public class Perku extends javax.swing.JFrame {
                     String[] subStringFiku = k.next().split(Pattern.quote(" "));
                     city = subStringFiku[2];
 
-                }*/
+                }
                 if (defaultTable.getRowCount() == 1) {
                     defaultTable.removeRow(0);
-                }
+                }*/
                 defaultTable.addRow(new Object[]{idPerKu, idFiKu, departmentsIdDepartments, fName, lName, title, sex, position, phone, eMail, fax, building, room, fiKuHasPlaceFiKuIdFiKu, 
                     fiKuHasPlacePlaceIdPlace/*, fiKuName, city*/});
             }
