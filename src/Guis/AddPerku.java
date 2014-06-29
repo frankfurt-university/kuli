@@ -46,6 +46,65 @@ public class AddPerku extends javax.swing.JFrame {
     public AddPerku(java.awt.Frame parent, boolean modal){
         initComponents();
     }
+
+    AddPerku(String id) {
+        initComponents();
+        this.id = id;
+
+        if (id.equals("")) {
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            try {
+                List<String> list = invoke.invokeSelect("Fiku", " ");
+                Iterator<String> i = list.iterator();
+                while (i.hasNext()) {
+                    StringBuilder sb = new StringBuilder();
+                    String[] substring = i.next().split(Pattern.quote(" "));
+                    for (int j = 0; j < 2; j++) {
+                        sb.append(substring[j]);
+                        sb.append(" ");
+                    }
+                    model.addElement(sb.toString());
+                }
+                company.setModel(model);
+
+            } catch (SQLException sqlex) {
+                System.out.println(sqlex);
+            }
+
+        } else {
+            String[] substring = id.split(Pattern.quote(" "));
+
+            name.setText(substring[1]);
+            surname.setText(substring[2]);
+            phone.setText(substring[4]);
+            mobile.setText(substring[5]);
+            email.setText(substring[6]);
+            sex.setSelectedItem(substring[3]);
+            this.id_eintrag = substring[0];
+
+            DBInvoker invoke = new DBInvoker();
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            try {
+                List<String> list = invoke.invokeSelect("firmenkunde", " ");
+                Iterator<String> i = list.iterator();
+                while (i.hasNext()) {
+                    StringBuilder sb = new StringBuilder();
+                    String[] substring2 = i.next().split(Pattern.quote(" "));
+                    for (int j = 0; j < 2; j++) {
+                        sb.append(substring2[j]);
+                        sb.append(" ");
+                    }
+                    model.addElement(sb.toString());
+                }
+                company.setModel(model);
+
+            } catch (SQLException sqlex) {
+                System.out.println(sqlex);
+            }
+
+        }
+    }
 /*    public AddPerku(java.awt.Frame parent, boolean modal) {
         //super(parent, modal);
         initComponents();
