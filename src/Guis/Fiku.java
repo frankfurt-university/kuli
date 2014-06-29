@@ -27,7 +27,7 @@ public class Fiku extends javax.swing.JFrame {
         showTable();
     }
     private void showTable() {
-        DefaultTableModel defaultTable = (DefaultTableModel) FikuTable.getModel();
+        DefaultTableModel defaultTable = (DefaultTableModel) fikuTable.getModel();
 
         try {
             DBServiceInvoker invoke = new DBServiceInvoker();
@@ -73,7 +73,7 @@ public class Fiku extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        FikuTable = new javax.swing.JTable();
+        fikuTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         addButton = new javax.swing.JButton();
         editFikuButton = new javax.swing.JButton();
@@ -97,7 +97,7 @@ public class Fiku extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Companies");
 
-        FikuTable.setModel(new javax.swing.table.DefaultTableModel(
+        fikuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -105,7 +105,7 @@ public class Fiku extends javax.swing.JFrame {
                 "Company ID", "Wirt. ID", "UmSt. ID", "Company Name", "URL"
             }
         ));
-        jScrollPane3.setViewportView(FikuTable);
+        jScrollPane3.setViewportView(fikuTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -228,9 +228,21 @@ public class Fiku extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshFikuButtonActionPerformed
 
     private void editFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFikuButtonActionPerformed
-        /*AddFiku newEditFiku = new AddFiku();
-        newEditFiku.setVisible(true);
-        this.setVisible(false);*/
+        java.awt.EventQueue.invokeLater(() -> {
+            int count = fikuTable.getSelectedRow();
+        StringBuilder id = new StringBuilder();
+        if (count > -1) {
+
+            for (int i = 0; i < fikuTable.getColumnCount() ; i++) {
+                id.append(fikuTable.getValueAt(count, i));
+                id.append(" ");
+            }
+        }
+            new addCompany(id.toString()).setVisible(true);
+        });
+        java.awt.EventQueue.invokeLater(() -> {
+            super.dispose();
+        });
     }//GEN-LAST:event_editFikuButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
@@ -273,11 +285,11 @@ public class Fiku extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable FikuTable;
     private javax.swing.JButton addButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JButton deleteFikuButton;
     private javax.swing.JButton editFikuButton;
+    private javax.swing.JTable fikuTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
