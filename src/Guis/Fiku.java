@@ -124,6 +124,7 @@ public class Fiku extends javax.swing.JFrame {
         );
 
         addButton.setText("Add new");
+        addButton.setToolTipText("Add to the list");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
@@ -131,6 +132,7 @@ public class Fiku extends javax.swing.JFrame {
         });
 
         editFikuButton.setText("Edit");
+        editFikuButton.setToolTipText("Edit selected");
         editFikuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editFikuButtonActionPerformed(evt);
@@ -138,6 +140,7 @@ public class Fiku extends javax.swing.JFrame {
         });
 
         deleteFikuButton.setText("Delete");
+        deleteFikuButton.setToolTipText("Delete from list");
         deleteFikuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteFikuButtonActionPerformed(evt);
@@ -145,6 +148,7 @@ public class Fiku extends javax.swing.JFrame {
         });
 
         refreshFikuButton.setText("Refresh");
+        refreshFikuButton.setToolTipText("Update list");
         refreshFikuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshFikuButtonActionPerformed(evt);
@@ -152,6 +156,7 @@ public class Fiku extends javax.swing.JFrame {
         });
 
         closeButton.setText("Close");
+        closeButton.setToolTipText("Close and return");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeButtonActionPerformed(evt);
@@ -228,21 +233,22 @@ public class Fiku extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshFikuButtonActionPerformed
 
     private void editFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFikuButtonActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
+        /*java.awt.EventQueue.invokeLater(() -> {*/
             int count = fikuTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
-
             for (int i = 0; i < fikuTable.getColumnCount() ; i++) {
                 id.append(fikuTable.getValueAt(count, i));
                 id.append(" ");
             }
-        }
-            new addCompany(id.toString()).setVisible(true);
-        });
-        java.awt.EventQueue.invokeLater(() -> {
+        
+            new AddFiku(id.toString()).setVisible(true);
+        /*});
+        java.awt.EventQueue.invokeLater(() -> {*/
             super.dispose();
-        });
+/*        });*/
+        }
+        else new PleaseSelectMessage().setVisible(true);
     }//GEN-LAST:event_editFikuButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed

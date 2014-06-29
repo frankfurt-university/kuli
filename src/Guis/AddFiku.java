@@ -40,14 +40,12 @@ public class AddFiku extends javax.swing.JFrame {
             String[] substring = id.split(Pattern.quote(" "));
             System.out.println(substring.length);
             this.idRecord = substring[0];
-            nameTextField.setText(substring[1]);
-            wirtIDTextField.setText(substring[2]);
-            umstIDTextField.setText(substring[3]);
+            wirtIDTextField.setText(substring[1]);
+            umstIDTextField.setText(substring[2]);
+            nameTextField.setText(substring[3]);
             urlTextField.setText(substring[4]);
             
             System.out.println(idRecord);
-        
-        
         }
     }
 
