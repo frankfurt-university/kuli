@@ -5,6 +5,12 @@
  */
 package Guis;
 
+import dbServices.DBServiceInvoker;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.regex.Pattern;
+import javax.swing.table.DefaultTableModel;
 import utils.SetModelToList;
 
 /**
@@ -20,7 +26,74 @@ public class Fiku extends javax.swing.JFrame {
         initComponents();
         //FikuTable.setModel((SetModelToList.getModels());
     }
+    private void showTable() {
+        DefaultTableModel defaultTable = (DefaultTableModel) FikuTable.getModel();
 
+        try {
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            String fiKuName = "";
+            String city = "";
+
+            List<String> pers = invoke.invokeSelect("FiKu", "");
+
+            Iterator<String> i = pers.iterator();
+            while (i.hasNext()) {
+                System.out.println(pers);
+                String[] subString = i.next().split(Pattern.quote(" "));
+
+                String idFiKu = subString[0];
+                String wirtId = subString[1];
+                String ustId = subString[2];
+                String name = subString[3];
+                String url = subString[4];
+/*                String title = subString[5];
+                String sex = subString[6];
+                String position = subString[7];
+                String phone = subString[8];
+                String eMail = subString[9];
+                String fax = subString[10];
+                String building = subString[11];
+                String room = subString[12];
+                String fiKuHasPlaceFiKuIdFiKu = subString[13];
+                String fiKuHasPlacePlaceIdPlace = subString[14];
+  */              
+/*
+                StringBuilder whereFiKu = new StringBuilder();
+                whereFiKu.append("where idFiKu = ");
+                whereFiKu.append(idFiKu);
+                List<String> fiKu = invoke.invokeSelect("FiKu", whereFiKu.toString());
+                Iterator<String> j = fiKu.iterator();
+                while (j.hasNext()) {
+                    String[] subStringFiku = j.next().split(Pattern.quote(" "));
+                    fiKuName = subStringFiku[3];
+                }
+                
+                StringBuilder whereStandort = new StringBuilder();
+                whereStandort.append("where  idPlace = ");
+                whereStandort.append(fiKuHasPlacePlaceIdPlace);
+                List<String> place = invoke.invokeSelect("Place", whereStandort.toString());
+                Iterator<String> k = place.iterator();
+                while (k.hasNext()) {
+                    String[] subStringFiku = k.next().split(Pattern.quote(" "));
+                    city = subStringFiku[2];
+
+                }*/
+                if (defaultTable.getRowCount() == 1) {
+                    defaultTable.removeRow(0);
+                }
+                defaultTable.addRow(new Object[]{idFiKu, wirtId, ustId, name, url});
+            }
+            invoke.cleanErrorString();
+
+        } catch (SQLException sqlex) {
+
+            System.out.println("SQL Error : " + sqlex.getMessage());
+        } catch (Exception e) {
+
+            System.out.println("Error : " + e.getMessage());
+        }
+
+    }
     /**
      * l
      * This method is called from within the constructor to initialize the form.
@@ -130,17 +203,17 @@ public class Fiku extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(178, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton)
-                    .addComponent(refreshFikuButton)
                     .addComponent(editFikuButton)
+                    .addComponent(addButton)
                     .addComponent(deleteFikuButton)
+                    .addComponent(refreshFikuButton)
                     .addComponent(closeButton))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(50, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(43, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,16 +251,16 @@ public class Fiku extends javax.swing.JFrame {
 
     private void refreshFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshFikuButtonActionPerformed
         try{
-        //FikuTable.setModel((SetModelToList.getModels("fiku", " ")));
+            showTable();
         }catch(Exception e){
             System.out.println("Could not write the Data to List!");
         }
     }//GEN-LAST:event_refreshFikuButtonActionPerformed
 
     private void editFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFikuButtonActionPerformed
-        EditFiku newEditFiku = new EditFiku();
+        /*AddFiku newEditFiku = new AddFiku();
         newEditFiku.setVisible(true);
-        this.setVisible(false);
+        this.setVisible(false);*/
     }//GEN-LAST:event_editFikuButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed

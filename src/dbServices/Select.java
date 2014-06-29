@@ -49,7 +49,7 @@ public class Select {
             
             while(this.rs.next()){
                 StringBuilder string = new StringBuilder();
-                for(int i=1;i<colCounter;i++){
+                for(int i=1;i<=colCounter;i++){
                     
                     System.out.println(rs.getString(i));
                     string.append(rs.getString(i));

@@ -32,6 +32,7 @@ public class Perku extends javax.swing.JFrame {
 
             Iterator<String> i = pers.iterator();
             while (i.hasNext()) {
+                System.out.println(pers);
                 String[] subString = i.next().split(Pattern.quote(" "));
 
                 String idPerKu = subString[0];
@@ -50,7 +51,7 @@ public class Perku extends javax.swing.JFrame {
                 String fiKuHasPlaceFiKuIdFiKu = subString[13];
                 String fiKuHasPlacePlaceIdPlace = subString[14];
                 
-
+/*
                 StringBuilder whereFiKu = new StringBuilder();
                 whereFiKu.append("where idFiKu = ");
                 whereFiKu.append(idFiKu);
@@ -70,7 +71,7 @@ public class Perku extends javax.swing.JFrame {
                     String[] subStringFiku = k.next().split(Pattern.quote(" "));
                     city = subStringFiku[2];
 
-                }
+                }*/
                 if (defaultTable.getRowCount() == 1) {
                     defaultTable.removeRow(0);
                 }
@@ -125,13 +126,10 @@ public class Perku extends javax.swing.JFrame {
 
         PerkuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {"", null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Person's ID", "Company ID", "Dept. ID", "First Name", "Last Name", "Title", "Sex", "Position", "Phone", "E-mail", "Fax", "Building", "Room"
+                "Person's ID", "Company ID", "Dept. ID", "First Name", "Last Name", "Title", "Sex", "Position", "Phone", "E-mail", "Fax", "Building", "Room", "Place FikuID", "Place PlaceID"
             }
         ));
         PerkuTable.setColumnSelectionAllowed(true);
@@ -171,7 +169,7 @@ public class Perku extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(581, Short.MAX_VALUE)
+                .addContainerGap(647, Short.MAX_VALUE)
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(316, 316, 316))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -190,7 +188,7 @@ public class Perku extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -201,8 +199,8 @@ public class Perku extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 76, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 43, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -50,7 +50,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="581" max="32767" attributes="0"/>
+                  <EmptySpace pref="647" max="32767" attributes="0"/>
                   <Component id="filler1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
               </Group>
@@ -73,7 +73,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="104" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="filler1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -86,8 +86,8 @@
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane3" min="-2" pref="103" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="76" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -104,13 +104,8 @@
             <Component class="javax.swing.JTable" name="PerkuTable">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="13" rowCount="4">
-                    <Column editable="true" title="Person&apos;s ID" type="java.lang.Object">
-                      <Data value="null"/>
-                      <Data value=""/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                    </Column>
+                  <Table columnCount="15" rowCount="0">
+                    <Column editable="true" title="Person&apos;s ID" type="java.lang.Object"/>
                     <Column editable="true" title="Company ID" type="java.lang.Object"/>
                     <Column editable="true" title="Dept. ID" type="java.lang.Object"/>
                     <Column editable="true" title="First Name" type="java.lang.Object"/>
@@ -123,10 +118,22 @@
                     <Column editable="true" title="Fax" type="java.lang.Object"/>
                     <Column editable="true" title="Building" type="java.lang.Object"/>
                     <Column editable="true" title="Room" type="java.lang.Object"/>
+                    <Column editable="true" title="Place FikuID" type="java.lang.Object"/>
+                    <Column editable="true" title="Place PlaceID" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="1">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
