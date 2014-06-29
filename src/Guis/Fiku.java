@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class Fiku extends javax.swing.JFrame {
 
     /**
-     * Creates new form Fiku
+     * Creates new <code>Fiku</code> form 
      */
     public Fiku() {
         initComponents();
