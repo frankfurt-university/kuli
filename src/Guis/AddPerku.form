@@ -307,6 +307,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Select"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SelectPlaceButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="SelectFikuButton">
       <Properties>
@@ -320,6 +323,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Select"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SelectDeptButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldCompany">
     </Component>
