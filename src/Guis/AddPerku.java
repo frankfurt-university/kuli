@@ -416,6 +416,7 @@ public class AddPerku extends javax.swing.JFrame {
     private void SelectFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectFikuButtonActionPerformed
        Fiku newFiku = new Fiku(true);
        newFiku.setVisible(true);
+       jTextFieldCompany.setText(Fiku.getID());
           
     }//GEN-LAST:event_SelectFikuButtonActionPerformed
 

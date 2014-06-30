@@ -21,6 +21,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Fiku extends javax.swing.JFrame {
 
+    //Init treshhold
+    private static String ID=null;
     /**
      * Creates new <code>Fiku</code> form 
      */
@@ -384,7 +386,7 @@ public class Fiku extends javax.swing.JFrame {
                 id.append(fikuSecondTable.getValueAt(count, i));
                 id.append(" ");
             }
-            getSelectedID(id.toString());
+            ID = getSelectedID(id.toString());
             System.out.println(id);
             super.dispose();
 
@@ -458,5 +460,12 @@ public class Fiku extends javax.swing.JFrame {
        String[] subString = toString.split(Pattern.quote(" "));
        String fikuId = subString[0];
        return fikuId;
+    }
+    /**
+     * 
+     * @return the FikuID
+     */
+    public static String getID(){
+        return ID;
     }
 }
