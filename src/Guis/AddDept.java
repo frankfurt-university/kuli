@@ -131,11 +131,11 @@ public class AddDept extends javax.swing.JFrame {
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         DBServiceInvoker invoke = new DBServiceInvoker();
         StringBuilder stringBuild = new StringBuilder();
-        
+        stringBuild.append("'");
         stringBuild.append(nameTextField.getText());
-        
+        stringBuild.append("'");
         String attribut = "Department";
-        invoke.invokeInsert("DEPARTMENTS",attribut,stringBuild.toString());
+        invoke.invokeInsert("departments",attribut,stringBuild.toString());
         this.setVisible(false);
         Department newDept = new Department();
         newDept.setVisible(true);

@@ -183,8 +183,8 @@ public class Department extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        AddFiku addFiku = new AddFiku(null, true);
-        addFiku.setVisible(true);
+        AddDept addDept = new AddDept();
+        addDept.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
 
@@ -198,7 +198,7 @@ public class Department extends javax.swing.JFrame {
                     id.append(" ");
                 }
 
-                new AddFiku(id.toString()).setVisible(true);
+                new AddDept(id.toString()).setVisible(true);
                 /*});
         java.awt.EventQueue.invokeLater(() -> {*/
             super.dispose();
