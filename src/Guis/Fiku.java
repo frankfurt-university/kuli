@@ -26,6 +26,9 @@ public class Fiku extends javax.swing.JFrame {
         initComponents();
         showTable();
     }
+    public Fiku(boolean value){
+    
+    }
     private void showTable() {
         DefaultTableModel defaultTable = (DefaultTableModel) fikuTable.getModel();
 

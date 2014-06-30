@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Kain
  */
 public class Perku extends javax.swing.JFrame {
-    private JPanel jPanel2;
+   
     
     
     private void showTable() {
@@ -363,7 +363,7 @@ public class Perku extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler3;
     private javax.swing.Box.Filler filler4;
     private javax.swing.JButton jButtonOk;
-    //private javax.swing.JPanel jPanel2;
+    private JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane4;
     //End of variables decleration
     private void initComponents2() {
