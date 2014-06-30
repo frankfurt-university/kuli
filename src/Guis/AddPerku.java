@@ -22,25 +22,8 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
  */
 public class AddPerku extends javax.swing.JFrame {
    String id;
-   String id_entry;
-/*    public String getComboText(int combo){
-        String returnValue= null;
-        switch(combo){
-            case 1: String sub =(String)jComboBoxCompanyID.getSelectedItem();
-                    String[] id = sub.split(Pattern.quote(" "));
-                    returnValue=id[0];
-                    break;
-            case 2: String sub0 =(String)jComboBoxDeptID.getSelectedItem();
-                    String[] id0 = sub0.split(Pattern.quote(" "));
-                    returnValue=id0[0];
-                    break;
-            case 3: String sub1 =(String)jComboBoxWorkplaceID.getSelectedItem();
-                    String[] id1 = sub1.split(Pattern.quote(" "));
-                    returnValue=id1[0];
-                    break;
-        }
-        return returnValue;
-    }*/
+   String idRecord;
+
     /**
      * Creates new form AddPerku
      */
@@ -51,30 +34,8 @@ public class AddPerku extends javax.swing.JFrame {
     public AddPerku(String id) {
         initComponents();
         this.id = id;
-        if (id.equals("")) {
-            /*DBServiceInvoker invoke = new DBServiceInvoker();
-            //DefaultComboBoxModel model = new DefaultComboBoxModel();
-            try {
-                List<String> list = invoke.invokeSelect("fiku", " ");
-                Iterator<String> i = list.iterator();
-                while (i.hasNext()) {
-                    StringBuilder sb = new StringBuilder();
-                    String[] substring = i.next().split(Pattern.quote(" "));
-                    for (int j = 0; j < 2; j++) {
-                        sb.append(substring[j]);
-                        sb.append(" ");
-                    }
-                    //model.addElement(sb.toString());
-                }
-               // SelectFikuButton.setModel(model);
-
-            } catch (SQLException sqlex) {
-                System.out.println(sqlex);
-            }
-
-        } else {*/
-            String[] substring = id.split(Pattern.quote(" "));
-            
+        if (!id.equals("")) {
+            String[] substring = id.split(Pattern.quote(" ")); 
             jTextFieldCompany.setText(substring[1]);
             jTextFieldDepartmentId.setText(substring[2]);        
             fNameTextField.setText(substring[3]);
@@ -89,87 +50,11 @@ public class AddPerku extends javax.swing.JFrame {
             jTextFieldRoom.setText(substring[12]);
             jTextFieldFikuId.setText(substring[13]);
             jTextFieldPlaceId.setText(substring[14]);
-            this.id_entry = substring[0];
-
-            /*DBServiceInvoker invoke = new DBServiceInvoker();
-            DefaultComboBoxModel model = new DefaultComboBoxModel();
-            try {
-                List<String> list = invoke.invokeSelect("fiku", " ");
-                Iterator<String> i = list.iterator();
-                while (i.hasNext()) {
-                    StringBuilder sb = new StringBuilder();
-                    String[] substring2 = i.next().split(Pattern.quote(" "));
-                    for (int j = 0; j < 2; j++) {
-                        sb.append(substring2[j]);
-                        sb.append(" ");
-                    }
-                    model.addElement(sb.toString());
-                }
-                SelectFikuButton.setModel(model);
-
-            } catch (SQLException sqlex) {
-                System.out.println(sqlex);
-            }*/
-
+            this.idRecord = substring[0];
+          
         }
     }
-/*    public AddPerku(java.awt.Frame parent, boolean modal) {
-        //super(parent, modal);
-        initComponents();
-        DBServiceInvoker invoke = new DBServiceInvoker();
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
-        DefaultComboBoxModel model1 = new DefaultComboBoxModel();
-        DefaultComboBoxModel model2 = new DefaultComboBoxModel();
-        try {
-            List<String> list= invoke.invokeSelect("fiku"," ");
-            Iterator<String> i = list.iterator();
-            while(i.hasNext()){
-                StringBuilder stringBuild = new StringBuilder();
-                String[] substring = i.next().split(Pattern.quote(" "));
-                for(int j=0;j<2;j++){
-                    stringBuild.append(substring[j]);
-                    stringBuild.append(" ");
-                }
-                model.addElement(stringBuild.toString());
-            }
-           jComboBoxCompanyID.setModel(model);
-            
-            
-        }catch(SQLException sqlex){System.out.println(sqlex);}
-        
-        try {
-            List<String> list= invoke.invokeSelect("departments"," ");
-            Iterator<String> i = list.iterator();
-            while(i.hasNext()){
-                StringBuilder stringBuild = new StringBuilder();
-                String[] substring = i.next().split(Pattern.quote(" "));
-                for(int j=0;j<2;j++){
-                    stringBuild.append(substring[j]);
-                    stringBuild.append(" ");
-                }
-                model1.addElement(stringBuild.toString());
-            }
-           jComboBoxDeptID.setModel(model1);
-           
-        }catch(SQLException sqlex){System.out.println(sqlex);}
-        
-        try {
-            List<String> list= invoke.invokeSelect("fiku_has_place"," ");
-            Iterator<String> i = list.iterator();
-            while(i.hasNext()){
-                StringBuilder stringBuild = new StringBuilder();
-                String[] substring = i.next().split(Pattern.quote(" "));
-                for(int j=0;j<2;j++){
-                    stringBuild.append(substring[j]);
-                    stringBuild.append(" ");
-                }
-                model2.addElement(stringBuild.toString());
-            }
-           jComboBoxDeptID.setModel(model2);
-           
-        }catch(SQLException sqlex){System.out.println(sqlex);}
-    }
-*/
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

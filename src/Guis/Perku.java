@@ -164,7 +164,7 @@ public class Perku extends javax.swing.JFrame {
                 "Person's ID", "Company ID", "Dept. ID", "First Name", "Last Name", "Title", "Sex", "Position", "Phone", "E-mail", "Fax", "Building", "Room", "Place FikuID", "Place PlaceID"
             }
         ));
-        PerkuTable.setColumnSelectionAllowed(true);
+        PerkuTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane3.setViewportView(PerkuTable);
         PerkuTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
@@ -280,17 +280,6 @@ public class Perku extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRefreshActionPerformed
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
-        /*int count = PerkuTable.getSelectedRow();
-        StringBuilder id = new StringBuilder();
-        if (count > -1) {
-
-            for (int i = 0; i < PerkuTable.getColumnCount() - 2; i++) {
-                id.append(PerkuTable.getValueAt(count, i));
-                id.append(" ");
-            }
-        }
-        new AddPerku(id.toString()).setVisible(true);
-        this.setVisible(true);*/
         int count = PerkuTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
@@ -298,12 +287,8 @@ public class Perku extends javax.swing.JFrame {
                 id.append(PerkuTable.getValueAt(count, i));
                 id.append(" ");
             }
-        
             new AddPerku(id.toString()).setVisible(true);
-        /*});
-        java.awt.EventQueue.invokeLater(() -> {*/
             super.dispose();
-/*        });*/
         }
         else new PleaseSelectMessage().setVisible(true);
     }//GEN-LAST:event_jButtonEditActionPerformed
