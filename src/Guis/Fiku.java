@@ -388,6 +388,8 @@ public class Fiku extends javax.swing.JFrame {
             }
             ID = getSelectedID(id.toString());
             System.out.println(id);
+            AddPerku newPerku = new AddPerku();
+            newPerku.setVisible(true);
             super.dispose();
 
         }

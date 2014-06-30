@@ -162,7 +162,15 @@ public class Perku extends javax.swing.JFrame {
             new String [] {
                 "Person's ID", "Company ID", "Dept. ID", "First Name", "Last Name", "Title", "Sex", "Position", "Phone", "E-mail", "Fax", "Building", "Room", "Place FikuID", "Place PlaceID"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         PerkuTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane3.setViewportView(PerkuTable);
         PerkuTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -264,8 +272,8 @@ public class Perku extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        AddPerku addperku = new AddPerku(null, true);
-        addperku.setVisible(true);
+        AddPerku addPerku = new AddPerku();
+        addPerku.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonAddActionPerformed
 

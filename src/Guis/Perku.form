@@ -119,21 +119,21 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="15" rowCount="0">
-                    <Column editable="true" title="Person&apos;s ID" type="java.lang.Object"/>
-                    <Column editable="true" title="Company ID" type="java.lang.Object"/>
-                    <Column editable="true" title="Dept. ID" type="java.lang.Object"/>
-                    <Column editable="true" title="First Name" type="java.lang.Object"/>
-                    <Column editable="true" title="Last Name" type="java.lang.Object"/>
-                    <Column editable="true" title="Title" type="java.lang.Object"/>
-                    <Column editable="true" title="Sex" type="java.lang.Object"/>
-                    <Column editable="true" title="Position" type="java.lang.Object"/>
-                    <Column editable="true" title="Phone" type="java.lang.Object"/>
-                    <Column editable="true" title="E-mail" type="java.lang.Object"/>
-                    <Column editable="true" title="Fax" type="java.lang.Object"/>
-                    <Column editable="true" title="Building" type="java.lang.Object"/>
-                    <Column editable="true" title="Room" type="java.lang.Object"/>
-                    <Column editable="true" title="Place FikuID" type="java.lang.Object"/>
-                    <Column editable="true" title="Place PlaceID" type="java.lang.Object"/>
+                    <Column editable="false" title="Person&apos;s ID" type="java.lang.Object"/>
+                    <Column editable="false" title="Company ID" type="java.lang.Object"/>
+                    <Column editable="false" title="Dept. ID" type="java.lang.Object"/>
+                    <Column editable="false" title="First Name" type="java.lang.Object"/>
+                    <Column editable="false" title="Last Name" type="java.lang.Object"/>
+                    <Column editable="false" title="Title" type="java.lang.Object"/>
+                    <Column editable="false" title="Sex" type="java.lang.Object"/>
+                    <Column editable="false" title="Position" type="java.lang.Object"/>
+                    <Column editable="false" title="Phone" type="java.lang.Object"/>
+                    <Column editable="false" title="E-mail" type="java.lang.Object"/>
+                    <Column editable="false" title="Fax" type="java.lang.Object"/>
+                    <Column editable="false" title="Building" type="java.lang.Object"/>
+                    <Column editable="false" title="Room" type="java.lang.Object"/>
+                    <Column editable="false" title="Place FikuID" type="java.lang.Object"/>
+                    <Column editable="false" title="Place PlaceID" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -216,7 +216,7 @@
                   </TableColumnModel>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Standardcursor"/>
                 </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>

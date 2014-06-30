@@ -27,8 +27,9 @@ public class AddPerku extends javax.swing.JFrame {
     /**
      * Creates new form AddPerku
      */
-    public AddPerku(java.awt.Frame parent, boolean modal){
+    public AddPerku(){
         initComponents();
+        setCompId();
     }
 
     public AddPerku(String id) {
@@ -53,6 +54,9 @@ public class AddPerku extends javax.swing.JFrame {
             this.idRecord = substring[0];
           
         }
+        SelectDeptButton.setEnabled(false);
+        SelectFikuButton.setEnabled(false);
+        SelectPlaceButton.setEnabled(false);
     }
 
     /**
@@ -192,8 +196,16 @@ public class AddPerku extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldCompany.setEditable(false);
+        jTextFieldCompany.setText("This will be selected");
+
+        jTextFieldDepartmentId.setEditable(false);
+        jTextFieldDepartmentId.setText("This will be selected");
+
+        jTextFieldFikuId.setEditable(false);
         jTextFieldFikuId.setText("###");
 
+        jTextFieldPlaceId.setEditable(false);
         jTextFieldPlaceId.setText("###");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -416,8 +428,7 @@ public class AddPerku extends javax.swing.JFrame {
     private void SelectFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectFikuButtonActionPerformed
        Fiku newFiku = new Fiku(true);
        newFiku.setVisible(true);
-       jTextFieldCompany.setText(Fiku.getID());
-          
+       super.dispose();
     }//GEN-LAST:event_SelectFikuButtonActionPerformed
 
     private void SelectDeptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectDeptButtonActionPerformed
@@ -429,6 +440,9 @@ public class AddPerku extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SelectPlaceButtonActionPerformed
 
+    public void setCompId(){
+        jTextFieldCompany.setText(Fiku.getID());
+    }
     /**
      * @param args the command line arguments
      */
