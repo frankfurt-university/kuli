@@ -20,7 +20,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Workplace extends javax.swing.JFrame {
     //Init treshhold
-    private static String fikuID = null, placeID = null ;
+    private static String fikuID = null;
+    private static String placeID = null ;
     /**
      * Creates new form Workplace
      */
@@ -40,7 +41,7 @@ public class Workplace extends javax.swing.JFrame {
      * @return the FikuID
      */
     public static String getPlaceId(){
-        return fikuID;
+        return placeID;
     }
     /**
      * Copies our selected ID
@@ -59,8 +60,8 @@ public class Workplace extends javax.swing.JFrame {
      */
     public String setPlaceId(String toString) {
        String[] subString = toString.split(Pattern.quote(" "));
-       String placeID = subString[1];
-       return placeID;
+       String placeId = subString[1];
+       return placeId;
     }
     /**
      * 
