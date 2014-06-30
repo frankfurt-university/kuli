@@ -340,9 +340,13 @@ public class AddPerku extends javax.swing.JFrame {
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         DBServiceInvoker invoke = new DBServiceInvoker();
         StringBuilder stringBuild = new StringBuilder();
+        stringBuild.append("'");
         stringBuild.append(jTextFieldCompany.getText());
+        stringBuild.append("'");
         stringBuild.append(",");
+        stringBuild.append("'");
         stringBuild.append(jTextFieldDepartmentId.getText());
+        stringBuild.append("'");
         stringBuild.append(",");
         stringBuild.append("'");
         stringBuild.append(fNameTextField.getText());
@@ -390,9 +394,10 @@ public class AddPerku extends javax.swing.JFrame {
         stringBuild.append(",");
         stringBuild.append("'");
         stringBuild.append(jTextFieldPlaceId.getText());
+        stringBuild.append("'");
         
         String attribut;
-        attribut = "`idPerKu`, `FiKu_idFiKu`, `Departments_idDepartments`, `FName`, `LName`, `Title`, `Sex`, `Position`, `Phone`, `Email`, `Fax`, `Building`, `Room`, `FiKu_has_Place_FiKu_idFiKu`, `FiKu_has_Place_Place_idPlace`";
+        attribut = "FiKu_idFiKu, Departments_idDepartments, FName, LName, Title, Sex, Position, Phone, Email, Fax, Building, Room, FiKu_has_Place_FiKu_idFiKu, FiKu_has_Place_Place_idPlace";
         invoke.invokeInsert("perku",attribut,stringBuild.toString());
         this.setVisible(false);
        Perku newContacts = new Perku();
