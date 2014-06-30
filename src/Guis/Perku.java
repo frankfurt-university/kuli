@@ -23,7 +23,6 @@ public class Perku extends javax.swing.JFrame {
     
     private void showTable() {
         DefaultTableModel defaultTable = (DefaultTableModel) PerkuTable.getModel();
-
         try {
             DBServiceInvoker invoke = new DBServiceInvoker();
             String fiKuName = "";
@@ -271,12 +270,14 @@ public class Perku extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
-        try{
-            PerkuTable.clearSelection();
-            showTable();
-        }catch(Exception e){
-            System.out.println("Could not write the Data to List!");
+        try {
+            DefaultTableModel defaultTable = (DefaultTableModel) PerkuTable.getModel();
+            for (int i=(defaultTable.getRowCount())-1;i>=0;i--) defaultTable.removeRow(i);
+            }
+        catch (Exception e){
+            System.out.println(e.toString());
         }
+            showTable();
     }//GEN-LAST:event_jButtonRefreshActionPerformed
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
