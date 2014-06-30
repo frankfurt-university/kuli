@@ -384,9 +384,11 @@ public class AddPerku extends javax.swing.JFrame {
         stringBuild.append(jTextFieldRoom.getText());
         stringBuild.append("'");
         stringBuild.append(",");
+        stringBuild.append("'");
         stringBuild.append(jTextFieldFikuId.getText());
         stringBuild.append("'");
         stringBuild.append(",");
+        stringBuild.append("'");
         stringBuild.append(jTextFieldPlaceId.getText());
         
         String attribut;

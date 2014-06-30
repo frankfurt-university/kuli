@@ -29,8 +29,11 @@ public class Fiku extends javax.swing.JFrame {
         showTable(fikuTable);
     }
     public Fiku(boolean value){
+        if(value== true){
         initComponents2();
         showTable(fikuSecondTable);
+        }
+        
     }
     private void showTable(JTable table) {
         DefaultTableModel defaultTable = (DefaultTableModel) table.getModel();
