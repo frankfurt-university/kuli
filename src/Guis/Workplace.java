@@ -31,14 +31,14 @@ public class Workplace extends javax.swing.JFrame {
     }
     /**
      * 
-     * @return the FikuID
+     * @return the fikuID
      */
     public static String getFikuId(){
         return fikuID;
     }
     /**
      * 
-     * @return the FikuID
+     * @return the placeID
      */
     public static String getPlaceId(){
         return placeID;
@@ -56,7 +56,7 @@ public class Workplace extends javax.swing.JFrame {
     /**
      * Copies our selected ID
      * @param toString 
-     * @return fikuId deliver the selected fikuId
+     * @return placeId deliver the selected placeId
      */
     public String setPlaceId(String toString) {
        String[] subString = toString.split(Pattern.quote(" "));
@@ -123,7 +123,7 @@ public class Workplace extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Dept. ID", "Workplace ID"
+                "Fiku ID", "Workplace ID"
             }
         ) {
             boolean[] canEdit = new boolean [] {
