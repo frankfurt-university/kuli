@@ -23,8 +23,7 @@ public class AddFiku extends javax.swing.JFrame {
     /**
      * Creates new form AddFiku
      */
-    public AddFiku(java.awt.Frame parent, boolean modal) {
-        //super(parent, modal);
+    public AddFiku() {
         initComponents();
     }
     
@@ -231,7 +230,7 @@ public class AddFiku extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AddFiku dialog = new AddFiku(new javax.swing.JFrame(), true);
+                AddFiku dialog = new AddFiku();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
