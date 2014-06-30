@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
+import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -24,13 +26,14 @@ public class Fiku extends javax.swing.JFrame {
      */
     public Fiku() {
         initComponents();
-        showTable();
+        showTable(fikuTable);
     }
     public Fiku(boolean value){
-    
+        initComponents2();
+        showTable(fikuSecondTable);
     }
-    private void showTable() {
-        DefaultTableModel defaultTable = (DefaultTableModel) fikuTable.getModel();
+    private void showTable(JTable table) {
+        DefaultTableModel defaultTable = (DefaultTableModel) table.getModel();
 
         try {
             DBServiceInvoker invoke = new DBServiceInvoker();
@@ -61,7 +64,9 @@ public class Fiku extends javax.swing.JFrame {
         }
 
     }
-        /**
+
+    
+     /**
      * l
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -212,7 +217,112 @@ public class Fiku extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    /**
+     *
+     * 
+     */
+    private void initComponents2(){
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        fikuSecondTable = new javax.swing.JTable();
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
+        jButtonOk = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
+        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Companies");
+
+        jPanel3.setToolTipText("");
+
+        fikuSecondTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Company ID", "Wirt. ID", "UmSt. ID", "Company Name", "URL"
+            }
+        ));
+        fikuSecondTable.setColumnSelectionAllowed(true);
+        jScrollPane4.setViewportView(fikuSecondTable);
+        fikuSecondTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        jButtonOk.setText("Ok");
+        jButtonOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOkActionPerformed(evt);
+            }
+        });
+
+        closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButtonOk)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(closeButton)
+                        .addGap(7, 7, 7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 511, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(316, 316, 316))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(filler4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(442, 442, 442))))))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 899, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(148, Short.MAX_VALUE)
+                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonOk)
+                    .addComponent(closeButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(filler4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addGap(43, 43, 43)))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }
+    
     private void deleteFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteFikuButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteFikuButtonActionPerformed
@@ -228,7 +338,7 @@ public class Fiku extends javax.swing.JFrame {
 
     private void refreshFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshFikuButtonActionPerformed
         try{
-            showTable();
+            showTable(fikuTable);
         }catch(Exception e){
             System.out.println("Could not write the Data to List!");
         }
@@ -236,7 +346,7 @@ public class Fiku extends javax.swing.JFrame {
 
     private void editFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFikuButtonActionPerformed
         /*java.awt.EventQueue.invokeLater(() -> {*/
-            int count = fikuTable.getSelectedRow();
+        int count = fikuTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
             for (int i = 0; i < fikuTable.getColumnCount() ; i++) {
@@ -257,6 +367,20 @@ public class Fiku extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_closeButtonActionPerformed
 
+    private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt) {
+        int count = fikuSecondTable.getSelectedRow();
+        StringBuilder id = new StringBuilder();
+        if (count > -1) {
+            for (int i = 0; i < fikuSecondTable.getColumnCount() ; i++) {
+                id.append(fikuSecondTable.getValueAt(count, i));
+                id.append(" ");
+            }
+            new AddPerku(id.toString()).setVisible(true);
+            super.dispose();
+
+        }
+        else new PleaseSelectMessage().setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
@@ -305,4 +429,12 @@ public class Fiku extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JButton refreshFikuButton;
     // End of variables declaration//GEN-END:variables
+//Variables declaration do modify if nessesary
+    private javax.swing.JTable fikuSecondTable;
+    private javax.swing.Box.Filler filler3;
+    private javax.swing.Box.Filler filler4;
+    private javax.swing.JButton jButtonOk;
+    private JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane4;
+    //End of variables decleration
 }

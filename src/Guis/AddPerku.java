@@ -407,14 +407,14 @@ public class AddPerku extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldRoomActionPerformed
 
     private void SelectFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectFikuButtonActionPerformed
-       //Fiku newFiku = new Fiku(1);
-       //newFiku.setVisible(true);
+       Fiku newFiku = new Fiku(true);
+       newFiku.setVisible(true);
           
     }//GEN-LAST:event_SelectFikuButtonActionPerformed
 
     private void SelectDeptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectDeptButtonActionPerformed
-        Perku newPerku = new Perku(true);
-        newPerku.setVisible(true);
+        /*Perku newPerku = new Perku(true);
+        newPerku.setVisible(true);*/
     }//GEN-LAST:event_SelectDeptButtonActionPerformed
 
     private void SelectPlaceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectPlaceButtonActionPerformed
