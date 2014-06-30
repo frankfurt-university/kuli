@@ -30,6 +30,8 @@ public class AddPerku extends javax.swing.JFrame {
     public AddPerku(){
         initComponents();
         setCompId();
+        setDepId();
+        setWorkplace();
     }
 
     public AddPerku(String id) {
@@ -432,16 +434,32 @@ public class AddPerku extends javax.swing.JFrame {
     }//GEN-LAST:event_SelectFikuButtonActionPerformed
 
     private void SelectDeptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectDeptButtonActionPerformed
-        /*Perku newPerku = new Perku(true);
-        newPerku.setVisible(true);*/
+        Department newDepartment = new Department(true);
+        newDepartment.setVisible(true);
+        super.dispose();
     }//GEN-LAST:event_SelectDeptButtonActionPerformed
 
     private void SelectPlaceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectPlaceButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SelectPlaceButtonActionPerformed
-
+    /**
+     * 
+     */
     public void setCompId(){
         jTextFieldCompany.setText(Fiku.getID());
+    }
+    /**
+     * 
+     */
+    public void setDepId(){
+        jTextFieldDepartmentId.setText(Department.getID());
+    }
+    /**
+     * 
+     */
+    public void setWorkplace(){
+        jTextFieldPlaceId.setText(id);
+        jTextFieldRoom.setText(id);
     }
     /**
      * @param args the command line arguments
