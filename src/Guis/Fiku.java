@@ -35,7 +35,6 @@ public class Fiku extends javax.swing.JFrame {
             String city = "";
 
             List<String> pers = invoke.invokeSelect("FiKu", "");
-
             Iterator<String> i = pers.iterator();
             while (i.hasNext()) {
                 String[] subString = i.next().split(Pattern.quote(" "));
