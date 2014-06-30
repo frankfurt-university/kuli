@@ -33,7 +33,7 @@ public class Fiku extends javax.swing.JFrame {
     public Fiku(boolean value){
         if(value == true){
         initComponents2();
-        showTable(fikuSecondTable);
+        showTable(secondTable);
         }
         
     }
@@ -228,7 +228,7 @@ public class Fiku extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        fikuSecondTable = new javax.swing.JTable();
+        secondTable = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         okButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
@@ -249,7 +249,7 @@ public class Fiku extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Companies");
 
-        fikuSecondTable.setModel(new javax.swing.table.DefaultTableModel(
+        secondTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -257,7 +257,7 @@ public class Fiku extends javax.swing.JFrame {
                 "Company ID", "Wirt. ID", "UmSt. ID", "Company Name", "URL"
             }
         ));
-        jScrollPane5.setViewportView(fikuSecondTable);
+        jScrollPane5.setViewportView(secondTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel1Layout);
@@ -379,11 +379,11 @@ public class Fiku extends javax.swing.JFrame {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        int count = fikuSecondTable.getSelectedRow();
+        int count = secondTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
-            for (int i = 0; i < fikuSecondTable.getColumnCount() ; i++) {
-                id.append(fikuSecondTable.getValueAt(count, i));
+            for (int i = 0; i < secondTable.getColumnCount() ; i++) {
+                id.append(secondTable.getValueAt(count, i));
                 id.append(" ");
             }
             ID = getSelectedID(id.toString());
@@ -445,7 +445,7 @@ public class Fiku extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 //Variables declaration do modify if nessesary
     private javax.swing.JButton okButton;
-    private javax.swing.JTable fikuSecondTable;
+    private javax.swing.JTable secondTable;
     private javax.swing.JTable jTable2;
     private JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -460,8 +460,8 @@ public class Fiku extends javax.swing.JFrame {
      */
     public String getSelectedID(String toString) {
        String[] subString = toString.split(Pattern.quote(" "));
-       String fikuId = subString[0];
-       return fikuId;
+       String idKey = subString[0];
+       return idKey;
     }
     /**
      * 
