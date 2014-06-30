@@ -272,8 +272,8 @@ public class Perku extends javax.swing.JFrame {
     private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
         try {
             DefaultTableModel defaultTable = (DefaultTableModel) PerkuTable.getModel();
-            for (int i=(defaultTable.getRowCount())-1;i>=0;i--) defaultTable.removeRow(i);
-            }
+            defaultTable.setRowCount(0);
+        }
         catch (Exception e){
             System.out.println(e.toString());
         }
