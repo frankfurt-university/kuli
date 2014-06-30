@@ -158,13 +158,13 @@ public class AddProducts extends javax.swing.JFrame {
         String attribut = "Vendor, Product, Version, SysReg, Info";
         invoke.invokeInsert("Product",attribut,stringBuild.toString());
         this.setVisible(false);
-        Products newProducts = new Products();
+        CurrentProducts newProducts = new CurrentProducts();
         newProducts.setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         this.setVisible(false);
-        Products newProducts = new Products();
+        CurrentProducts newProducts = new CurrentProducts();
         newProducts.setVisible(true);
     }//GEN-LAST:event_exitButtonActionPerformed
 

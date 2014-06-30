@@ -79,7 +79,6 @@ public class GuiKuli extends javax.swing.JFrame{
         setTitle("Kunden-Lizenzen");
 
         startPerku.setText("Persons");
-        startPerku.setToolTipText("View contacts");
         startPerku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startPerkuActionPerformed(evt);
@@ -87,7 +86,6 @@ public class GuiKuli extends javax.swing.JFrame{
         });
 
         startProdukt.setText("Products");
-        startProdukt.setToolTipText("View products");
         startProdukt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startProduktActionPerformed(evt);
@@ -95,7 +93,6 @@ public class GuiKuli extends javax.swing.JFrame{
         });
 
         jButton1.setText("Invoices");
-        jButton1.setToolTipText("View invoices");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -103,7 +100,6 @@ public class GuiKuli extends javax.swing.JFrame{
         });
 
         startFiku.setText("Companies");
-        startFiku.setToolTipText("View companies");
         startFiku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startFikuActionPerformed(evt);
@@ -222,7 +218,7 @@ public class GuiKuli extends javax.swing.JFrame{
     }//GEN-LAST:event_startPerkuActionPerformed
 
     private void startProduktActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProduktActionPerformed
-        Products newProducts = new Products();
+        CurrentProducts newProducts = new CurrentProducts();
         newProducts.setVisible(true);
     }//GEN-LAST:event_startProduktActionPerformed
 

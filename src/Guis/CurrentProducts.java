@@ -17,44 +17,44 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Kain
+ * @author Juraj
  */
-public class Fiku extends javax.swing.JFrame {
+public class CurrentProducts extends javax.swing.JFrame {
 
-    //Init treshhold
-    private static String ID=null;
     /**
-     * Creates new <code>Fiku</code> form 
+     * Creates new <code>CurrentProducts</code> form 
      */
-    public Fiku() {
+    public CurrentProducts() {
         initComponents();
-        showTable(fikuTable);
+        showTable(productsTable);
     }
-    public Fiku(boolean value){
+    public CurrentProducts(boolean value){
         if(value == true){
         initComponents2();
-        showTable(fikuSecondTable);
+        showTable(secondTable);
         }
-        
     }
+    /** fills table <code>productsTable</code> with data and shows it in this form
+     * 
+     */
     private void showTable(JTable table) {
         DefaultTableModel defaultTable = (DefaultTableModel) table.getModel();
 
         try {
             DBServiceInvoker invoke = new DBServiceInvoker();
 
-            List<String> fiku = invoke.invokeSelect("FiKu", "");
-            Iterator<String> i = fiku.iterator();
+            List<String> cp = invoke.invokeSelect("current_products", "");
+            Iterator<String> i = cp.iterator();
             while (i.hasNext()) {
                 String[] subString = i.next().split(Pattern.quote(" "));
 
-                String idFiKu = subString[0];
-                String wirtId = subString[1];
-                String ustId = subString[2];
-                String name = subString[3];
-                String url = subString[4];
+                String idCurrentProduct = subString[0];
+                String idProduct = subString[1];
+                String idSupplier = subString[2];
+                String supplierPrice = subString[3];
+                String listPrice = subString[4];
                 
-                defaultTable.addRow(new Object[]{idFiKu, wirtId, ustId, name, url});
+                defaultTable.addRow(new Object[]{idCurrentProduct, idProduct, idSupplier, supplierPrice, listPrice});
             }
             invoke.cleanErrorString();
 
@@ -82,12 +82,12 @@ public class Fiku extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        fikuTable = new javax.swing.JTable();
+        productsTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         addButton = new javax.swing.JButton();
-        editFikuButton = new javax.swing.JButton();
-        deleteFikuButton = new javax.swing.JButton();
-        refreshFikuButton = new javax.swing.JButton();
+        editButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        refreshButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -104,17 +104,25 @@ public class Fiku extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Companies");
+        setTitle("Current Products");
 
-        fikuTable.setModel(new javax.swing.table.DefaultTableModel(
+        productsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Company ID", "Wirt. ID", "UmSt. ID", "Company Name", "URL"
+                "Current Product ID", "Prod.ID", "Supp. ID", "Supp. Price", "List Price"
             }
-        ));
-        jScrollPane3.setViewportView(fikuTable);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(productsTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -140,27 +148,27 @@ public class Fiku extends javax.swing.JFrame {
             }
         });
 
-        editFikuButton.setText("Edit");
-        editFikuButton.setToolTipText("Edit selected");
-        editFikuButton.addActionListener(new java.awt.event.ActionListener() {
+        editButton.setText("Edit");
+        editButton.setToolTipText("Edit selected");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editFikuButtonActionPerformed(evt);
+                editButtonActionPerformed(evt);
             }
         });
 
-        deleteFikuButton.setText("Delete");
-        deleteFikuButton.setToolTipText("Delete from list");
-        deleteFikuButton.addActionListener(new java.awt.event.ActionListener() {
+        deleteButton.setText("Delete");
+        deleteButton.setToolTipText("Delete from list");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteFikuButtonActionPerformed(evt);
+                deleteButtonActionPerformed(evt);
             }
         });
 
-        refreshFikuButton.setText("Refresh");
-        refreshFikuButton.setToolTipText("Update list");
-        refreshFikuButton.addActionListener(new java.awt.event.ActionListener() {
+        refreshButton.setText("Refresh");
+        refreshButton.setToolTipText("Update list");
+        refreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshFikuButtonActionPerformed(evt);
+                refreshButtonActionPerformed(evt);
             }
         });
 
@@ -180,11 +188,11 @@ public class Fiku extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(addButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editFikuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteFikuButton)
+                .addComponent(deleteButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(refreshFikuButton)
+                .addComponent(refreshButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(closeButton)
                 .addContainerGap())
@@ -194,10 +202,10 @@ public class Fiku extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 11, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editFikuButton)
+                    .addComponent(editButton)
                     .addComponent(addButton)
-                    .addComponent(deleteFikuButton)
-                    .addComponent(refreshFikuButton)
+                    .addComponent(deleteButton)
+                    .addComponent(refreshButton)
                     .addComponent(closeButton)))
         );
 
@@ -228,7 +236,7 @@ public class Fiku extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        fikuSecondTable = new javax.swing.JTable();
+        secondTable = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         okButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
@@ -247,17 +255,17 @@ public class Fiku extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTable2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Companies");
+        setTitle("Current Products");
 
-        fikuSecondTable.setModel(new javax.swing.table.DefaultTableModel(
+        secondTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Company ID", "Wirt. ID", "UmSt. ID", "Company Name", "URL"
+                "Current Product ID", "Prod.ID", "Supp. ID", "Supp. Price", "List Price"
             }
         ));
-        jScrollPane5.setViewportView(fikuSecondTable);
+        jScrollPane5.setViewportView(secondTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel1Layout);
@@ -276,7 +284,7 @@ public class Fiku extends javax.swing.JFrame {
         );
 
         okButton.setText("OK");
-        okButton.setToolTipText("Ok for this Table");
+        okButton.setToolTipText("Ok for Deutschland :)");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
@@ -331,37 +339,36 @@ public class Fiku extends javax.swing.JFrame {
         pack();
     }
     
-    private void deleteFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteFikuButtonActionPerformed
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteFikuButtonActionPerformed
-    /**
-     *
+    }//GEN-LAST:event_deleteButtonActionPerformed
+    /** opens new window for new product entry
      *
      */
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        AddCurrentProduct addFiku = new AddCurrentProduct();
-        addFiku.setVisible(true);
+        AddCurrentProduct addCurrentProduct = new AddCurrentProduct();
+        addCurrentProduct.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
 
-    private void refreshFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshFikuButtonActionPerformed
+    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
         try {
-            DefaultTableModel defaultTable = (DefaultTableModel) fikuTable.getModel();
+            DefaultTableModel defaultTable = (DefaultTableModel) productsTable.getModel();
             defaultTable.setRowCount(0);
         }
         catch (Exception e){
             System.out.println(e.toString());
         }
-            showTable(fikuTable);
-    }//GEN-LAST:event_refreshFikuButtonActionPerformed
+            showTable(productsTable);
+    }//GEN-LAST:event_refreshButtonActionPerformed
 
-    private void editFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFikuButtonActionPerformed
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         /*java.awt.EventQueue.invokeLater(() -> {*/
-        int count = fikuTable.getSelectedRow();
+        int count = productsTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
-            for (int i = 0; i < fikuTable.getColumnCount() ; i++) {
-                id.append(fikuTable.getValueAt(count, i));
+            for (int i = 0; i < productsTable.getColumnCount() ; i++) {
+                id.append(productsTable.getValueAt(count, i));
                 id.append(" ");
             }
         
@@ -372,24 +379,23 @@ public class Fiku extends javax.swing.JFrame {
 /*        });*/
         }
         else new PleaseSelectMessage().setVisible(true);
-    }//GEN-LAST:event_editFikuButtonActionPerformed
+    }//GEN-LAST:event_editButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        int count = fikuSecondTable.getSelectedRow();
+        int count = secondTable
+                .getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
-            for (int i = 0; i < fikuSecondTable.getColumnCount() ; i++) {
-                id.append(fikuSecondTable.getValueAt(count, i));
+            for (int i = 0; i < secondTable.getColumnCount() ; i++) {
+                id.append(secondTable.getValueAt(count, i));
                 id.append(" ");
             }
-            ID = getSelectedID(id.toString());
+            getSelectedID(id.toString());
             System.out.println(id);
-            AddPerku newPerku = new AddPerku();
-            newPerku.setVisible(true);
             super.dispose();
 
         }
@@ -412,20 +418,20 @@ public class Fiku extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Fiku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CurrentProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Fiku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CurrentProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Fiku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CurrentProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Fiku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CurrentProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Fiku().setVisible(true);
+                new CurrentProducts().setVisible(true);
             }
         });
     }
@@ -433,19 +439,19 @@ public class Fiku extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JButton closeButton;
-    private javax.swing.JButton deleteFikuButton;
-    private javax.swing.JButton editFikuButton;
-    private javax.swing.JTable fikuTable;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JButton editButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton refreshFikuButton;
+    private javax.swing.JTable productsTable;
+    private javax.swing.JButton refreshButton;
     // End of variables declaration//GEN-END:variables
 //Variables declaration do modify if nessesary
     private javax.swing.JButton okButton;
-    private javax.swing.JTable fikuSecondTable;
+    private javax.swing.JTable secondTable;
     private javax.swing.JTable jTable2;
     private JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -460,14 +466,7 @@ public class Fiku extends javax.swing.JFrame {
      */
     public String getSelectedID(String toString) {
        String[] subString = toString.split(Pattern.quote(" "));
-       String fikuId = subString[0];
-       return fikuId;
-    }
-    /**
-     * 
-     * @return the FikuID
-     */
-    public static String getID(){
-        return ID;
+       String idPrimaryKey = subString[0];
+       return idPrimaryKey;
     }
 }

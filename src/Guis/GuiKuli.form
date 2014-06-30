@@ -158,7 +158,6 @@
     <Component class="javax.swing.JButton" name="startPerku">
       <Properties>
         <Property name="text" type="java.lang.String" value="Persons"/>
-        <Property name="toolTipText" type="java.lang.String" value="View contacts"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startPerkuActionPerformed"/>
@@ -167,7 +166,6 @@
     <Component class="javax.swing.JButton" name="startProdukt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Products"/>
-        <Property name="toolTipText" type="java.lang.String" value="View products"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startProduktActionPerformed"/>
@@ -176,7 +174,6 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Invoices"/>
-        <Property name="toolTipText" type="java.lang.String" value="View invoices"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -185,7 +182,6 @@
     <Component class="javax.swing.JButton" name="startFiku">
       <Properties>
         <Property name="text" type="java.lang.String" value="Companies"/>
-        <Property name="toolTipText" type="java.lang.String" value="View companies"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startFikuActionPerformed"/>
