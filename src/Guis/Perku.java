@@ -146,7 +146,7 @@ public class Perku extends javax.swing.JFrame {
         PerkuTable = new javax.swing.JTable();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         jButtonAdd = new javax.swing.JButton();
-        jButtonOpen = new javax.swing.JButton();
+        jButtonEdit = new javax.swing.JButton();
         jButtonRefresh = new javax.swing.JButton();
         jButtonClose = new javax.swing.JButton();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
@@ -175,10 +175,10 @@ public class Perku extends javax.swing.JFrame {
             }
         });
 
-        jButtonOpen.setText("Open");
-        jButtonOpen.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEdit.setText("Edit");
+        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonOpenActionPerformed(evt);
+                jButtonEditActionPerformed(evt);
             }
         });
 
@@ -206,7 +206,7 @@ public class Perku extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonOpen)
+                        .addComponent(jButtonEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRefresh)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -232,7 +232,7 @@ public class Perku extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAdd)
-                    .addComponent(jButtonOpen)
+                    .addComponent(jButtonEdit)
                     .addComponent(jButtonRefresh)
                     .addComponent(jButtonClose))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -279,8 +279,8 @@ public class Perku extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonRefreshActionPerformed
 
-    private void jButtonOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpenActionPerformed
-        int count = PerkuTable.getSelectedRow();
+    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+        /*int count = PerkuTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
 
@@ -290,8 +290,23 @@ public class Perku extends javax.swing.JFrame {
             }
         }
         new AddPerku(id.toString()).setVisible(true);
-        this.setVisible(true);
-    }//GEN-LAST:event_jButtonOpenActionPerformed
+        this.setVisible(true);*/
+        int count = PerkuTable.getSelectedRow();
+        StringBuilder id = new StringBuilder();
+        if (count > -1) {
+            for (int i = 0; i < PerkuTable.getColumnCount() ; i++) {
+                id.append(PerkuTable.getValueAt(count, i));
+                id.append(" ");
+            }
+        
+            new AddPerku(id.toString()).setVisible(true);
+        /*});
+        java.awt.EventQueue.invokeLater(() -> {*/
+            super.dispose();
+/*        });*/
+        }
+        else new PleaseSelectMessage().setVisible(true);
+    }//GEN-LAST:event_jButtonEditActionPerformed
 
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
         this.setVisible(false);
@@ -352,7 +367,7 @@ public class Perku extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler2;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonClose;
-    private javax.swing.JButton jButtonOpen;
+    private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonRefresh;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
