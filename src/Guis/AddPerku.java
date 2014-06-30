@@ -51,9 +51,8 @@ public class AddPerku extends javax.swing.JFrame {
     public AddPerku(String id) {
         initComponents();
         this.id = id;
-
         if (id.equals("")) {
-            DBServiceInvoker invoke = new DBServiceInvoker();
+            /*DBServiceInvoker invoke = new DBServiceInvoker();
             //DefaultComboBoxModel model = new DefaultComboBoxModel();
             try {
                 List<String> list = invoke.invokeSelect("fiku", " ");
@@ -73,7 +72,7 @@ public class AddPerku extends javax.swing.JFrame {
                 System.out.println(sqlex);
             }
 
-        } else {
+        } else {*/
             String[] substring = id.split(Pattern.quote(" "));
             
             jTextFieldCompany.setText(substring[1]);
@@ -529,8 +528,8 @@ public class AddPerku extends javax.swing.JFrame {
     }//GEN-LAST:event_SelectFikuButtonActionPerformed
 
     private void SelectDeptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectDeptButtonActionPerformed
-        //Perku newPerku = new Perku(1);
-        //newPerku.setVisible(true);
+        Perku newPerku = new Perku(true);
+        newPerku.setVisible(true);
     }//GEN-LAST:event_SelectDeptButtonActionPerformed
 
     private void SelectPlaceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectPlaceButtonActionPerformed
