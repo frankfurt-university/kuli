@@ -109,12 +109,28 @@ public class AddOffer extends javax.swing.JFrame {
         selectFikuButton = new javax.swing.JButton();
         previousOfferIDLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        acceptedLabel = new javax.swing.JLabel();
+        previousOfferTextField = new javax.swing.JTextField();
+        acceptedTextField = new javax.swing.JTextField();
+        invoiceableLabel = new javax.swing.JLabel();
+        invoiceableTextField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        invoiceableDateTextField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        discountTextField = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        totalExclVatTextField = new javax.swing.JTextField();
+        totalLabel = new javax.swing.JLabel();
+        totalTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add/Edit Offer");
+        setResizable(false);
 
         offersIDTextField.setEditable(false);
         offersIDTextField.setText("fills out automatically");
+
+        offerDateTextField.setText("Date");
 
         perkuIDTextField.setEditable(false);
         perkuIDTextField.setText("to be filled automatically");
@@ -151,6 +167,7 @@ public class AddOffer extends javax.swing.JFrame {
 
         offerDateLabel.setText("Offer Date:");
 
+        expiryDateTextField.setText("Date");
         expiryDateTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 expiryDateTextFieldActionPerformed(evt);
@@ -174,6 +191,38 @@ public class AddOffer extends javax.swing.JFrame {
         previousOfferIDLabel.setText("Previous Offer:");
 
         jButton1.setText("Choose..");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        acceptedLabel.setText("Accepted:");
+
+        previousOfferTextField.setEditable(false);
+
+        acceptedTextField.setText("false");
+        acceptedTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptedTextFieldActionPerformed(evt);
+            }
+        });
+
+        invoiceableLabel.setText("Invoiceable:");
+
+        invoiceableTextField.setText("false");
+
+        jLabel1.setText("Invoiceable on:");
+
+        invoiceableDateTextField.setText("Date");
+
+        jLabel2.setText("Discount:");
+
+        discountTextField.setText("0");
+
+        jLabel3.setText("Total excl. VAT:");
+
+        totalLabel.setText("Total:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,31 +237,66 @@ public class AddOffer extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButtonClose))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(offerIDLabel)
-                            .addComponent(customerIDLabel)
-                            .addComponent(supplierIdLabel)
-                            .addComponent(expiryDateLabel)
-                            .addComponent(offerDateLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(offerDateTextField)
-                            .addComponent(expiryDateTextField)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(offersIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(previousOfferIDLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(fikuIDTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                                    .addComponent(previousOfferTextField))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(selectFikuButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(offerIDLabel)
+                                    .addComponent(customerIDLabel)
+                                    .addComponent(supplierIdLabel)
+                                    .addComponent(offerDateLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(offersIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 196, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(perkuIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(selectPerkuButton))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(offerDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(expiryDateLabel)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(expiryDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(fikuIDTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                                    .addComponent(perkuIDTextField))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(selectPerkuButton)
-                                    .addComponent(selectFikuButton)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(previousOfferIDLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(invoiceableLabel)
+                                            .addComponent(jLabel2)
+                                            .addComponent(acceptedLabel))
+                                        .addGap(21, 21, 21)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(acceptedTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                                            .addComponent(discountTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(invoiceableTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel1))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(totalExclVatTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(totalLabel)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(totalTextField)
+                                    .addComponent(invoiceableDateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -234,17 +318,36 @@ public class AddOffer extends javax.swing.JFrame {
                     .addComponent(selectFikuButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(offerDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(offerDateLabel))
+                    .addComponent(previousOfferIDLabel)
+                    .addComponent(jButton1)
+                    .addComponent(previousOfferTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(offerDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(offerDateLabel)
                     .addComponent(expiryDateLabel)
                     .addComponent(expiryDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(previousOfferIDLabel)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
+                    .addComponent(acceptedLabel)
+                    .addComponent(acceptedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(invoiceableLabel)
+                    .addComponent(invoiceableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(invoiceableDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(discountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(totalExclVatTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalLabel)
+                    .addComponent(totalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSave)
                     .addComponent(jButtonClose))
@@ -322,8 +425,8 @@ public class AddOffer extends javax.swing.JFrame {
     }//GEN-LAST:event_expiryDateTextFieldActionPerformed
 
     private void selectPerkuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectPerkuButtonActionPerformed
-       Product product = new Product();
-       product.setVisible(true);
+       Perku perku = new Perku(true);
+       perku.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_selectPerkuButtonActionPerformed
 
@@ -332,10 +435,20 @@ public class AddOffer extends javax.swing.JFrame {
     }//GEN-LAST:event_perkuIDTextFieldActionPerformed
 
     private void selectFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFikuButtonActionPerformed
-        Supplier supplier = new Supplier();
-        supplier.setVisible(true);
+        Fiku fiku = new Fiku(true);
+        fiku.setVisible(true);
         super.dispose();
     }//GEN-LAST:event_selectFikuButtonActionPerformed
+
+    private void acceptedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptedTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_acceptedTextFieldActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Offers offer = new Offers();
+        offer.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,21 +493,34 @@ public class AddOffer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel acceptedLabel;
+    private javax.swing.JTextField acceptedTextField;
     private javax.swing.JLabel customerIDLabel;
+    private javax.swing.JTextField discountTextField;
     private javax.swing.JLabel expiryDateLabel;
     private javax.swing.JTextField expiryDateTextField;
     private javax.swing.JTextField fikuIDTextField;
+    private javax.swing.JTextField invoiceableDateTextField;
+    private javax.swing.JLabel invoiceableLabel;
+    private javax.swing.JTextField invoiceableTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonClose;
     private javax.swing.JButton jButtonSave;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel offerDateLabel;
     private javax.swing.JTextField offerDateTextField;
     private javax.swing.JLabel offerIDLabel;
     private javax.swing.JTextField offersIDTextField;
     private javax.swing.JTextField perkuIDTextField;
     private javax.swing.JLabel previousOfferIDLabel;
+    private javax.swing.JTextField previousOfferTextField;
     private javax.swing.JButton selectFikuButton;
     private javax.swing.JButton selectPerkuButton;
     private javax.swing.JLabel supplierIdLabel;
+    private javax.swing.JTextField totalExclVatTextField;
+    private javax.swing.JLabel totalLabel;
+    private javax.swing.JTextField totalTextField;
     // End of variables declaration//GEN-END:variables
 }
