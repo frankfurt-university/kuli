@@ -83,7 +83,7 @@ public class Licens extends javax.swing.JFrame {
         jButtonAddLicense = new javax.swing.JButton();
         jButtonAddMaintenance = new javax.swing.JButton();
         jButtonEditMaintenance = new javax.swing.JButton();
-        jButtonEditLicense = new javax.swing.JButton();
+        jButtonUpdateLicense = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("License");
@@ -95,7 +95,7 @@ public class Licens extends javax.swing.JFrame {
             }
         });
 
-        jButtonEditLeasing.setText("Edit");
+        jButtonEditLeasing.setText("Update Leas");
         jButtonEditLeasing.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditLeasingActionPerformed(evt);
@@ -190,17 +190,17 @@ public class Licens extends javax.swing.JFrame {
             }
         });
 
-        jButtonEditMaintenance.setText("Edit");
+        jButtonEditMaintenance.setText("Update Maint");
         jButtonEditMaintenance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditMaintenanceActionPerformed(evt);
             }
         });
 
-        jButtonEditLicense.setText("Edit");
-        jButtonEditLicense.addActionListener(new java.awt.event.ActionListener() {
+        jButtonUpdateLicense.setText("Update Lic");
+        jButtonUpdateLicense.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditLicenseActionPerformed(evt);
+                jButtonUpdateLicenseActionPerformed(evt);
             }
         });
 
@@ -211,26 +211,27 @@ public class Licens extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 963, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonAddLeasing, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEditLeasing)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonAddLeasing, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonEditLeasing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButtonAddLicense, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonAddMaintenance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButtonEditMaintenance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonUpdateLicense, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRefresh)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonClose))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonAddLicense, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonAddMaintenance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonEditMaintenance)
-                            .addComponent(jButtonEditLicense, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 963, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(jButtonClose)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -245,7 +246,7 @@ public class Licens extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAddLicense)
-                    .addComponent(jButtonEditLicense))
+                    .addComponent(jButtonUpdateLicense))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAddMaintenance)
@@ -313,9 +314,9 @@ public class Licens extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEditMaintenanceActionPerformed
 
-    private void jButtonEditLicenseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditLicenseActionPerformed
+    private void jButtonUpdateLicenseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateLicenseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonEditLicenseActionPerformed
+    }//GEN-LAST:event_jButtonUpdateLicenseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -361,9 +362,9 @@ public class Licens extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAddMaintenance;
     private javax.swing.JButton jButtonClose;
     private javax.swing.JButton jButtonEditLeasing;
-    private javax.swing.JButton jButtonEditLicense;
     private javax.swing.JButton jButtonEditMaintenance;
     private javax.swing.JButton jButtonRefresh;
+    private javax.swing.JButton jButtonUpdateLicense;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;

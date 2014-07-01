@@ -18,9 +18,24 @@ import javax.swing.table.DefaultTableModel;
  * @author Kain
  */
 public class Perku extends javax.swing.JFrame {
-   
+    /**
+     * Init public variables
+     */
+    private static String departmentId = null;
+    private static String firstName = null;
+    private static String lastName = null;
+    private static String titl = null;
+    private static String gender = null;
+    private static String pos = null;
+    private static String phoneNummber = null;
+    private static String mail = null;
+    private static String faX = null;
+    private static String buildingNr = null;
+    private static String roomNr = null;
     
-    
+    /**
+     * 
+     */
     private void showTable() {
         DefaultTableModel defaultTable = (DefaultTableModel) PerkuTable.getModel();
         try {
@@ -61,6 +76,9 @@ public class Perku extends javax.swing.JFrame {
         }
 
     }
+    /**
+     * 
+     */
     private void showTable2() {
         DefaultTableModel defaultTable = (DefaultTableModel) Perku2Table.getModel();
 
@@ -119,6 +137,173 @@ public class Perku extends javax.swing.JFrame {
         initComponents2();
         showTable2();
     }
+
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getDepID(){
+        return departmentId;
+    }
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getFNameID(){
+        return firstName;
+    }
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getLNameID(){
+        return lastName;
+    }
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getTitleID(){
+        return titl;
+    }
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getSexID(){
+        return gender;
+    }
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getPositionID(){
+        return pos;
+    }
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getPhoneNumberID(){
+        return phoneNummber;
+    }
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getEMailID(){
+        return mail;
+    }
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getFaxID(){
+        return faX;
+    }
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getBuildingID(){
+        return buildingNr;
+    }
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getRoomID(){
+        return roomNr;
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     */
+    private void setDepID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       departmentId = subString[2];
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     */
+    public void setFNameID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       firstName = subString[3];
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     */
+    public void setLNameID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       lastName = subString[4];
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     */
+    public void setTitleID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       titl = subString[5];
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     */
+    public void setGenderID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       gender = subString[6];
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     */
+    public void setPosID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       pos = subString[7];
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     */
+    public void setPhoneID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       phoneNummber = subString[8];
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     */
+    public void setMailID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       mail = subString[9];
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     */
+    public void setFaxID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       faX = subString[10];
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     * 
+     */
+    public void setBuildingID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       buildingNr = subString[11];
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     */
+    public void setRoomID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+        roomNr = subString[12];
+    }
     
     /**
      * l
@@ -135,7 +320,7 @@ public class Perku extends javax.swing.JFrame {
         PerkuTable = new javax.swing.JTable();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         jButtonAdd = new javax.swing.JButton();
-        jButtonEdit = new javax.swing.JButton();
+        jButtonUpdate = new javax.swing.JButton();
         jButtonRefresh = new javax.swing.JButton();
         jButtonClose = new javax.swing.JButton();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
@@ -172,10 +357,10 @@ public class Perku extends javax.swing.JFrame {
             }
         });
 
-        jButtonEdit.setText("Edit");
-        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
+        jButtonUpdate.setText("Update");
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditActionPerformed(evt);
+                jButtonUpdateActionPerformed(evt);
             }
         });
 
@@ -203,7 +388,7 @@ public class Perku extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEdit)
+                        .addComponent(jButtonUpdate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRefresh)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -229,7 +414,7 @@ public class Perku extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAdd)
-                    .addComponent(jButtonEdit)
+                    .addComponent(jButtonUpdate)
                     .addComponent(jButtonRefresh)
                     .addComponent(jButtonClose))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -278,7 +463,7 @@ public class Perku extends javax.swing.JFrame {
             showTable();
     }//GEN-LAST:event_jButtonRefreshActionPerformed
 
-    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
         int count = PerkuTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
@@ -286,11 +471,23 @@ public class Perku extends javax.swing.JFrame {
                 id.append(PerkuTable.getValueAt(count, i));
                 id.append(" ");
             }
+            setDepID(id.toString());
+            setFNameID(id.toString());
+            setFNameID(id.toString());
+            setLNameID(id.toString());
+            setTitleID(id.toString());
+            setGenderID(id.toString());
+            setPosID(id.toString());
+            setPhoneID(id.toString());
+            setMailID(id.toString());
+            setFaxID(id.toString());
+            setBuildingID(id.toString());
+            setRoomID(id.toString());
             new AddPerku(id.toString()).setVisible(true);
             super.dispose();
         }
         else new PleaseSelectMessage().setVisible(true);
-    }//GEN-LAST:event_jButtonEditActionPerformed
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
         this.setVisible(false);
@@ -351,8 +548,8 @@ public class Perku extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler2;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonClose;
-    private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonRefresh;
+    private javax.swing.JButton jButtonUpdate;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
