@@ -18,8 +18,10 @@ import javax.swing.ComboBoxModel;
  * @author Juraj
  */
 public class AddCurrentProduct extends javax.swing.JFrame {
-    String id;
-    String idRecord;
+    private String id;
+    private String idRecord;
+    private String supplierPrice;
+    private String listPrice;
     
     /**
      * Creates new form <code>AddCurrentProduct</code>
@@ -30,6 +32,8 @@ public class AddCurrentProduct extends javax.swing.JFrame {
         this.idRecord=null;
         setProductId();
         setSupplierId();
+        supplierPriceTextField.setText(CurrentProducts.getSupplierPrice());
+        listPriceTextField.setText(CurrentProducts.getListPrice());
     }
     
     /** Creates new form <code>AddCurrentProduct</code>  
@@ -49,7 +53,10 @@ public class AddCurrentProduct extends javax.swing.JFrame {
             idProductTextField.setText(substring[1]);
             idSupplierTextField.setText(substring[2]);
             supplierPriceTextField.setText(substring[3]);
+            CurrentProducts.setSupplierPrice(supplierPriceTextField.getText());
             listPriceTextField.setText(substring[4]);
+            CurrentProducts.setListPrice(listPriceTextField.getText());
+            
             
             System.out.println(idRecord);
         }
@@ -67,7 +74,19 @@ public class AddCurrentProduct extends javax.swing.JFrame {
     public void setSupplierId(){
         idSupplierTextField.setText(Supplier.getID());
     }
-
+    /** sets variable <code>supplierPrice</code> to value of corresponding 
+     * TextField
+     */
+    public void setSupplierPrice(String s){
+        supplierPrice=s;
+    }
+    /** sets variable <code>listPrice</code> to value of corresponding 
+     * TextField
+     */
+    public void setListPrice(String s){
+        listPrice=s;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -293,7 +312,7 @@ public class AddCurrentProduct extends javax.swing.JFrame {
     private void selectProductIDButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectProductIDButtonActionPerformed
        Product product = new Product();
        product.setVisible(true);
-       super.dispose();
+       this.setVisible(false);
     }//GEN-LAST:event_selectProductIDButtonActionPerformed
 
     private void idProductTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idProductTextFieldActionPerformed

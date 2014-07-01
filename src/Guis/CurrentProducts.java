@@ -22,6 +22,10 @@ import javax.swing.table.DefaultTableModel;
 public class CurrentProducts extends javax.swing.JFrame {
     private String id;
     private String idRecord;
+    private static String productID;
+    private static String supplierID;
+    private static String supplierPrice;
+    private static String listPrice;
     /**
      * Creates new <code>CurrentProducts</code> form 
      */
@@ -38,6 +42,58 @@ public class CurrentProducts extends javax.swing.JFrame {
         initComponents2();
         showTable(secondTable);
         }
+    }
+    /** saves value into variable <code>productID</code>
+     * 
+     * @param s 
+     */
+    public static void setProductID(String s){
+        productID=s;
+    }
+    /** retrieves value from variable <code>productID</code>
+     * 
+     */
+    public static String getProductID(){
+        return productID;
+    }
+    /** saves value into variable <code>supplierID</code>
+     * 
+     * @param s 
+     */
+    public static void setSupplierID(String s){
+        supplierID=s;
+    }
+    /** retrieves value from variable <code>supplierID</code>
+     * 
+     */
+    public static String getSupplierID(){
+        return supplierID;
+    }
+    /** saves value into variable <code>supplierPrice</code>
+     * 
+     * @param s 
+     */
+    public static void setSupplierPrice(String s){
+        supplierPrice=s;
+    }
+    /** retrieves value from variable <code>supplierPrice</code>
+     * 
+     */
+    public static String getSupplierPrice(){
+        return supplierPrice;
+    }
+    /** saves value into variable <code>listPrice</code>
+     * 
+     * @param s 
+     */
+    public static void setListPrice(String s){
+        listPrice=s;
+    }
+    /** retrieves value from variable <code>listPrice</code>
+     * 
+     */
+    public static String getListPrice(){
+        return listPrice;
     }
     /** fills table <code>productsTable</code> with data and shows it in this form
      * 
@@ -396,8 +452,9 @@ public class CurrentProducts extends javax.swing.JFrame {
                 row.append(productsTable.getValueAt(count, i));
                 row.append(";");
             }
-        
-            new AddCurrentProduct(row.toString()).setVisible(true);
+            //setListPrice(row.toString());
+            AddCurrentProduct addCP = new AddCurrentProduct(row.toString());
+            addCP.setVisible(true);
         /*});
         java.awt.EventQueue.invokeLater(() -> {*/
             this.dispose();
