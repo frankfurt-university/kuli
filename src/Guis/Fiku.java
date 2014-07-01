@@ -23,23 +23,26 @@ public class Fiku extends javax.swing.JFrame {
 
     //Init treshhold
     private static String ID=null;
-    private static String id;
-    private static String idRecord;
+    private  String iD;
+    private  String idRecord;
     /**
      * Creates new <code>Fiku</code> form 
      */
     public Fiku() {
         initComponents();
         showTable(fikuTable);
-        id=null;
+        iD=null;
+        idRecord=null;
     }
     public Fiku(boolean value){
         if(value == true){
         initComponents2();
         showTable(secondTable);
         idRecord=null;
+        iD=null;
         }
         idRecord=null;
+        iD=null;
     }
     private void showTable(JTable table) {
         DefaultTableModel defaultTable = (DefaultTableModel) table.getModel();
@@ -343,9 +346,9 @@ public class Fiku extends javax.swing.JFrame {
                 row.append(fikuTable.getValueAt(count, i));
                 row.append(";");
             }
-            id = getSelectedID(row.toString());
+            iD = getSelectedID(row.toString());
             System.out.println(row);
-            String[] substring = id.split(Pattern.quote(";"));
+            String[] substring = iD.split(Pattern.quote(";"));
             System.out.println(substring.length);
             this.idRecord = substring[0];
             DBServiceInvoker invoke = new DBServiceInvoker();
