@@ -32,6 +32,17 @@ public class AddPerku extends javax.swing.JFrame {
         setCompId();
         setDepId();
         setWorkplace();
+        setFnameId();
+        setLNameId();
+        setTitleId();
+        setSexId();
+        setSexId();
+        setPositionId();
+        setPhoneId();
+        setEMailId();
+        setFaxId();
+        setBuildingId();
+        setRoomId();
     }
 
     public AddPerku(String id) {
@@ -469,6 +480,67 @@ public class AddPerku extends javax.swing.JFrame {
         jTextFieldPlaceId.setText(Workplace.getPlaceId());
         jTextFieldFikuId.setText(Workplace.getFikuId());
     }
+    /**
+     * 
+     */
+    public void setFnameId(){
+        fNameTextField.setText(Perku.getFNameID());
+    }
+    /**
+     * 
+     */
+    public void setLNameId(){
+        lNameTextField.setText(Perku.getLNameID());
+    }
+    /**
+     * 
+     */
+    public void setTitleId(){
+        titleTextField.setText(Perku.getTitleID());
+    }
+    /**
+     * 
+     */
+    public void setSexId(){
+        sexTextField.setText(Perku.getSexID());
+    }
+    /**
+     * 
+     */
+    public void setPositionId(){
+        positionTextField.setText(Perku.getPositionID());
+    }
+    /**
+     * 
+     */
+    public void setPhoneId(){
+        jTextFieldPhone.setText(Perku.getPhoneNumberID());
+    }
+    /**
+     * 
+     */
+    public void setEMailId(){
+        jTextFieldEmail.setText(Perku.getEMailID());
+    }
+    /**
+     * 
+     */
+    public void setFaxId(){
+        jTextFieldFax.setText(Perku.getFaxID());
+    }
+    /**
+     * 
+     */
+    public void setBuildingId(){
+        jTextFieldBuilding.setText(Perku.getBuildingID());
+    }
+    /**
+     * 
+     */
+    public void setRoomId(){
+        jTextFieldRoom.setText(Perku.getRoomID());
+    }
+
     /**
      * @param args the command line arguments
      */
