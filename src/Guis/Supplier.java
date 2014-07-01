@@ -230,7 +230,7 @@ public class Supplier extends javax.swing.JFrame {
             }
             ID = getSelectedID(id.toString());
             System.out.println(id);
-            AddCurrentProduct newCP = new AddCurrentProduct();
+            AddCurrentProduct newCP = new AddCurrentProduct(id.toString());
             newCP.setVisible(true);
             this.dispose();
         }

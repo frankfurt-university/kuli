@@ -41,20 +41,23 @@ public class AddCurrentProduct extends javax.swing.JFrame {
         this();
         this.id=id;
         if(!id.equals("")){
-        
             System.out.println(id);
             String[] substring = id.split(Pattern.quote(";"));
             System.out.println(substring.length);
-            this.idRecord = substring[0];
-            idCurrentProductTextField.setText(substring[0]);
-            idProductTextField.setText(substring[1]);
-            idSupplierTextField.setText(substring[2]);
-            supplierPriceTextField.setText(substring[3]);
-            CurrentProducts.setSupplierPrice(supplierPriceTextField.getText());
-            listPriceTextField.setText(substring[4]);
-            CurrentProducts.setListPrice(listPriceTextField.getText());
-            
-            
+            if(substring.length==5){
+                this.idRecord = substring[0];
+                idCurrentProductTextField.setText(substring[0]);
+                idProductTextField.setText(substring[1]);
+                idSupplierTextField.setText(substring[2]);
+                supplierPriceTextField.setText(substring[3]);
+                CurrentProducts.setSupplierPrice(supplierPriceTextField.getText());
+                listPriceTextField.setText(substring[4]);
+                CurrentProducts.setListPrice(listPriceTextField.getText());
+            }
+            else {
+                this.idRecord = substring[0];
+                idCurrentProductTextField.setText(substring[0]);
+            }
             System.out.println(idRecord);
         }
     }
