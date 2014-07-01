@@ -29,6 +29,7 @@ public class AddPerku extends javax.swing.JFrame {
      */
     public AddPerku(){
         initComponents();
+        id=null;
         setCompId();
         setDepId();
         setWorkplace();
@@ -366,6 +367,7 @@ public class AddPerku extends javax.swing.JFrame {
      */
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         DBServiceInvoker invoke = new DBServiceInvoker();
+        if(id==null){
         StringBuilder stringBuild = new StringBuilder();
         stringBuild.append("'");
         stringBuild.append(jTextFieldCompany.getText());
@@ -427,8 +429,85 @@ public class AddPerku extends javax.swing.JFrame {
         attribut = "FiKu_idFiKu, Departments_idDepartments, FName, LName, Title, Sex, Position, Phone, Email, Fax, Building, Room, FiKu_has_Place_FiKu_idFiKu, FiKu_has_Place_Place_idPlace";
         invoke.invokeInsert("perku",attribut,stringBuild.toString());
         this.setVisible(false);
-       Perku newContacts = new Perku();
-       newContacts.setVisible(true);
+        Perku newContacts = new Perku();
+        newContacts.setVisible(true);
+        }
+        StringBuilder stringBuild = new StringBuilder();
+        stringBuild.append("FiKu_idFiKu ="); 
+        stringBuild.append("'");
+        stringBuild.append(jTextFieldCompany.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("Departments_idDepartments ="); 
+        stringBuild.append("'");
+        stringBuild.append(jTextFieldDepartmentId.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("FName ="); 
+        stringBuild.append("'");
+        stringBuild.append(fNameTextField.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("LName ="); 
+        stringBuild.append("'");
+        stringBuild.append(lNameTextField.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("Title ="); 
+        stringBuild.append("'");
+        stringBuild.append(titleTextField.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("Sex ="); 
+        stringBuild.append("'");
+        stringBuild.append(sexTextField.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("Position ="); 
+        stringBuild.append("'");
+        stringBuild.append(positionTextField.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("Phone ="); 
+        stringBuild.append("'");
+        stringBuild.append(jTextFieldPhone.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("Email ="); 
+        stringBuild.append("'");
+        stringBuild.append(jTextFieldEmail.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("Fax ="); 
+        stringBuild.append("'");
+        stringBuild.append(jTextFieldFax.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("Building ="); 
+        stringBuild.append("'");
+        stringBuild.append(jTextFieldBuilding.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("Room ="); 
+        stringBuild.append("'");
+        stringBuild.append(jTextFieldRoom.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("FiKu_has_Place_FiKu_idFiKu ="); 
+        stringBuild.append("'");
+        stringBuild.append(jTextFieldFikuId.getText());
+        stringBuild.append("'");
+        stringBuild.append(",");
+        stringBuild.append("FiKu_has_Place_Place_idPlace ="); 
+        stringBuild.append("'");
+        stringBuild.append(jTextFieldPlaceId.getText());
+        stringBuild.append("'"); 
+        String attribut;
+        attribut = " idPerKu = " + idRecord;
+        invoke.invokeUpdate("perku",attribut,stringBuild.toString());
+        this.setVisible(false);
+        Perku newContacts = new Perku();
+        newContacts.setVisible(true);
     }//GEN-LAST:event_SaveButtonActionPerformed
 
     private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed

@@ -56,6 +56,8 @@
                           <Component id="jButtonAdd" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonUpdate" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButtonDelete" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButtonRefresh" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -93,6 +95,7 @@
                       <Component id="jButtonUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonClose" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="filler2" min="-2" max="-2" attributes="0"/>
@@ -276,6 +279,14 @@
           <AuxValues>
             <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.VerticalGlue"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonDelete">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Delete"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

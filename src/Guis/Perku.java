@@ -21,6 +21,8 @@ public class Perku extends javax.swing.JFrame {
     /**
      * Init public variables
      */
+    private static String id;
+    private static String idRecord;
     private static String departmentId = null;
     private static String firstName = null;
     private static String lastName = null;
@@ -128,6 +130,7 @@ public class Perku extends javax.swing.JFrame {
     public Perku() {
         initComponents();
         showTable();
+        id=null;
     }
     /**
     * Creates a new Place(s) 
@@ -136,6 +139,7 @@ public class Perku extends javax.swing.JFrame {
     public Perku(boolean value){
         initComponents2();
         showTable2();
+        id=null;
     }
 
     /**
@@ -324,6 +328,7 @@ public class Perku extends javax.swing.JFrame {
         jButtonRefresh = new javax.swing.JButton();
         jButtonClose = new javax.swing.JButton();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        jButtonDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Contacts");
@@ -378,6 +383,13 @@ public class Perku extends javax.swing.JFrame {
             }
         });
 
+        jButtonDelete.setText("Delete");
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -389,6 +401,8 @@ public class Perku extends javax.swing.JFrame {
                         .addComponent(jButtonAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonUpdate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRefresh)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -416,7 +430,8 @@ public class Perku extends javax.swing.JFrame {
                     .addComponent(jButtonAdd)
                     .addComponent(jButtonUpdate)
                     .addComponent(jButtonRefresh)
-                    .addComponent(jButtonClose))
+                    .addComponent(jButtonClose)
+                    .addComponent(jButtonDelete))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5))
@@ -492,6 +507,30 @@ public class Perku extends javax.swing.JFrame {
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButtonCloseActionPerformed
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        int count = PerkuTable.getSelectedRow();
+        StringBuilder row = new StringBuilder();
+        if (count > -1) {
+            for (int i = 0; i < PerkuTable.getColumnCount() ; i++) {
+                row.append(PerkuTable.getValueAt(count, i));
+                row.append(";");
+            }
+            id = getSelectedID(row.toString());
+            System.out.println(row);
+            String[] substring = id.split(Pattern.quote(";"));
+            System.out.println(substring.length);
+            this.idRecord = substring[0];
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            String attribut = "idPerKu = "+idRecord;
+            invoke.invokeDelete("perku", attribut);
+            //this is alternative to manual Refresh
+            Perku newPerku = new Perku();
+            newPerku.setVisible(true);
+            this.dispose();
+        }
+        else new PleaseSelectMessage().setVisible(true);
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
     /**
      * This Method measures which row get´s clicked
      * 
@@ -548,6 +587,7 @@ public class Perku extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler2;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonClose;
+    private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonRefresh;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JPanel jPanel1;
@@ -662,5 +702,15 @@ public class Perku extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
+    }
+    /**
+     * Copies our selected ID
+     * @param toString 
+     * @return fikuId deliver the selected fikuId
+     */
+    public String getSelectedID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       String idPrimaryKey = subString[0];
+       return idPrimaryKey;
     }
 }

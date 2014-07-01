@@ -80,7 +80,7 @@ public class Department extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         deptTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        editFikuButton = new javax.swing.JButton();
+        UpdateDepartmentButton = new javax.swing.JButton();
         refreshFikuButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
@@ -119,11 +119,11 @@ public class Department extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
         );
 
-        editFikuButton.setText("Edit");
-        editFikuButton.setToolTipText("Edit selected");
-        editFikuButton.addActionListener(new java.awt.event.ActionListener() {
+        UpdateDepartmentButton.setText("Update");
+        UpdateDepartmentButton.setToolTipText("Edit selected");
+        UpdateDepartmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editFikuButtonActionPerformed(evt);
+                UpdateDepartmentButtonActionPerformed(evt);
             }
         });
 
@@ -159,7 +159,7 @@ public class Department extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(addButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editFikuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(UpdateDepartmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(refreshFikuButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -173,7 +173,7 @@ public class Department extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(refreshFikuButton)
                     .addComponent(closeButton)
-                    .addComponent(editFikuButton)
+                    .addComponent(UpdateDepartmentButton)
                     .addComponent(addButton))
                 .addContainerGap())
         );
@@ -317,7 +317,7 @@ public class Department extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
 
-    private void editFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFikuButtonActionPerformed
+    private void UpdateDepartmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateDepartmentButtonActionPerformed
         /*java.awt.EventQueue.invokeLater(() -> {*/
             int count = deptTable.getSelectedRow();
             StringBuilder id = new StringBuilder();
@@ -334,7 +334,7 @@ public class Department extends javax.swing.JFrame {
             /*        });*/
     }
     else new PleaseSelectMessage().setVisible(true);
-    }//GEN-LAST:event_editFikuButtonActionPerformed
+    }//GEN-LAST:event_UpdateDepartmentButtonActionPerformed
 
     private void refreshFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshFikuButtonActionPerformed
         try {
@@ -408,10 +408,10 @@ public class Department extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton UpdateDepartmentButton;
     private javax.swing.JButton addButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JTable deptTable;
-    private javax.swing.JButton editFikuButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
