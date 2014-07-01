@@ -23,19 +23,23 @@ public class Fiku extends javax.swing.JFrame {
 
     //Init treshhold
     private static String ID=null;
+    private static String id;
+    private static String idRecord;
     /**
      * Creates new <code>Fiku</code> form 
      */
     public Fiku() {
         initComponents();
         showTable(fikuTable);
+        id=null;
     }
     public Fiku(boolean value){
         if(value == true){
         initComponents2();
         showTable(secondTable);
+        idRecord=null;
         }
-        
+        idRecord=null;
     }
     private void showTable(JTable table) {
         DefaultTableModel defaultTable = (DefaultTableModel) table.getModel();
@@ -332,7 +336,27 @@ public class Fiku extends javax.swing.JFrame {
     }
     
     private void deleteFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteFikuButtonActionPerformed
-        // TODO add your handling code here:
+        int count = fikuTable.getSelectedRow();
+        StringBuilder row = new StringBuilder();
+        if (count > -1) {
+            for (int i = 0; i < fikuTable.getColumnCount() ; i++) {
+                row.append(fikuTable.getValueAt(count, i));
+                row.append(";");
+            }
+            id = getSelectedID(row.toString());
+            System.out.println(row);
+            String[] substring = id.split(Pattern.quote(";"));
+            System.out.println(substring.length);
+            this.idRecord = substring[0];
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            String attribut = "idCurrentProducts = "+idRecord;
+            invoke.invokeDelete("CURRENT_PRODUCTS", attribut);
+            //this is alternative to manual Refresh
+            Fiku newFiku = new Fiku();
+            newFiku.setVisible(true);
+            this.dispose();
+        }
+        else new PleaseSelectMessage().setVisible(true);
     }//GEN-LAST:event_deleteFikuButtonActionPerformed
     /**
      *
