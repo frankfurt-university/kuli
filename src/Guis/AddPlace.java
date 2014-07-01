@@ -8,19 +8,43 @@ package Guis;
 
 import dbServices.DBServiceInvoker;
 import java.awt.Frame;
+import java.util.regex.Pattern;
 
 /**
  *
  * @author Kain
  */
 public class AddPlace extends javax.swing.JFrame {
-
+    /**
+     * Init values
+     */
+    private String id;
+    private String idRecord;
+    /**
+     * returns the Place ID
+     */
+    public String getPlaceId(){
+        return id;
+    }
     /**
      * Creates new form AddFiku
      */
-    public AddPlace(java.awt.Frame parent, boolean modal) {
-        //super(parent, modal);
+    public AddPlace() {
         initComponents();
+    }
+    
+    public AddPlace(String id){
+        initComponents();
+        this.id = id;
+        if (!id.equals("")) {
+            String[] substring = id.split(Pattern.quote(" ")); 
+            zipTextField.setText(substring[1]);
+            cityTextField.setText(substring[2]);        
+            streetTextField.setText(substring[3]);
+            houseNumberTextField.setText(substring[4]);
+            poBoxTextField.setText(substring[5]);
+            this.idRecord = substring[0];     
+        };
     }
 
 
@@ -201,7 +225,7 @@ public class AddPlace extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AddPlace dialog = new AddPlace(new javax.swing.JFrame(), true);
+                AddPlace dialog = new AddPlace();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

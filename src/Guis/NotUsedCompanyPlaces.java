@@ -156,7 +156,7 @@ public class NotUsedCompanyPlaces extends javax.swing.JFrame {
     *
     */
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        AddPlace addPlace = new AddPlace(null,true);
+        AddPlace addPlace = new AddPlace();
         addPlace.setVisible(true); 
     }//GEN-LAST:event_newButtonActionPerformed
 

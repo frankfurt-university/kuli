@@ -5,6 +5,8 @@
  */
 package Guis;
 
+import dbServices.DBServiceInvoker;
+import java.util.regex.Pattern;
 import utils.NotUsedSetModelToList;
 
 /**
@@ -12,14 +14,18 @@ import utils.NotUsedSetModelToList;
  * @author Kain
  */
 public class Place extends javax.swing.JFrame {
-
+    /**
+     * Initiate needet values
+     */
+    private static String ID = null;
+    private  String iD;
+    private  String idRecord;
     /**
      * Creates new form Place(s)
      * and fills the table with data
      */
     public Place() {
         initComponents();
-        //FikuTable.setModel((SetModelToList.getModels());
     }
 
     /**
@@ -34,10 +40,10 @@ public class Place extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        FikuTable = new javax.swing.JTable();
+        placeTable = new javax.swing.JTable();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         jButtonAdd = new javax.swing.JButton();
-        jButtonEdit = new javax.swing.JButton();
+        jButtonUpdate = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         jButtonRefresh = new javax.swing.JButton();
         jButtonClose = new javax.swing.JButton();
@@ -45,20 +51,25 @@ public class Place extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Addresses");
 
-        FikuTable.setModel(new javax.swing.table.DefaultTableModel(
+        placeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {"", null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Address ID", "ZIP code", "City", "Street", "House number", "P.O.Box"
             }
-        ));
-        FikuTable.setColumnSelectionAllowed(true);
-        jScrollPane3.setViewportView(FikuTable);
-        FikuTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        placeTable.setColumnSelectionAllowed(true);
+        jScrollPane3.setViewportView(placeTable);
+        placeTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jButtonAdd.setText("Add new");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -67,10 +78,10 @@ public class Place extends javax.swing.JFrame {
             }
         });
 
-        jButtonEdit.setText("Edit");
-        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
+        jButtonUpdate.setText("Edit");
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditActionPerformed(evt);
+                jButtonUpdateActionPerformed(evt);
             }
         });
 
@@ -110,7 +121,7 @@ public class Place extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(jButtonAdd)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jButtonEdit)
+                    .addComponent(jButtonUpdate)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jButtonDelete)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -134,7 +145,7 @@ public class Place extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(145, 145, 145)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonEdit)
+                        .addComponent(jButtonUpdate)
                         .addComponent(jButtonDelete)
                         .addComponent(jButtonAdd)
                         .addComponent(jButtonRefresh)
@@ -162,14 +173,34 @@ public class Place extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
-        // TODO add your handling code here:
+        int count = placeTable.getSelectedRow();
+        StringBuilder row = new StringBuilder();
+        if (count > -1) {
+            for (int i = 0; i < placeTable.getColumnCount() ; i++) {
+                row.append(placeTable.getValueAt(count, i));
+                row.append(";");
+            }
+            iD = getSelectedID(row.toString());
+            System.out.println(row);
+            String[] substring = iD.split(Pattern.quote(";"));
+            System.out.println(substring.length);
+            this.idRecord = substring[0];
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            String attribut = "idPlace = "+idRecord;
+            invoke.invokeDelete("place", attribut);
+            //this is alternative to manual Refresh
+            Fiku newFiku = new Fiku();
+            newFiku.setVisible(true);
+            this.dispose();
+        }
+        else new PleaseSelectMessage().setVisible(true);
     }//GEN-LAST:event_jButtonDeleteActionPerformed
     /**
      *
      *
      */
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        AddPlace addPlace = new AddPlace(null, true);
+        AddPlace addPlace = new AddPlace();
         addPlace.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonAddActionPerformed
@@ -182,11 +213,19 @@ public class Place extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonRefreshActionPerformed
 
-    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
-        NotUsedEditFiku newEditFiku = new NotUsedEditFiku();
-        newEditFiku.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButtonEditActionPerformed
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+        int count = placeTable.getSelectedRow();
+        StringBuilder id = new StringBuilder();
+        if (count > -1) {
+            for (int i = 0; i < placeTable.getColumnCount() ; i++) {
+                id.append(placeTable.getValueAt(count, i));
+                id.append(" ");
+            }        
+            new AddPlace(id.toString()).setVisible(true);
+            super.dispose();
+        }
+        else new PleaseSelectMessage().setVisible(true);
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
         this.setVisible(false);
@@ -228,14 +267,31 @@ public class Place extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable FikuTable;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonClose;
     private javax.swing.JButton jButtonDelete;
-    private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonRefresh;
+    private javax.swing.JButton jButtonUpdate;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable placeTable;
     // End of variables declaration//GEN-END:variables
+    /**
+     * Copies our selected ID
+     * @param toString 
+     * @return keyId deliver the selected keyId
+     */
+    public String getSelectedID(String toString) {
+       String[] subString = toString.split(Pattern.quote(" "));
+       String idKey = subString[0];
+       return idKey;
+    }
+    /**
+     * 
+     * @return the ID
+     */
+    public static String getID(){
+        return ID;
+    }
 }
