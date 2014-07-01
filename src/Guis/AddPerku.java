@@ -432,6 +432,7 @@ public class AddPerku extends javax.swing.JFrame {
         Perku newContacts = new Perku();
         newContacts.setVisible(true);
         }
+        else{
         StringBuilder stringBuild = new StringBuilder();
         stringBuild.append("FiKu_idFiKu ="); 
         stringBuild.append("'");
@@ -508,6 +509,7 @@ public class AddPerku extends javax.swing.JFrame {
         this.setVisible(false);
         Perku newContacts = new Perku();
         newContacts.setVisible(true);
+        }
     }//GEN-LAST:event_SaveButtonActionPerformed
 
     private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
