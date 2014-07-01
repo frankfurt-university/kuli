@@ -27,15 +27,14 @@ public class Licens extends javax.swing.JFrame {
         initComponents();
         showTable(LicenseTable, MaintenanceTable, LeasingTable);
     }
-    /** fills table <code>deptTable</code> with data and shows it in this form
+    /** fills table <code>LicenseTable</code> with data and shows it in this form
      * 
      */
-    private void showTable(JTable table1, JTable table2, JTable table3) {
-        DefaultTableModel defaultTable = (DefaultTableModel) table1.getModel();
-
+    private void showTable(JTable table, JTable table2, JTable table3) {
         try {
+            DefaultTableModel defaultTable = (DefaultTableModel) table.getModel();
             DBServiceInvoker invoke = new DBServiceInvoker();
-            List<String> pers = invoke.invokeSelect("leasing", "");
+            List<String> pers = invoke.invokeSelect("license", "");
             Iterator<String> i = pers.iterator();
             while (i.hasNext()) {
                 String[] subString = i.next().split(Pattern.quote(" "));
@@ -53,11 +52,46 @@ public class Licens extends javax.swing.JFrame {
             invoke.cleanErrorString();
 
         } catch (SQLException sqlex) {
-
             System.out.println("SQL Error : " + sqlex.getMessage());
-        } catch (Exception e) {
-
-            System.out.println("Error : " + e.getMessage());
+        } 
+        try {
+            DefaultTableModel defaultTable2 = (DefaultTableModel) table2.getModel();
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            List<String> pers = invoke.invokeSelect("maintenance", "");
+            Iterator<String> i = pers.iterator();
+            while (i.hasNext()) {
+                String[] subString = i.next().split(Pattern.quote(" "));
+                String idMaintenance = subString[0];
+                String StartDate = subString[1];
+                String ExpiryDate = subString[2];
+                String price = subString[3];
+                String maintenancecol = subString[4];
+                defaultTable2.addRow(new Object[]{idMaintenance, StartDate, ExpiryDate, price, maintenancecol});
+            }
+            invoke.cleanErrorString();
+        }catch (SQLException sqlex) {
+            System.out.println("SQL Error : " + sqlex.getMessage());
+        }
+        try {
+            DefaultTableModel defaultTable3 = (DefaultTableModel) table3.getModel();
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            List<String> pers = invoke.invokeSelect("leasing", "");
+            Iterator<String> i = pers.iterator();
+            while (i.hasNext()) {
+                String[] subString = i.next().split(Pattern.quote(" "));
+                String idLesing = subString[0];
+                String currentProductsId = subString[1];
+                String StartDate = subString[2];
+                String ExpiryDate = subString[3];
+                String firstInvoice = subString[4];
+                String lastInvoice = subString[5];
+                String nextInvoice = subString[6];
+                String canceled = subString[7];
+                defaultTable3.addRow(new Object[]{idLesing, currentProductsId, StartDate, ExpiryDate, firstInvoice, firstInvoice, lastInvoice, nextInvoice, canceled});
+            }
+            invoke.cleanErrorString(); 
+        }catch(SQLException sqlex){
+            System.out.println("SQL Error : " + sqlex.getMessage());
         }
     }
 
@@ -279,23 +313,21 @@ public class Licens extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRefreshActionPerformed
 
     private void jButtonEditLeasingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditLeasingActionPerformed
-        int count = LicenseTable.getSelectedRow();
+        int count = LeasingTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
-            for (int i = 0; i < LicenseTable.getColumnCount() ; i++) {
-                id.append(LicenseTable.getValueAt(count, i));
+            for (int i = 0; i < LeasingTable.getColumnCount() ; i++) {
+                id.append(LeasingTable.getValueAt(count, i));
                 id.append(" ");
             }
-            new AddPerku(id.toString()).setVisible(true);
+            //Todo new AddLeasing(id.toString()).setVisible(true);
             super.dispose();
         }
         else new PleaseSelectMessage().setVisible(true);
     }//GEN-LAST:event_jButtonEditLeasingActionPerformed
 
     private void jButtonAddLeasingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddLeasingActionPerformed
-        AddPerku addPerku = new AddPerku();
-        addPerku.setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_jButtonAddLeasingActionPerformed
 
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
