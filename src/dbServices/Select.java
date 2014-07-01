@@ -62,15 +62,19 @@ public class Select {
             return success;
 
         }
-	public List<String> doSelectWithPreparedStatement(int id){
+	public List<String> doSelectWithPreparedStatement(int id, String dbQuery){
         
             List<String> records = new ArrayList<String>();
             String idOfData = "", name = "", surname = "";
             
             try {
                 
-                String selectSQL = "SELECT * FROM info WHERE id = ?";
-                PreparedStatement preparedStatement = conn.prepareStatement(selectSQL);
+                //String selectSQL = "SELECT * FROM info WHERE id = ?";
+                String query = "";
+                query = dbQuery;
+                //PreparedStatement preparedStatement = conn.prepareStatement(selectSQL);
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                
                 preparedStatement.setInt(1, id);
                 ResultSet rs = preparedStatement.executeQuery();
                 while (rs.next()) {

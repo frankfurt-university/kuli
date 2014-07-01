@@ -91,7 +91,7 @@ public class DBServiceInvoker {
                 return select.getAllInfo();
 		
 	}
-        public List<String> invokeSelectWithPreparedStatement(int id) throws SQLException{
+        public List<String> invokeSelectWithPreparedStatement(int id, String dbQuery) throws SQLException{
 		
                 Select select = null;
                 date = new Date();
@@ -102,7 +102,7 @@ public class DBServiceInvoker {
 				openConnection();
 			
 			select = new Select(this.conn);
-			searchedRecords = select.doSelectWithPreparedStatement(id);
+			searchedRecords = select.doSelectWithPreparedStatement(id,dbQuery);
 			select.closeDB();
 		} catch (Exception e) {
 			

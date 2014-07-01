@@ -56,7 +56,7 @@ public class NotUsedSetModelToList {
             id = Integer.parseInt(textField.getText());
       
         try {
-                recordList = dbService.invokeSelectWithPreparedStatement(id);
+                //recordList = dbService.invokeSelectWithPreparedStatement(id, dbQuery);
                 if(!recordList.isEmpty()){
                     
                     //name = recordList.get(0);
@@ -75,10 +75,7 @@ public class NotUsedSetModelToList {
                     defaultTable.addRow(new Object[]{"("+names+")"});
                 }
                 dbService.cleanErrorString();
-	}catch (SQLException sqlex) {
-			
-		System.out.println("SQL Error : " + sqlex.getMessage());
-        }catch (Exception e) {
+	}catch (Exception e) {
 			
 		System.out.println("Error : " + e.getMessage());
         }
