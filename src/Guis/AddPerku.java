@@ -440,7 +440,9 @@ public class AddPerku extends javax.swing.JFrame {
     }//GEN-LAST:event_SelectDeptButtonActionPerformed
 
     private void SelectPlaceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectPlaceButtonActionPerformed
-        // TODO add your handling code here:
+        Workplace newWorkplace = new Workplace();
+        newWorkplace.setVisible(true);
+        super.dispose();
     }//GEN-LAST:event_SelectPlaceButtonActionPerformed
     /**
      * 
@@ -458,8 +460,8 @@ public class AddPerku extends javax.swing.JFrame {
      * 
      */
     public void setWorkplace(){
-        jTextFieldPlaceId.setText(id);
-        jTextFieldRoom.setText(id);
+        jTextFieldPlaceId.setText(Workplace.getPlaceId());
+        jTextFieldFikuId.setText(Workplace.getFikuId());
     }
     /**
      * @param args the command line arguments

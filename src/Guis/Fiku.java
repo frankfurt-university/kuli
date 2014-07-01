@@ -356,20 +356,15 @@ public class Fiku extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshFikuButtonActionPerformed
 
     private void editFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFikuButtonActionPerformed
-        /*java.awt.EventQueue.invokeLater(() -> {*/
         int count = fikuTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
             for (int i = 0; i < fikuTable.getColumnCount() ; i++) {
                 id.append(fikuTable.getValueAt(count, i));
                 id.append(" ");
-            }
-        
+            }        
             new AddCurrentProduct(id.toString()).setVisible(true);
-        /*});
-        java.awt.EventQueue.invokeLater(() -> {*/
             super.dispose();
-/*        });*/
         }
         else new PleaseSelectMessage().setVisible(true);
     }//GEN-LAST:event_editFikuButtonActionPerformed

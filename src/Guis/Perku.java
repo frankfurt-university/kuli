@@ -25,11 +25,7 @@ public class Perku extends javax.swing.JFrame {
         DefaultTableModel defaultTable = (DefaultTableModel) PerkuTable.getModel();
         try {
             DBServiceInvoker invoke = new DBServiceInvoker();
-            String fiKuName = "";
-            String city = "";
-
             List<String> pers = invoke.invokeSelect("PerKu", "");
-
             Iterator<String> i = pers.iterator();
             while (i.hasNext()) {
                 System.out.println(pers);
@@ -49,8 +45,7 @@ public class Perku extends javax.swing.JFrame {
                 String building = subString[11];
                 String room = subString[12];
                 String fiKuHasPlaceFiKuIdFiKu = subString[13];
-                String fiKuHasPlacePlaceIdPlace = subString[14];
-                
+                String fiKuHasPlacePlaceIdPlace = subString[14];           
 
                 defaultTable.addRow(new Object[]{idPerKu, idFiKu, departmentsIdDepartments, fName, lName, title, sex, position, phone, eMail, fax, building, room, fiKuHasPlaceFiKuIdFiKu, 
                     fiKuHasPlacePlaceIdPlace/*, fiKuName, city*/});
@@ -71,11 +66,7 @@ public class Perku extends javax.swing.JFrame {
 
         try {
             DBServiceInvoker invoke = new DBServiceInvoker();
-            String fiKuName = "";
-            String city = "";
-
             List<String> pers = invoke.invokeSelect("PerKu", "");
-
             Iterator<String> i = pers.iterator();
             while (i.hasNext()) {
                 System.out.println(pers);
@@ -97,7 +88,6 @@ public class Perku extends javax.swing.JFrame {
                 String fiKuHasPlaceFiKuIdFiKu = subString[13];
                 String fiKuHasPlacePlaceIdPlace = subString[14];
                 
-
                 defaultTable.addRow(new Object[]{idPerKu, idFiKu, departmentsIdDepartments, fName, lName, title, sex, position, phone, eMail, fax, building, room, fiKuHasPlaceFiKuIdFiKu, 
                     fiKuHasPlacePlaceIdPlace/*, fiKuName, city*/});
             }
