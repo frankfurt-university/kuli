@@ -296,7 +296,7 @@ public class Perku extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonCloseActionPerformed
     /**
-     * This Method mesures which row get´s clicked
+     * This Method measures which row get´s clicked
      * 
      */
     private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt){

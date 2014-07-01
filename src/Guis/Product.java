@@ -37,7 +37,7 @@ public class Product extends javax.swing.JFrame {
         return (DefaultTableModel)this.jTable1.getModel();
     }
     
-    /** fills table <code>productsTable</code> with data and shows it in this form
+    /** fills variable <code>productsTable</code> with data and shows it in this form
      * 
      */
     private void showTable(JTable table) {
@@ -201,7 +201,7 @@ public class Product extends javax.swing.JFrame {
         if (count > -1) {
             for (int i = 0; i < jTable1.getColumnCount() ; i++) {
                 id.append(jTable1.getValueAt(count, i));
-                id.append(" ");
+                id.append(";");
             }
             ID = getSelectedID(id.toString());
             System.out.println(id);

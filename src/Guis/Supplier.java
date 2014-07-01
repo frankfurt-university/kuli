@@ -197,7 +197,7 @@ public class Supplier extends javax.swing.JFrame {
         if (count > -1) {
             for (int i = 0; i < jTable1.getColumnCount() ; i++) {
                 id.append(jTable1.getValueAt(count, i));
-                id.append(" ");
+                id.append(";");
             }
             ID = getSelectedID(id.toString());
             System.out.println(id);

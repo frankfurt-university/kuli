@@ -26,7 +26,7 @@ public class Delete {
 
 	public void doDelete(String table, String value) throws SQLException{
 		
-		String query = "DELETE FROM " + table + " WHERE name = '" + value + "'";
+		String query = "DELETE FROM " + table + " WHERE " + value;
 		
 		this.stmt = this.conn.createStatement();
 		this.stmt.executeUpdate(query);
