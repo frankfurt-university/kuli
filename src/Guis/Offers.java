@@ -165,18 +165,18 @@ public class Offers extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Current Products");
+        setTitle("Offers");
 
         offersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Current Product ID", "Prod.ID", "Supp. ID", "Supplier Price", "Listing Price"
+                "Offer ID", "Customer ID", "Company ID", "Offer Date", "Expiry Date", "Previous Offer ID", "Accepted", "Invoiceable", "Invoiceable from", "Discount", "Total Excl.VAT", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
