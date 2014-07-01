@@ -5,7 +5,7 @@
  */
 package Guis;
 
-import dbServices.DBServiceInvoker;
+import dbServices.DBServiceInvokerSemicolon;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
@@ -22,10 +22,18 @@ import javax.swing.table.DefaultTableModel;
 public class Offers extends javax.swing.JFrame {
     private String id;
     private String idRecord;
-    private static String productID;
-    private static String supplierID;
-    private static String supplierPrice;
-    private static String listPrice;
+    private static String offerID;
+    private static String perkuID;
+    private static String fikuID;
+    private static String offerDate;
+    private static String expiryDate;
+    private static String previousOffer;
+    private static String accepted;
+    private static String invoiceable;
+    private static String invoiceableOn;
+    private static String discount;
+    private static String totalExclVat;
+    private static String total;
     /**
      * Creates new <code>CurrentProducts</code> form 
      */
@@ -47,53 +55,53 @@ public class Offers extends javax.swing.JFrame {
      * 
      * @param s 
      */
-    public static void setProductID(String s){
-        productID=s;
+    public static void setOfferID(String s){
+        offerID=s;
     }
     /** retrieves value from variable <code>productID</code>
      * 
      */
-    public static String getProductID(){
-        return productID;
+    public static String getOfferID(){
+        return offerID;
     }
     /** saves value into variable <code>supplierID</code>
      * 
      * @param s 
      */
-    public static void setSupplierID(String s){
-        supplierID=s;
+    public static void setPerkuID(String s){
+        perkuID=s;
     }
     /** retrieves value from variable <code>supplierID</code>
      * 
      */
-    public static String getSupplierID(){
-        return supplierID;
+    public static String getPerkuID(){
+        return perkuID;
     }
     /** saves value into variable <code>supplierPrice</code>
      * 
      * @param s 
      */
-    public static void setSupplierPrice(String s){
-        supplierPrice=s;
+    public static void setFikuID(String s){
+        fikuID=s;
     }
     /** retrieves value from variable <code>supplierPrice</code>
      * 
      */
-    public static String getSupplierPrice(){
-        return supplierPrice;
+    public static String getFikuID(){
+        return fikuID;
     }
     /** saves value into variable <code>listPrice</code>
      * 
      * @param s 
      */
-    public static void setListPrice(String s){
-        listPrice=s;
+    public static void setOfferDate(String s){
+        offerDate=s;
     }
     /** retrieves value from variable <code>listPrice</code>
      * 
      */
-    public static String getListPrice(){
-        return listPrice;
+    public static String getOfferDate(){
+        return offerDate;
     }
     /** fills table <code>productsTable</code> with data and shows it in this form
      * 
@@ -102,20 +110,29 @@ public class Offers extends javax.swing.JFrame {
         DefaultTableModel defaultTable = (DefaultTableModel) table.getModel();
 
         try {
-            DBServiceInvoker invoke = new DBServiceInvoker();
+            DBServiceInvokerSemicolon invoke = new DBServiceInvokerSemicolon();
 
-            List<String> currentProducts = invoke.invokeSelect("current_products", "");
-            Iterator<String> i = currentProducts.iterator();
+            List<String> offers = invoke.invokeSelect("offer", "");
+            Iterator<String> i = offers.iterator();
             while (i.hasNext()) {
-                String[] subString = i.next().split(Pattern.quote(" "));
+                String[] subString = i.next().split(Pattern.quote(";"));
 
-                String idCurrentProduct = subString[0];
-                String idProduct = subString[1];
-                String idSupplier = subString[2];
-                String supplierPrice = subString[3];
-                String listPrice = subString[4];
+                String idOffer = subString[0];
+                String idPerku = subString[1];
+                String idFiku = subString[2];
+                String offerDate = subString[3];
+                String expiryDate = subString[4];
+                String previousOffer = subString[5];
+                String accepted = subString[6];
+                String invoiceable = subString[7];
+                String invoiceableOn = subString[8];
+                String discount = subString[9];
+                String totalExclVat = subString[10];
+                String total = subString[11];
                 
-                defaultTable.addRow(new Object[]{idCurrentProduct, idProduct, idSupplier, supplierPrice, listPrice});
+                defaultTable.addRow(new Object[]{idOffer, idPerku, idFiku, offerDate,
+                                    expiryDate, previousOffer, accepted, invoiceable,
+                                    invoiceableOn, discount, totalExclVat, total});
             }
             invoke.cleanErrorString();
 
@@ -191,14 +208,14 @@ public class Offers extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
         );
 
         addButton.setText("Add new");
@@ -413,12 +430,12 @@ public class Offers extends javax.swing.JFrame {
             String[] substring = id.split(Pattern.quote(";"));
             System.out.println(substring.length);
             this.idRecord = substring[0];
-            DBServiceInvoker invoke = new DBServiceInvoker();
+            DBServiceInvokerSemicolon invoke = new DBServiceInvokerSemicolon();
             String attribut = "idCurrentProducts = "+idRecord;
             invoke.invokeDelete("CURRENT_PRODUCTS", attribut);
             //this is alternative to manual Refresh
-            Offers newCurrentProducts = new Offers();
-            newCurrentProducts.setVisible(true);
+            Offers offers = new Offers();
+            offers.setVisible(true);
             this.dispose();
         }
         else new PleaseSelectMessage().setVisible(true);
@@ -427,8 +444,8 @@ public class Offers extends javax.swing.JFrame {
      *
      */
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        AddCurrentProduct addCurrentProduct = new AddCurrentProduct();
-        addCurrentProduct.setVisible(true);
+        AddOffer offer = new AddOffer();
+        offer.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
 
@@ -453,8 +470,8 @@ public class Offers extends javax.swing.JFrame {
                 row.append(";");
             }
             //setListPrice(row.toString());
-            AddCurrentProduct addCP = new AddCurrentProduct(row.toString());
-            addCP.setVisible(true);
+            AddOffer offer = new AddOffer(row.toString());
+            offer.setVisible(true);
         /*});
         java.awt.EventQueue.invokeLater(() -> {*/
             this.dispose();
@@ -547,7 +564,7 @@ public class Offers extends javax.swing.JFrame {
      * @return fikuId deliver the selected fikuId
      */
     public String getSelectedID(String toString) {
-       String[] subString = toString.split(Pattern.quote(" "));
+       String[] subString = toString.split(Pattern.quote(";"));
        String idPrimaryKey = subString[0];
        return idPrimaryKey;
     }
