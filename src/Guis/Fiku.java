@@ -92,7 +92,7 @@ public class Fiku extends javax.swing.JFrame {
         fikuTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         addButton = new javax.swing.JButton();
-        editFikuButton = new javax.swing.JButton();
+        updateFikuButton = new javax.swing.JButton();
         deleteFikuButton = new javax.swing.JButton();
         refreshFikuButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
@@ -147,11 +147,11 @@ public class Fiku extends javax.swing.JFrame {
             }
         });
 
-        editFikuButton.setText("Edit");
-        editFikuButton.setToolTipText("Edit selected");
-        editFikuButton.addActionListener(new java.awt.event.ActionListener() {
+        updateFikuButton.setText("Update");
+        updateFikuButton.setToolTipText("Edit selected");
+        updateFikuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editFikuButtonActionPerformed(evt);
+                updateFikuButtonActionPerformed(evt);
             }
         });
 
@@ -187,7 +187,7 @@ public class Fiku extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(addButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editFikuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updateFikuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deleteFikuButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -201,7 +201,7 @@ public class Fiku extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 11, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editFikuButton)
+                    .addComponent(updateFikuButton)
                     .addComponent(addButton)
                     .addComponent(deleteFikuButton)
                     .addComponent(refreshFikuButton)
@@ -382,7 +382,7 @@ public class Fiku extends javax.swing.JFrame {
             showTable(fikuTable);
     }//GEN-LAST:event_refreshFikuButtonActionPerformed
 
-    private void editFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFikuButtonActionPerformed
+    private void updateFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateFikuButtonActionPerformed
         int count = fikuTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
         if (count > -1) {
@@ -390,11 +390,11 @@ public class Fiku extends javax.swing.JFrame {
                 id.append(fikuTable.getValueAt(count, i));
                 id.append(" ");
             }        
-            new AddCurrentProduct(id.toString()).setVisible(true);
+            new AddFiku(id.toString()).setVisible(true);
             super.dispose();
         }
         else new PleaseSelectMessage().setVisible(true);
-    }//GEN-LAST:event_editFikuButtonActionPerformed
+    }//GEN-LAST:event_updateFikuButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         this.setVisible(false);
@@ -456,7 +456,6 @@ public class Fiku extends javax.swing.JFrame {
     private javax.swing.JButton addButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JButton deleteFikuButton;
-    private javax.swing.JButton editFikuButton;
     private javax.swing.JTable fikuTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -464,6 +463,7 @@ public class Fiku extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton refreshFikuButton;
+    private javax.swing.JButton updateFikuButton;
     // End of variables declaration//GEN-END:variables
 //Variables declaration do modify if nessesary
     private javax.swing.JButton okButton;
