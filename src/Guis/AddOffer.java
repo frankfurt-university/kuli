@@ -29,8 +29,8 @@ public class AddOffer extends javax.swing.JFrame {
         this.idRecord=null;
         setProductId();
         setSupplierId();
-        supplierPriceTextField.setText(CurrentProducts.getSupplierPrice());
-        listPriceTextField.setText(CurrentProducts.getListPrice());
+        offerDateTextField.setText(CurrentProducts.getSupplierPrice());
+        expiryDateTextField.setText(CurrentProducts.getListPrice());
     }
     
     /** Creates new form <code>AddCurrentProduct</code>  
@@ -46,13 +46,13 @@ public class AddOffer extends javax.swing.JFrame {
             String[] substring = id.split(Pattern.quote(";"));
             System.out.println(substring.length);
             this.idRecord = substring[0];
-            idCurrentProductTextField.setText(substring[0]);
-            idProductTextField.setText(substring[1]);
-            idSupplierTextField.setText(substring[2]);
-            supplierPriceTextField.setText(substring[3]);
-            CurrentProducts.setSupplierPrice(supplierPriceTextField.getText());
-            listPriceTextField.setText(substring[4]);
-            CurrentProducts.setListPrice(listPriceTextField.getText());
+            offersIDTextField.setText(substring[0]);
+            perkuIDTextField.setText(substring[1]);
+            fikuIDTextField.setText(substring[2]);
+            offerDateTextField.setText(substring[3]);
+            CurrentProducts.setSupplierPrice(offerDateTextField.getText());
+            expiryDateTextField.setText(substring[4]);
+            CurrentProducts.setListPrice(expiryDateTextField.getText());
             
             
             System.out.println(idRecord);
@@ -62,14 +62,14 @@ public class AddOffer extends javax.swing.JFrame {
      * 
      */
     public void setProductId(){
-        idProductTextField.setText(Product.getID());
+        perkuIDTextField.setText(Product.getID());
     }
     
     /** registers ID value from <code>class Supplier</code>} into text field
      * 
      */
     public void setSupplierId(){
-        idSupplierTextField.setText(Supplier.getID());
+        fikuIDTextField.setText(Supplier.getID());
     }
     /** sets variable <code>supplierPrice</code> to value of corresponding 
      * TextField
@@ -93,45 +93,47 @@ public class AddOffer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        idCurrentProductTextField = new javax.swing.JTextField();
-        supplierPriceTextField = new javax.swing.JTextField();
-        idProductTextField = new javax.swing.JTextField();
-        idSupplierTextField = new javax.swing.JTextField();
-        idCurrentProductLabel = new javax.swing.JLabel();
-        listPriceLabel = new javax.swing.JLabel();
-        idProductLabel = new javax.swing.JLabel();
+        offersIDTextField = new javax.swing.JTextField();
+        offerDateTextField = new javax.swing.JTextField();
+        perkuIDTextField = new javax.swing.JTextField();
+        fikuIDTextField = new javax.swing.JTextField();
+        offerIDLabel = new javax.swing.JLabel();
+        expiryDateLabel = new javax.swing.JLabel();
+        customerIDLabel = new javax.swing.JLabel();
         supplierIdLabel = new javax.swing.JLabel();
         jButtonSave = new javax.swing.JButton();
         jButtonClose = new javax.swing.JButton();
-        supplierPriceLabel = new javax.swing.JLabel();
-        listPriceTextField = new javax.swing.JTextField();
-        selectProductIDButton = new javax.swing.JButton();
-        selectSupplierButton = new javax.swing.JButton();
+        offerDateLabel = new javax.swing.JLabel();
+        expiryDateTextField = new javax.swing.JTextField();
+        selectPerkuButton = new javax.swing.JButton();
+        selectFikuButton = new javax.swing.JButton();
+        previousOfferIDLabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Add/Edit Current Product");
+        setTitle("Add/Edit Offer");
 
-        idCurrentProductTextField.setEditable(false);
-        idCurrentProductTextField.setText("fills out automatically");
+        offersIDTextField.setEditable(false);
+        offersIDTextField.setText("fills out automatically");
 
-        idProductTextField.setEditable(false);
-        idProductTextField.setText("to be filled automatically");
-        idProductTextField.addActionListener(new java.awt.event.ActionListener() {
+        perkuIDTextField.setEditable(false);
+        perkuIDTextField.setText("to be filled automatically");
+        perkuIDTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idProductTextFieldActionPerformed(evt);
+                perkuIDTextFieldActionPerformed(evt);
             }
         });
 
-        idSupplierTextField.setEditable(false);
-        idSupplierTextField.setText("to be filled automatically");
+        fikuIDTextField.setEditable(false);
+        fikuIDTextField.setText("to be filled automatically");
 
-        idCurrentProductLabel.setText("Current product ID:");
+        offerIDLabel.setText("Offer ID:");
 
-        listPriceLabel.setText("Our Listing Price:");
+        expiryDateLabel.setText("Expiry Date:");
 
-        idProductLabel.setText("Product:");
+        customerIDLabel.setText("Customer ID:");
 
-        supplierIdLabel.setText("Supplier:");
+        supplierIdLabel.setText("Company ID:");
 
         jButtonSave.setText("Save");
         jButtonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -147,27 +149,31 @@ public class AddOffer extends javax.swing.JFrame {
             }
         });
 
-        supplierPriceLabel.setText("Supplier's Price:");
+        offerDateLabel.setText("Offer Date:");
 
-        listPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        expiryDateTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listPriceTextFieldActionPerformed(evt);
+                expiryDateTextFieldActionPerformed(evt);
             }
         });
 
-        selectProductIDButton.setText("Choose..");
-        selectProductIDButton.addActionListener(new java.awt.event.ActionListener() {
+        selectPerkuButton.setText("Choose..");
+        selectPerkuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectProductIDButtonActionPerformed(evt);
+                selectPerkuButtonActionPerformed(evt);
             }
         });
 
-        selectSupplierButton.setText("Choose..");
-        selectSupplierButton.addActionListener(new java.awt.event.ActionListener() {
+        selectFikuButton.setText("Choose..");
+        selectFikuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectSupplierButtonActionPerformed(evt);
+                selectFikuButtonActionPerformed(evt);
             }
         });
+
+        previousOfferIDLabel.setText("Previous Offer:");
+
+        jButton1.setText("Choose..");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,31 +183,36 @@ public class AddOffer extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonClose)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonSave))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonSave)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonClose))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idCurrentProductLabel)
-                            .addComponent(idProductLabel)
+                            .addComponent(offerIDLabel)
+                            .addComponent(customerIDLabel)
                             .addComponent(supplierIdLabel)
-                            .addComponent(listPriceLabel)
-                            .addComponent(supplierPriceLabel))
+                            .addComponent(expiryDateLabel)
+                            .addComponent(offerDateLabel))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(supplierPriceTextField)
-                            .addComponent(listPriceTextField)
+                            .addComponent(offerDateTextField)
+                            .addComponent(expiryDateTextField)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(idCurrentProductTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(offersIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(idSupplierTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idProductTextField))
+                                    .addComponent(fikuIDTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                                    .addComponent(perkuIDTextField))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(selectProductIDButton)
-                                    .addComponent(selectSupplierButton))))))
+                                    .addComponent(selectPerkuButton)
+                                    .addComponent(selectFikuButton)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(previousOfferIDLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -209,27 +220,31 @@ public class AddOffer extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idCurrentProductTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idCurrentProductLabel))
+                    .addComponent(offersIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(offerIDLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idProductTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idProductLabel)
-                    .addComponent(selectProductIDButton))
+                    .addComponent(perkuIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(customerIDLabel)
+                    .addComponent(selectPerkuButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idSupplierTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fikuIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(supplierIdLabel)
-                    .addComponent(selectSupplierButton))
+                    .addComponent(selectFikuButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(supplierPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(supplierPriceLabel))
+                    .addComponent(offerDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(offerDateLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(listPriceLabel)
-                    .addComponent(listPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                    .addComponent(expiryDateLabel)
+                    .addComponent(expiryDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(previousOfferIDLabel)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSave)
                     .addComponent(jButtonClose))
@@ -249,19 +264,19 @@ public class AddOffer extends javax.swing.JFrame {
             DBServiceInvoker invoke = new DBServiceInvoker();
             StringBuilder stringBuild = new StringBuilder();
             stringBuild.append("'");
-            stringBuild.append(idProductTextField.getText());
+            stringBuild.append(perkuIDTextField.getText());
             stringBuild.append("'");
             stringBuild.append(",");
             stringBuild.append("'");
-            stringBuild.append(idSupplierTextField.getText());
+            stringBuild.append(fikuIDTextField.getText());
             stringBuild.append("'");
             stringBuild.append(",");
             stringBuild.append("'");
-            stringBuild.append(supplierPriceTextField.getText());
+            stringBuild.append(offerDateTextField.getText());
             stringBuild.append("'");
             stringBuild.append(",");
             stringBuild.append("'");
-            stringBuild.append(listPriceTextField.getText());
+            stringBuild.append(expiryDateTextField.getText());
             stringBuild.append("'");
             String attribut = "Product_idProduct, Supplier_idSupplier, SupplierPrice, ListPrice";
             invoke.invokeInsert("current_products",attribut,stringBuild.toString());
@@ -271,22 +286,22 @@ public class AddOffer extends javax.swing.JFrame {
             StringBuilder stringBuild = new StringBuilder();
             stringBuild.append("Product_idProduct = ");
             stringBuild.append("'");
-            stringBuild.append(idProductTextField.getText());
+            stringBuild.append(perkuIDTextField.getText());
             stringBuild.append("'");
             stringBuild.append(",");
             stringBuild.append(" Supplier_idSupplier = ");
             stringBuild.append("'");
-            stringBuild.append(idSupplierTextField.getText());
+            stringBuild.append(fikuIDTextField.getText());
             stringBuild.append("'");
             stringBuild.append(",");
             stringBuild.append(" SupplierPrice = ");
             stringBuild.append("'");
-            stringBuild.append(supplierPriceTextField.getText());
+            stringBuild.append(offerDateTextField.getText());
             stringBuild.append("'");
             stringBuild.append(",");
             stringBuild.append(" ListPrice = ");
             stringBuild.append("'");
-            stringBuild.append(listPriceTextField.getText());
+            stringBuild.append(expiryDateTextField.getText());
             stringBuild.append("'");
             String attribut = "idCurrentProducts = "+idRecord;
             invoke.invokeUpdate("current_products",attribut,stringBuild.toString());
@@ -302,25 +317,25 @@ public class AddOffer extends javax.swing.JFrame {
         newCurrentProducts.setVisible(true);
     }//GEN-LAST:event_jButtonCloseActionPerformed
 
-    private void listPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPriceTextFieldActionPerformed
+    private void expiryDateTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expiryDateTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_listPriceTextFieldActionPerformed
+    }//GEN-LAST:event_expiryDateTextFieldActionPerformed
 
-    private void selectProductIDButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectProductIDButtonActionPerformed
+    private void selectPerkuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectPerkuButtonActionPerformed
        Product product = new Product();
        product.setVisible(true);
        this.setVisible(false);
-    }//GEN-LAST:event_selectProductIDButtonActionPerformed
+    }//GEN-LAST:event_selectPerkuButtonActionPerformed
 
-    private void idProductTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idProductTextFieldActionPerformed
+    private void perkuIDTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perkuIDTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idProductTextFieldActionPerformed
+    }//GEN-LAST:event_perkuIDTextFieldActionPerformed
 
-    private void selectSupplierButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectSupplierButtonActionPerformed
+    private void selectFikuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFikuButtonActionPerformed
         Supplier supplier = new Supplier();
         supplier.setVisible(true);
         super.dispose();
-    }//GEN-LAST:event_selectSupplierButtonActionPerformed
+    }//GEN-LAST:event_selectFikuButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,19 +380,21 @@ public class AddOffer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel idCurrentProductLabel;
-    private javax.swing.JTextField idCurrentProductTextField;
-    private javax.swing.JLabel idProductLabel;
-    private javax.swing.JTextField idProductTextField;
-    private javax.swing.JTextField idSupplierTextField;
+    private javax.swing.JLabel customerIDLabel;
+    private javax.swing.JLabel expiryDateLabel;
+    private javax.swing.JTextField expiryDateTextField;
+    private javax.swing.JTextField fikuIDTextField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonClose;
     private javax.swing.JButton jButtonSave;
-    private javax.swing.JLabel listPriceLabel;
-    private javax.swing.JTextField listPriceTextField;
-    private javax.swing.JButton selectProductIDButton;
-    private javax.swing.JButton selectSupplierButton;
+    private javax.swing.JLabel offerDateLabel;
+    private javax.swing.JTextField offerDateTextField;
+    private javax.swing.JLabel offerIDLabel;
+    private javax.swing.JTextField offersIDTextField;
+    private javax.swing.JTextField perkuIDTextField;
+    private javax.swing.JLabel previousOfferIDLabel;
+    private javax.swing.JButton selectFikuButton;
+    private javax.swing.JButton selectPerkuButton;
     private javax.swing.JLabel supplierIdLabel;
-    private javax.swing.JLabel supplierPriceLabel;
-    private javax.swing.JTextField supplierPriceTextField;
     // End of variables declaration//GEN-END:variables
 }
