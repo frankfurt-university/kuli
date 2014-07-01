@@ -549,8 +549,8 @@ public class Perku extends javax.swing.JFrame {
             }
             ID = getSelectedID(id.toString());
             System.out.println(id);
-            AddPerku newPerku = new AddPerku();
-            newPerku.setVisible(true);
+            AddCurrentProduct newCurrentProduct = new AddCurrentProduct();
+            newCurrentProduct.setVisible(true);
             super.dispose();
 
         }
