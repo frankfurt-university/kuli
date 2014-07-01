@@ -116,7 +116,7 @@ public class CurrentProducts extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Current Product ID", "Prod.ID", "Supp. ID", "Supp. Price", "List Price"
+                "Current Product ID", "Prod.ID", "Supp. ID", "Supplier Price", "Listing Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
