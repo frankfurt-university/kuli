@@ -64,12 +64,8 @@ public class AddPerku extends javax.swing.JFrame {
             jTextFieldRoom.setText(substring[12]);
             jTextFieldFikuId.setText(substring[13]);
             jTextFieldPlaceId.setText(substring[14]);
-            this.idRecord = substring[0];
-          
+            this.idRecord = substring[0];     
         }
-        SelectDeptButton.setEnabled(false);
-        SelectFikuButton.setEnabled(false);
-        SelectPlaceButton.setEnabled(false);
     }
 
     /**
