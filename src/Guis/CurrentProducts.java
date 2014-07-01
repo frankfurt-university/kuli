@@ -20,15 +20,20 @@ import javax.swing.table.DefaultTableModel;
  * @author Juraj
  */
 public class CurrentProducts extends javax.swing.JFrame {
-
+    private String id;
+    private String idRecord;
     /**
      * Creates new <code>CurrentProducts</code> form 
      */
     public CurrentProducts() {
         initComponents();
+        id=null;
+        idRecord=null;
         showTable(productsTable);
     }
     public CurrentProducts(boolean value){
+        id=null;
+        idRecord=null;
         if(value == true){
         initComponents2();
         showTable(secondTable);
@@ -340,7 +345,27 @@ public class CurrentProducts extends javax.swing.JFrame {
     }
     
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
+        int count = productsTable.getSelectedRow();
+        StringBuilder row = new StringBuilder();
+        if (count > -1) {
+            for (int i = 0; i < productsTable.getColumnCount() ; i++) {
+                row.append(productsTable.getValueAt(count, i));
+                row.append(";");
+            }
+            id = getSelectedID(row.toString());
+            System.out.println(row);
+            String[] substring = id.split(Pattern.quote(";"));
+            System.out.println(substring.length);
+            this.idRecord = substring[0];
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            String attribut = "idCurrentProducts = "+idRecord;
+            invoke.invokeDelete("current_products", attribut);
+            //this is alternative to manual Refresh
+            CurrentProducts newCurrentProducts = new CurrentProducts();
+            newCurrentProducts.setVisible(true);
+            this.dispose();
+        }
+        else new PleaseSelectMessage().setVisible(true);
     }//GEN-LAST:event_deleteButtonActionPerformed
     /** opens new window for new product entry
      *
@@ -365,14 +390,14 @@ public class CurrentProducts extends javax.swing.JFrame {
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         /*java.awt.EventQueue.invokeLater(() -> {*/
         int count = productsTable.getSelectedRow();
-        StringBuilder id = new StringBuilder();
+        StringBuilder row = new StringBuilder();
         if (count > -1) {
             for (int i = 0; i < productsTable.getColumnCount() ; i++) {
-                id.append(productsTable.getValueAt(count, i));
-                id.append(";");
+                row.append(productsTable.getValueAt(count, i));
+                row.append(";");
             }
         
-            new AddCurrentProduct(id.toString()).setVisible(true);
+            new AddCurrentProduct(row.toString()).setVisible(true);
         /*});
         java.awt.EventQueue.invokeLater(() -> {*/
             this.dispose();
