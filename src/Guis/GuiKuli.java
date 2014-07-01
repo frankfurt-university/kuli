@@ -60,6 +60,7 @@ public class GuiKuli extends javax.swing.JFrame{
         startProdukt = new javax.swing.JButton();
         invoicesButton = new javax.swing.JButton();
         startFiku = new javax.swing.JButton();
+        offersButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem0 = new javax.swing.JMenuItem();
@@ -103,6 +104,13 @@ public class GuiKuli extends javax.swing.JFrame{
         startFiku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startFikuActionPerformed(evt);
+            }
+        });
+
+        offersButton.setText("Offers");
+        offersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                offersButtonActionPerformed(evt);
             }
         });
 
@@ -174,7 +182,8 @@ public class GuiKuli extends javax.swing.JFrame{
                     .addComponent(startProdukt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(startPerku, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(invoicesButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(startFiku, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(startFiku, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(offersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -187,8 +196,10 @@ public class GuiKuli extends javax.swing.JFrame{
                 .addGap(18, 18, 18)
                 .addComponent(startProdukt)
                 .addGap(18, 18, 18)
+                .addComponent(offersButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(invoicesButton)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -226,6 +237,11 @@ public class GuiKuli extends javax.swing.JFrame{
         Invoices invoices = new Invoices();
         invoices.setVisible(true);
     }//GEN-LAST:event_invoicesButtonActionPerformed
+
+    private void offersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_offersButtonActionPerformed
+       Offers offers = new Offers();
+       offers.setVisible(true);
+    }//GEN-LAST:event_offersButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,6 +296,7 @@ public class GuiKuli extends javax.swing.JFrame{
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton offersButton;
     private javax.swing.JButton startFiku;
     private javax.swing.JButton startPerku;
     private javax.swing.JButton startProdukt;

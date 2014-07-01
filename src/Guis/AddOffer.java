@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  *
  * @author Juraj
  */
-public class AddCurrentProduct extends javax.swing.JFrame {
+public class AddOffer extends javax.swing.JFrame {
     private String id;
     private String idRecord;
     private String supplierPrice;
@@ -23,7 +23,7 @@ public class AddCurrentProduct extends javax.swing.JFrame {
     /**
      * Creates new form <code>AddCurrentProduct</code>
      */
-    public AddCurrentProduct() {
+    public AddOffer() {
         initComponents();
         this.id=null;
         this.idRecord=null;
@@ -37,7 +37,7 @@ public class AddCurrentProduct extends javax.swing.JFrame {
      * with selected loaded values
      * 
      */
-    public AddCurrentProduct(String id) {
+    public AddOffer(String id) {
         this();
         this.id=id;
         if(!id.equals("")){
@@ -339,20 +339,20 @@ public class AddCurrentProduct extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddCurrentProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddOffer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddCurrentProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddOffer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddCurrentProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddOffer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddCurrentProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddOffer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AddCurrentProduct dialog = new AddCurrentProduct();
+                AddOffer dialog = new AddOffer();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
