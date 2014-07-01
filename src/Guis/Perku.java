@@ -484,25 +484,25 @@ public class Perku extends javax.swing.JFrame {
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
         int count = PerkuTable.getSelectedRow();
-        StringBuilder id = new StringBuilder();
+        StringBuilder ident = new StringBuilder();
         if (count > -1) {
             for (int i = 0; i < PerkuTable.getColumnCount() ; i++) {
-                id.append(PerkuTable.getValueAt(count, i));
-                id.append(" ");
+                ident.append(PerkuTable.getValueAt(count, i));
+                ident.append(" ");
             }
-            setDepID(id.toString());
-            setFNameID(id.toString());
-            setFNameID(id.toString());
-            setLNameID(id.toString());
-            setTitleID(id.toString());
-            setGenderID(id.toString());
-            setPosID(id.toString());
-            setPhoneID(id.toString());
-            setMailID(id.toString());
-            setFaxID(id.toString());
-            setBuildingID(id.toString());
-            setRoomID(id.toString());
-            new AddPerku(id.toString()).setVisible(true);
+            setDepID(ident.toString());
+            setFNameID(ident.toString());
+            setFNameID(ident.toString());
+            setLNameID(ident.toString());
+            setTitleID(ident.toString());
+            setGenderID(ident.toString());
+            setPosID(ident.toString());
+            setPhoneID(ident.toString());
+            setMailID(ident.toString());
+            setFaxID(ident.toString());
+            setBuildingID(ident.toString());
+            setRoomID(ident.toString());
+            new AddPerku(ident.toString()).setVisible(true);
             super.dispose();
         }
         else new PleaseSelectMessage().setVisible(true);
