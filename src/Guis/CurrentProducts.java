@@ -359,7 +359,7 @@ public class CurrentProducts extends javax.swing.JFrame {
             this.idRecord = substring[0];
             DBServiceInvoker invoke = new DBServiceInvoker();
             String attribut = "idCurrentProducts = "+idRecord;
-            invoke.invokeDelete("current_products", attribut);
+            invoke.invokeDelete("CURRENT_PRODUCTS", attribut);
             //this is alternative to manual Refresh
             CurrentProducts newCurrentProducts = new CurrentProducts();
             newCurrentProducts.setVisible(true);

@@ -72,7 +72,7 @@ public class Supplier extends javax.swing.JFrame {
      * @return supplierId delivers the selected supplierId
      */
     public String getSelectedID(String toString) {
-       String[] subString = toString.split(Pattern.quote(" "));
+       String[] subString = toString.split(Pattern.quote(";"));
        String idKey = subString[0];
        return idKey;
     }

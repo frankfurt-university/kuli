@@ -76,7 +76,7 @@ public class Product extends javax.swing.JFrame {
      * @return productId delivers the selected productId
      */
     public String getSelectedID(String toString) {
-       String[] subString = toString.split(Pattern.quote(" "));
+       String[] subString = toString.split(Pattern.quote(";"));
        String idKey = subString[0];
        return idKey;
     }
