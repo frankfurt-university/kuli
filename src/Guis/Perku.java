@@ -525,8 +525,8 @@ public class Perku extends javax.swing.JFrame {
             String attribut = "idPerKu = "+idRecord;
             invoke.invokeDelete("perku", attribut);
             //this is alternative to manual Refresh
-            CurrentProducts newCurrentProducts = new CurrentProducts();
-            newCurrentProducts.setVisible(true);
+            Perku newPerku = new Perku();
+            newPerku.setVisible(true);
             this.dispose();
         }
         else new PleaseSelectMessage().setVisible(true);
