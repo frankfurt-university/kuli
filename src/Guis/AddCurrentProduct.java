@@ -7,6 +7,7 @@
 package Guis;
 
 import dbServices.DBServiceInvoker;
+import dbServices.DBServiceInvokerSemicolon;
 import java.awt.Frame;
 import java.util.regex.Pattern;
 import utils.*;
@@ -14,38 +15,57 @@ import javax.swing.ComboBoxModel;
 
 /**
  *
- * @author Kain
+ * @author Juraj
  */
 public class AddCurrentProduct extends javax.swing.JFrame {
     String id;
     String idRecord;
     
     /**
-     * Creates new form AddFiku
+     * Creates new form <code>AddCurrentProduct</code>
      */
     public AddCurrentProduct() {
         initComponents();
+        this.id=null;
+        this.idRecord=null;
+        setProductId();
+        setSupplierId();
     }
     
-    /** Creates new AddFiku form with selected loaded values
+    /** Creates new form <code>AddCurrentProduct</code>  
+     * with selected loaded values
      * 
      */
     public AddCurrentProduct(String id) {
-        initComponents();
+        this();
         this.id=id;
         if(!id.equals("")){
         
             System.out.println(id);
-            String[] substring = id.split(Pattern.quote(" "));
+            String[] substring = id.split(Pattern.quote(";"));
             System.out.println(substring.length);
             this.idRecord = substring[0];
-            wirtIDTextField.setText(substring[1]);
-            umstIDTextField.setText(substring[2]);
-            nameTextField.setText(substring[3]);
-            urlTextField.setText(substring[4]);
+            idCurrentProductTextField.setText(substring[0]);
+            idProductTextField.setText(substring[1]);
+            idSupplierTextField.setText(substring[2]);
+            supplierPriceTextField.setText(substring[3]);
+            listPriceTextField.setText(substring[4]);
             
             System.out.println(idRecord);
         }
+    }
+    /** registers ID value from <code>class Product</code>} into text field
+     * 
+     */
+    public void setProductId(){
+        idProductTextField.setText(Product.getID());
+    }
+    
+    /** registers ID value from <code>class Supplier</code>} into text field
+     * 
+     */
+    public void setSupplierId(){
+        idSupplierTextField.setText(Supplier.getID());
     }
 
     /**
@@ -57,29 +77,45 @@ public class AddCurrentProduct extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        nameTextField = new javax.swing.JTextField();
-        wirtIDTextField = new javax.swing.JTextField();
-        umstIDTextField = new javax.swing.JTextField();
-        urlTextField = new javax.swing.JTextField();
-        firmenNameLabel = new javax.swing.JLabel();
-        wirtschaftsIDLabel = new javax.swing.JLabel();
-        umsatzsteuerIDLabel = new javax.swing.JLabel();
-        urlLabel = new javax.swing.JLabel();
+        idCurrentProductTextField = new javax.swing.JTextField();
+        supplierPriceTextField = new javax.swing.JTextField();
+        idProductTextField = new javax.swing.JTextField();
+        idSupplierTextField = new javax.swing.JTextField();
+        idCurrentProductLabel = new javax.swing.JLabel();
+        listPriceLabel = new javax.swing.JLabel();
+        idProductLabel = new javax.swing.JLabel();
+        supplierIdLabel = new javax.swing.JLabel();
         jButtonSave = new javax.swing.JButton();
         jButtonClose = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButtonSelectAddress = new javax.swing.JButton();
+        supplierPriceLabel = new javax.swing.JLabel();
+        listPriceTextField = new javax.swing.JTextField();
+        selectProductIDButton = new javax.swing.JButton();
+        selectSupplierButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Add/Edit Company");
+        setTitle("Add/Edit Current Product");
 
-        firmenNameLabel.setText("Company Name:");
+        idCurrentProductTextField.setEditable(false);
+        idCurrentProductTextField.setText("will be filled automatically");
 
-        wirtschaftsIDLabel.setText("Wirtschafts ID:");
+        idProductTextField.setEditable(false);
+        idProductTextField.setText("to be filled automatically");
+        idProductTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idProductTextFieldActionPerformed(evt);
+            }
+        });
 
-        umsatzsteuerIDLabel.setText("Umsatzsteuer ID:");
+        idSupplierTextField.setEditable(false);
+        idSupplierTextField.setText("to be filled automatically");
 
-        urlLabel.setText("URL:");
+        idCurrentProductLabel.setText("Current product ID:");
+
+        listPriceLabel.setText("Our Listing Price:");
+
+        idProductLabel.setText("Product:");
+
+        supplierIdLabel.setText("Supplier:");
 
         jButtonSave.setText("Save");
         jButtonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -95,12 +131,25 @@ public class AddCurrentProduct extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Address:");
+        supplierPriceLabel.setText("Supplier's Price:");
 
-        jButtonSelectAddress.setText("Select");
-        jButtonSelectAddress.addActionListener(new java.awt.event.ActionListener() {
+        listPriceTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSelectAddressActionPerformed(evt);
+                listPriceTextFieldActionPerformed(evt);
+            }
+        });
+
+        selectProductIDButton.setText("Choose..");
+        selectProductIDButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectProductIDButtonActionPerformed(evt);
+            }
+        });
+
+        selectSupplierButton.setText("Choose..");
+        selectSupplierButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectSupplierButtonActionPerformed(evt);
             }
         });
 
@@ -112,23 +161,31 @@ public class AddCurrentProduct extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firmenNameLabel)
-                            .addComponent(wirtschaftsIDLabel)
-                            .addComponent(umsatzsteuerIDLabel)
-                            .addComponent(urlLabel)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(wirtIDTextField)
-                            .addComponent(urlTextField)
-                            .addComponent(umstIDTextField)
-                            .addComponent(nameTextField)
-                            .addComponent(jButtonSelectAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonClose)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonSave)))
+                        .addComponent(jButtonSave))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idCurrentProductLabel)
+                            .addComponent(idProductLabel)
+                            .addComponent(supplierIdLabel)
+                            .addComponent(listPriceLabel)
+                            .addComponent(supplierPriceLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(supplierPriceTextField)
+                            .addComponent(listPriceTextField)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(idCurrentProductTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(idSupplierTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idProductTextField))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(selectProductIDButton)
+                                    .addComponent(selectSupplierButton))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -136,25 +193,27 @@ public class AddCurrentProduct extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firmenNameLabel))
+                    .addComponent(idCurrentProductTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idCurrentProductLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(wirtIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(wirtschaftsIDLabel))
+                    .addComponent(idProductTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idProductLabel)
+                    .addComponent(selectProductIDButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(umstIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(umsatzsteuerIDLabel))
+                    .addComponent(idSupplierTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(supplierIdLabel)
+                    .addComponent(selectSupplierButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(urlTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(urlLabel))
+                    .addComponent(supplierPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(supplierPriceLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSelectAddress)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                    .addComponent(listPriceLabel)
+                    .addComponent(listPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSave)
                     .addComponent(jButtonClose))
@@ -163,42 +222,89 @@ public class AddCurrentProduct extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /** does SQL INSERT when no record was selected prior to save - Add new..
+     * and it does UPDATE when a record was selected prior to save - Edit
+     * Add new or Edit paths get called from <code>class CurrentProducts</code>
+     * 
+     * @param evt 
+     */
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
-        DBServiceInvoker invoke = new DBServiceInvoker();
-        StringBuilder stringBuild = new StringBuilder();
-        stringBuild.append("'");
-        stringBuild.append(wirtIDTextField.getText());
-        stringBuild.append("'");
-        stringBuild.append(",");
-        stringBuild.append("'");
-        stringBuild.append(umstIDTextField.getText());
-        stringBuild.append("'");
-        stringBuild.append(",");
-        stringBuild.append("'");
-        stringBuild.append(nameTextField.getText());
-        stringBuild.append("'");
-        stringBuild.append(",");
-        stringBuild.append("'");
-        stringBuild.append(urlTextField.getText());
-        stringBuild.append("'");
-        String attribut = "WirtID, USTID, Name, URL";
-        invoke.invokeInsert("fiku",attribut,stringBuild.toString());
-        this.setVisible(false);
-        Fiku newFiku = new Fiku();
-        newFiku.setVisible(true);
+        if (id==null){
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            StringBuilder stringBuild = new StringBuilder();
+            stringBuild.append("'");
+            stringBuild.append(idProductTextField.getText());
+            stringBuild.append("'");
+            stringBuild.append(",");
+            stringBuild.append("'");
+            stringBuild.append(idSupplierTextField.getText());
+            stringBuild.append("'");
+            stringBuild.append(",");
+            stringBuild.append("'");
+            stringBuild.append(supplierPriceTextField.getText());
+            stringBuild.append("'");
+            stringBuild.append(",");
+            stringBuild.append("'");
+            stringBuild.append(listPriceTextField.getText());
+            stringBuild.append("'");
+            String attribut = "Product_idProduct, Supplier_idSupplier, SupplierPrice, ListPrice";
+            invoke.invokeInsert("current_products",attribut,stringBuild.toString());
+        }
+        else {
+            DBServiceInvokerSemicolon invoke = new DBServiceInvokerSemicolon();
+            StringBuilder stringBuild = new StringBuilder();
+            stringBuild.append("Product_idProduct = ");
+            stringBuild.append("'");
+            stringBuild.append(idProductTextField.getText());
+            stringBuild.append("'");
+            stringBuild.append(",");
+            stringBuild.append(" Supplier_idSupplier = ");
+            stringBuild.append("'");
+            stringBuild.append(idSupplierTextField.getText());
+            stringBuild.append("'");
+            stringBuild.append(",");
+            stringBuild.append(" SupplierPrice = ");
+            stringBuild.append("'");
+            stringBuild.append(supplierPriceTextField.getText());
+            stringBuild.append("'");
+            stringBuild.append(",");
+            stringBuild.append(" ListPrice = ");
+            stringBuild.append("'");
+            stringBuild.append(listPriceTextField.getText());
+            stringBuild.append("'");
+            String attribut = "idCurrentProducts = "+idRecord;
+            invoke.invokeUpdate("current_products",attribut,stringBuild.toString());
+        }
+        CurrentProducts newCurrentProducts = new CurrentProducts();
+        newCurrentProducts.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
         this.setVisible(false);
-        Fiku newFiku = new Fiku();
-        newFiku.setVisible(true);
+        CurrentProducts newCurrentProducts = new CurrentProducts();
+        newCurrentProducts.setVisible(true);
     }//GEN-LAST:event_jButtonCloseActionPerformed
 
-    private void jButtonSelectAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelectAddressActionPerformed
-        Place place = new Place();
-        place.setVisible(true);
-    }//GEN-LAST:event_jButtonSelectAddressActionPerformed
+    private void listPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPriceTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listPriceTextFieldActionPerformed
+
+    private void selectProductIDButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectProductIDButtonActionPerformed
+       Product product = new Product();
+       product.setVisible(true);
+       super.dispose();
+    }//GEN-LAST:event_selectProductIDButtonActionPerformed
+
+    private void idProductTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idProductTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idProductTextFieldActionPerformed
+
+    private void selectSupplierButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectSupplierButtonActionPerformed
+        Supplier supplier = new Supplier();
+        supplier.setVisible(true);
+        super.dispose();
+    }//GEN-LAST:event_selectSupplierButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,17 +349,19 @@ public class AddCurrentProduct extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel firmenNameLabel;
+    private javax.swing.JLabel idCurrentProductLabel;
+    private javax.swing.JTextField idCurrentProductTextField;
+    private javax.swing.JLabel idProductLabel;
+    private javax.swing.JTextField idProductTextField;
+    private javax.swing.JTextField idSupplierTextField;
     private javax.swing.JButton jButtonClose;
     private javax.swing.JButton jButtonSave;
-    private javax.swing.JButton jButtonSelectAddress;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField nameTextField;
-    private javax.swing.JLabel umsatzsteuerIDLabel;
-    private javax.swing.JTextField umstIDTextField;
-    private javax.swing.JLabel urlLabel;
-    private javax.swing.JTextField urlTextField;
-    private javax.swing.JTextField wirtIDTextField;
-    private javax.swing.JLabel wirtschaftsIDLabel;
+    private javax.swing.JLabel listPriceLabel;
+    private javax.swing.JTextField listPriceTextField;
+    private javax.swing.JButton selectProductIDButton;
+    private javax.swing.JButton selectSupplierButton;
+    private javax.swing.JLabel supplierIdLabel;
+    private javax.swing.JLabel supplierPriceLabel;
+    private javax.swing.JTextField supplierPriceTextField;
     // End of variables declaration//GEN-END:variables
 }

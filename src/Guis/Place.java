@@ -183,7 +183,7 @@ public class Place extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRefreshActionPerformed
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
-        EditFiku newEditFiku = new EditFiku();
+        NotUsedEditFiku newEditFiku = new NotUsedEditFiku();
         newEditFiku.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonEditActionPerformed

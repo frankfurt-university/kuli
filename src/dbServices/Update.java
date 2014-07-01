@@ -27,7 +27,7 @@ public class Update {
 	public void doUpdate(String table, String attribute, String upDate) throws SQLException{
 		
 		String query = "UPDATE " + table + /*"("+upDate+") values"*/ 
-                        " set " + "("+upDate+")"  + "WHERE " + "(" +attribute+ ")";
+                        " set " + upDate + "WHERE " + "(" +attribute+ ")";
 		
 		this.stmt = this.conn.createStatement();
 		this.stmt.executeUpdate(query);

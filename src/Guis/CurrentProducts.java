@@ -43,8 +43,8 @@ public class CurrentProducts extends javax.swing.JFrame {
         try {
             DBServiceInvoker invoke = new DBServiceInvoker();
 
-            List<String> cp = invoke.invokeSelect("current_products", "");
-            Iterator<String> i = cp.iterator();
+            List<String> currentProducts = invoke.invokeSelect("current_products", "");
+            Iterator<String> i = currentProducts.iterator();
             while (i.hasNext()) {
                 String[] subString = i.next().split(Pattern.quote(" "));
 
@@ -369,13 +369,13 @@ public class CurrentProducts extends javax.swing.JFrame {
         if (count > -1) {
             for (int i = 0; i < productsTable.getColumnCount() ; i++) {
                 id.append(productsTable.getValueAt(count, i));
-                id.append(" ");
+                id.append(";");
             }
         
             new AddCurrentProduct(id.toString()).setVisible(true);
         /*});
         java.awt.EventQueue.invokeLater(() -> {*/
-            super.dispose();
+            this.dispose();
 /*        });*/
         }
         else new PleaseSelectMessage().setVisible(true);

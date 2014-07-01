@@ -351,6 +351,12 @@ public class AddPerku extends javax.swing.JFrame {
         newContacts.setVisible(true);
     }//GEN-LAST:event_CancelButtonActionPerformed
 
+    /** this method does not differentiate between SQL INSERT and UPDATE,
+     * id does INSERT all the time
+     * called from <code>class Perku</code>
+     * 
+     * @param evt 
+     */
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         DBServiceInvoker invoke = new DBServiceInvoker();
         StringBuilder stringBuild = new StringBuilder();
