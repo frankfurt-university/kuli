@@ -119,6 +119,12 @@ public class Supplier extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -213,6 +219,23 @@ public class Supplier extends javax.swing.JFrame {
         addCP.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int count = jTable1.getSelectedRow();
+        StringBuilder id = new StringBuilder();
+        if (count > -1) {
+            for (int i = 0; i < jTable1.getColumnCount() ; i++) {
+                id.append(jTable1.getValueAt(count, i));
+                id.append(";");
+            }
+            ID = getSelectedID(id.toString());
+            System.out.println(id);
+            AddCurrentProduct newCP = new AddCurrentProduct();
+            newCP.setVisible(true);
+            this.dispose();
+        }
+        else new PleaseSelectMessage().setVisible(true);
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
