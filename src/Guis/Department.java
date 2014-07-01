@@ -84,6 +84,7 @@ public class Department extends javax.swing.JFrame {
         refreshFikuButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
+        jButtonDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Departments");
@@ -151,6 +152,13 @@ public class Department extends javax.swing.JFrame {
             }
         });
 
+        jButtonDelete.setText("Delete");
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -160,7 +168,9 @@ public class Department extends javax.swing.JFrame {
                 .addComponent(addButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UpdateDepartmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonDelete)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(refreshFikuButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(closeButton)
@@ -174,7 +184,8 @@ public class Department extends javax.swing.JFrame {
                     .addComponent(refreshFikuButton)
                     .addComponent(closeButton)
                     .addComponent(UpdateDepartmentButton)
-                    .addComponent(addButton))
+                    .addComponent(addButton)
+                    .addComponent(jButtonDelete))
                 .addContainerGap())
         );
 
@@ -355,6 +366,10 @@ public class Department extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_closeButtonActionPerformed
 
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
+
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {
         int count = departmentsSecondTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
@@ -412,6 +427,7 @@ public class Department extends javax.swing.JFrame {
     private javax.swing.JButton addButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JTable deptTable;
+    private javax.swing.JButton jButtonDelete;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
