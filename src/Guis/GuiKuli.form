@@ -126,13 +126,14 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="startProdukt" max="32767" attributes="0"/>
                   <Component id="startPerku" alignment="0" max="32767" attributes="0"/>
                   <Component id="invoicesButton" alignment="0" pref="142" max="32767" attributes="0"/>
                   <Component id="startFiku" alignment="0" max="32767" attributes="0"/>
+                  <Component id="offersButton" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -148,8 +149,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="startProdukt" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="offersButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
               <Component id="invoicesButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="66" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -185,6 +188,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startFikuActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="offersButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Offers"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="offersButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
