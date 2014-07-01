@@ -366,8 +366,9 @@ public class AddPerku extends javax.swing.JFrame {
      * @param evt 
      */
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
-        DBServiceInvoker invoke = new DBServiceInvoker();
+
         if(id==null){
+        DBServiceInvoker invoke = new DBServiceInvoker();
         StringBuilder stringBuild = new StringBuilder();
         stringBuild.append("'");
         stringBuild.append(jTextFieldCompany.getText());
@@ -428,10 +429,12 @@ public class AddPerku extends javax.swing.JFrame {
         String attribut;
         attribut = "FiKu_idFiKu, Departments_idDepartments, FName, LName, Title, Sex, Position, Phone, Email, Fax, Building, Room, FiKu_has_Place_FiKu_idFiKu, FiKu_has_Place_Place_idPlace";
         invoke.invokeInsert("perku",attribut,stringBuild.toString());
-        this.setVisible(false);
         Perku newContacts = new Perku();
         newContacts.setVisible(true);
+        this.setVisible(false);
         }
+        else{
+        DBServiceInvoker invoke = new DBServiceInvoker();    
         StringBuilder stringBuild = new StringBuilder();
         stringBuild.append("FiKu_idFiKu ="); 
         stringBuild.append("'");
@@ -505,9 +508,10 @@ public class AddPerku extends javax.swing.JFrame {
         String attribut;
         attribut = " idPerKu = " + idRecord;
         invoke.invokeUpdate("perku",attribut,stringBuild.toString());
-        this.setVisible(false);
         Perku newContacts = new Perku();
         newContacts.setVisible(true);
+        this.setVisible(false);
+        }
     }//GEN-LAST:event_SaveButtonActionPerformed
 
     private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
