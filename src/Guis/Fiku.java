@@ -344,16 +344,16 @@ public class Fiku extends javax.swing.JFrame {
         if (count > -1) {
             for (int i = 0; i < fikuTable.getColumnCount() ; i++) {
                 row.append(fikuTable.getValueAt(count, i));
-                row.append(" ");
+                row.append(";");
             }
             iD = getSelectedID(row.toString());
             System.out.println(row);
-            String[] substring = iD.split(Pattern.quote(" "));
+            String[] substring = iD.split(Pattern.quote(";"));
             System.out.println(substring.length);
             this.idRecord = substring[0];
             DBServiceInvoker invoke = new DBServiceInvoker();
-            String attribut = "idCurrentProducts = "+idRecord;
-            invoke.invokeDelete("CURRENT_PRODUCTS", attribut);
+            String attribut = "idFiKu = "+idRecord;
+            invoke.invokeDelete("fiku", attribut);
             //this is alternative to manual Refresh
             Fiku newFiku = new Fiku();
             newFiku.setVisible(true);
@@ -366,7 +366,7 @@ public class Fiku extends javax.swing.JFrame {
      *
      */
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        AddCurrentProduct addFiku = new AddCurrentProduct();
+        AddFiku addFiku = new AddFiku();
         addFiku.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed

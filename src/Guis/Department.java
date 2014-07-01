@@ -21,12 +21,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Department extends javax.swing.JFrame {
     //Init treshhold
-    private static String ID=null;
+    private static String ID;
+    private String id;
+    private String idRecord;
     /**
      * Creates new form Department
      */
     public Department() {
         initComponents();
+        ID=null;
+        id=null;
+        idRecord=null;
     }
     /**
      * Creates new boolean form Department
@@ -35,7 +40,13 @@ public class Department extends javax.swing.JFrame {
         if(value == true){
         initComponents2();
         showTable(departmentsSecondTable);
+        ID=null;
+        id=null;
+        idRecord=null;
         }
+        ID=null;
+        id=null;
+        idRecord=null;
     }
     /** fills table <code>deptTable</code> with data and shows it in this form
      * 
@@ -84,6 +95,7 @@ public class Department extends javax.swing.JFrame {
         refreshFikuButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
+        jButtonDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Departments");
@@ -151,6 +163,13 @@ public class Department extends javax.swing.JFrame {
             }
         });
 
+        jButtonDelete.setText("Delete");
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -160,7 +179,9 @@ public class Department extends javax.swing.JFrame {
                 .addComponent(addButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UpdateDepartmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonDelete)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(refreshFikuButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(closeButton)
@@ -174,7 +195,8 @@ public class Department extends javax.swing.JFrame {
                     .addComponent(refreshFikuButton)
                     .addComponent(closeButton)
                     .addComponent(UpdateDepartmentButton)
-                    .addComponent(addButton))
+                    .addComponent(addButton)
+                    .addComponent(jButtonDelete))
                 .addContainerGap())
         );
 
@@ -355,6 +377,30 @@ public class Department extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_closeButtonActionPerformed
 
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        int count = deptTable.getSelectedRow();
+        StringBuilder row = new StringBuilder();
+        if (count > -1) {
+            for (int i = 0; i < deptTable.getColumnCount() ; i++) {
+                row.append(deptTable.getValueAt(count, i));
+                row.append(";");
+            }
+            id = getSelectedID(row.toString());
+            System.out.println(row);
+            String[] substring = id.split(Pattern.quote(";"));
+            System.out.println(substring.length);
+            this.idRecord = substring[0];
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            String attribut = "idDepartments = "+idRecord;
+            invoke.invokeDelete("departments", attribut);
+            //this is alternative to manual Refresh
+            CurrentProducts newCurrentProducts = new CurrentProducts();
+            newCurrentProducts.setVisible(true);
+            this.dispose();
+        }
+        else new PleaseSelectMessage().setVisible(true);
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
+
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {
         int count = departmentsSecondTable.getSelectedRow();
         StringBuilder id = new StringBuilder();
@@ -412,6 +458,7 @@ public class Department extends javax.swing.JFrame {
     private javax.swing.JButton addButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JTable deptTable;
+    private javax.swing.JButton jButtonDelete;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
