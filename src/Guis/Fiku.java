@@ -451,7 +451,7 @@ public class Fiku extends javax.swing.JFrame {
     /**
      * Copies our selected ID
      * @param toString 
-     * @return fikuId deliver the selected fikuId
+     * @return keyId deliver the selected keyId
      */
     public String getSelectedID(String toString) {
        String[] subString = toString.split(Pattern.quote(" "));
@@ -460,7 +460,7 @@ public class Fiku extends javax.swing.JFrame {
     }
     /**
      * 
-     * @return the FikuID
+     * @return the ID
      */
     public static String getID(){
         return ID;
