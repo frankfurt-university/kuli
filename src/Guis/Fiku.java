@@ -344,11 +344,11 @@ public class Fiku extends javax.swing.JFrame {
         if (count > -1) {
             for (int i = 0; i < fikuTable.getColumnCount() ; i++) {
                 row.append(fikuTable.getValueAt(count, i));
-                row.append(";");
+                row.append(" ");
             }
             iD = getSelectedID(row.toString());
             System.out.println(row);
-            String[] substring = iD.split(Pattern.quote(";"));
+            String[] substring = iD.split(Pattern.quote(" "));
             System.out.println(substring.length);
             this.idRecord = substring[0];
             DBServiceInvoker invoke = new DBServiceInvoker();

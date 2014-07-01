@@ -111,7 +111,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="addButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="editFikuButton" min="-2" pref="89" max="-2" attributes="0"/>
+                  <Component id="UpdateDepartmentButton" min="-2" pref="89" max="-2" attributes="0"/>
                   <EmptySpace pref="63" max="32767" attributes="0"/>
                   <Component id="refreshFikuButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -127,7 +127,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="refreshFikuButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="closeButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="editFikuButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="UpdateDepartmentButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="addButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -136,13 +136,13 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="editFikuButton">
+        <Component class="javax.swing.JButton" name="UpdateDepartmentButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
+            <Property name="text" type="java.lang.String" value="Update"/>
             <Property name="toolTipText" type="java.lang.String" value="Edit selected"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editFikuButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateDepartmentButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="refreshFikuButton">
