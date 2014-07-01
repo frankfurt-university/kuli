@@ -131,7 +131,7 @@
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="startProdukt" max="32767" attributes="0"/>
                   <Component id="startPerku" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jButton1" alignment="0" pref="142" max="32767" attributes="0"/>
+                  <Component id="invoicesButton" alignment="0" pref="142" max="32767" attributes="0"/>
                   <Component id="startFiku" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -148,7 +148,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="startProdukt" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="invoicesButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="66" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -171,12 +171,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startProduktActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="invoicesButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Invoices"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="invoicesButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="startFiku">

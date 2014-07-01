@@ -17,7 +17,7 @@ import javax.swing.DefaultListModel;
  * @author Juraj
  */
 public class GuiKuli extends javax.swing.JFrame{
-    
+    //was macht das hier? it's never called
     public DefaultListModel getModels(String table, String where){
     DBServiceInvoker invoke = new DBServiceInvoker();
     DefaultListModel model = new DefaultListModel();
@@ -58,7 +58,7 @@ public class GuiKuli extends javax.swing.JFrame{
         jTabbedPane1 = new javax.swing.JTabbedPane();
         startPerku = new javax.swing.JButton();
         startProdukt = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        invoicesButton = new javax.swing.JButton();
         startFiku = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -92,10 +92,10 @@ public class GuiKuli extends javax.swing.JFrame{
             }
         });
 
-        jButton1.setText("Invoices");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        invoicesButton.setText("Invoices");
+        invoicesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                invoicesButtonActionPerformed(evt);
             }
         });
 
@@ -173,7 +173,7 @@ public class GuiKuli extends javax.swing.JFrame{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(startProdukt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(startPerku, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                    .addComponent(invoicesButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                     .addComponent(startFiku, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -187,7 +187,7 @@ public class GuiKuli extends javax.swing.JFrame{
                 .addGap(18, 18, 18)
                 .addComponent(startProdukt)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(invoicesButton)
                 .addContainerGap(66, Short.MAX_VALUE))
         );
 
@@ -222,10 +222,10 @@ public class GuiKuli extends javax.swing.JFrame{
         newProducts.setVisible(true);
     }//GEN-LAST:event_startProduktActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void invoicesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoicesButtonActionPerformed
         Invoices invoices = new Invoices();
         invoices.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_invoicesButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,7 +264,7 @@ public class GuiKuli extends javax.swing.JFrame{
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton invoicesButton;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
