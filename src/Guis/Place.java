@@ -6,7 +6,12 @@
 package Guis;
 
 import dbServices.DBServiceInvoker;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
 import java.util.regex.Pattern;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import utils.NotUsedSetModelToList;
 
 /**
@@ -26,6 +31,34 @@ public class Place extends javax.swing.JFrame {
      */
     public Place() {
         initComponents();
+        showTable(placeTable);
+    }
+    private void showTable(JTable table) {
+        DefaultTableModel defaultTable = (DefaultTableModel) table.getModel();
+
+        try {
+            DBServiceInvoker invoke = new DBServiceInvoker();
+
+            List<String> fiku = invoke.invokeSelect("place", "");
+            Iterator<String> i = fiku.iterator();
+            while (i.hasNext()) {
+                String[] subString = i.next().split(Pattern.quote(" "));
+
+                String addressId = subString[0];
+                String zipCode = subString[1];
+                String city = subString[2];
+                String street = subString[3];
+                String hauseNumber = subString[4];
+                String poBox = subString[5];
+                
+                defaultTable.addRow(new Object[]{addressId, zipCode, city, street, hauseNumber, poBox});
+            }
+            invoke.cleanErrorString();
+
+        } catch (SQLException sqlex) {
+
+            System.out.println("SQL Error : " + sqlex.getMessage());
+        }
     }
 
     /**
@@ -206,11 +239,15 @@ public class Place extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
-        try{
-        //FikuTable.setModel((SetModelToList.getModels("fiku", " ")));
-        }catch(Exception e){
-            System.out.println("Could not write the Data to List!");
+        try {
+            DefaultTableModel defaultTable = (DefaultTableModel) placeTable.getModel();
+            defaultTable.setRowCount(0);
         }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+            showTable(placeTable);
+                                    
     }//GEN-LAST:event_jButtonRefreshActionPerformed
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
