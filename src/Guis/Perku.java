@@ -135,11 +135,14 @@ public class Perku extends javax.swing.JFrame {
     /**
     * Creates a new Place(s) 
     * just with a Table and one Button
+    * @param value boolean to enable or disable
     */
     public Perku(boolean value){
+        if(value!=false){
         initComponents2();
         showTable2();
         id=null;
+        }
     }
 
     /**
@@ -681,7 +684,7 @@ public class Perku extends javax.swing.JFrame {
                 .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAdd)
+                    .addComponent(jButtonOk)
                     .addComponent(jButtonClose)
                 .addComponent(filler4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5))
