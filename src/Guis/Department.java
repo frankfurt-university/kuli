@@ -378,7 +378,27 @@ public class Department extends javax.swing.JFrame {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
-        // TODO add your handling code here:
+        int count = deptTable.getSelectedRow();
+        StringBuilder row = new StringBuilder();
+        if (count > -1) {
+            for (int i = 0; i < deptTable.getColumnCount() ; i++) {
+                row.append(deptTable.getValueAt(count, i));
+                row.append(";");
+            }
+            id = getSelectedID(row.toString());
+            System.out.println(row);
+            String[] substring = id.split(Pattern.quote(";"));
+            System.out.println(substring.length);
+            this.idRecord = substring[0];
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            String attribut = "idDepartments = "+idRecord;
+            invoke.invokeDelete("departments", attribut);
+            //this is alternative to manual Refresh
+            CurrentProducts newCurrentProducts = new CurrentProducts();
+            newCurrentProducts.setVisible(true);
+            this.dispose();
+        }
+        else new PleaseSelectMessage().setVisible(true);
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {
