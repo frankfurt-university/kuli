@@ -21,12 +21,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Department extends javax.swing.JFrame {
     //Init treshhold
-    private static String ID=null;
+    private static String ID;
+    private String id;
+    private String idRecord;
     /**
      * Creates new form Department
      */
     public Department() {
         initComponents();
+        ID=null;
+        id=null;
+        idRecord=null;
     }
     /**
      * Creates new boolean form Department
@@ -35,7 +40,13 @@ public class Department extends javax.swing.JFrame {
         if(value == true){
         initComponents2();
         showTable(departmentsSecondTable);
+        ID=null;
+        id=null;
+        idRecord=null;
         }
+        ID=null;
+        id=null;
+        idRecord=null;
     }
     /** fills table <code>deptTable</code> with data and shows it in this form
      * 
