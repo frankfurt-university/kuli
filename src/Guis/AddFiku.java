@@ -196,8 +196,8 @@ public class AddFiku extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCloseActionPerformed
 
     private void jButtonSelectAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelectAddressActionPerformed
-        Place place = new Place();
-        place.setVisible(true);
+        AddCompanyPlace newAddCompanyplace = new AddCompanyPlace();
+        newAddCompanyplace.setVisible(true);
     }//GEN-LAST:event_jButtonSelectAddressActionPerformed
 
     /**

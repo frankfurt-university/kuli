@@ -62,6 +62,7 @@ public class GuiKuli extends javax.swing.JFrame{
         startFiku = new javax.swing.JButton();
         offersButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButtonPlace = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem0 = new javax.swing.JMenuItem();
@@ -119,6 +120,13 @@ public class GuiKuli extends javax.swing.JFrame{
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButtonPlace.setText("Place");
+        jButtonPlace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPlaceActionPerformed(evt);
             }
         });
 
@@ -192,7 +200,8 @@ public class GuiKuli extends javax.swing.JFrame{
                     .addComponent(invoicesButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                     .addComponent(startFiku, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(offersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonPlace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -208,9 +217,11 @@ public class GuiKuli extends javax.swing.JFrame{
                 .addComponent(offersButton)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonPlace)
+                .addGap(18, 18, 18)
                 .addComponent(invoicesButton)
-                .addContainerGap())
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -259,6 +270,11 @@ public class GuiKuli extends javax.swing.JFrame{
         license.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButtonPlaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlaceActionPerformed
+        Place newPlace = new Place();
+        newPlace.setVisible(true);
+    }//GEN-LAST:event_jButtonPlaceActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -298,6 +314,7 @@ public class GuiKuli extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton invoicesButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonPlace;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
