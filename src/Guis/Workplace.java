@@ -108,7 +108,7 @@ public class Workplace extends javax.swing.JFrame {
         jButtonOk = new javax.swing.JButton();
         jButtonClose = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Workplace");
 
         jButtonRefresh.setText("Refresh");
