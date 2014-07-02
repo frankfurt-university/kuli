@@ -37,7 +37,7 @@ public class AddCompanyPlace extends javax.swing.JFrame {
         jButtonSelectPlaceId = new javax.swing.JButton();
         jLabelPlaceId = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButtonCancel.setText("Cancel");
         jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
