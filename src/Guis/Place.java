@@ -12,8 +12,6 @@ import java.util.List;
 import java.util.regex.Pattern;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import utils.NotUsedSetModelToList;
-
 /**
  *
  * @author Kain
