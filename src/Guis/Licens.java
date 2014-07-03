@@ -25,12 +25,12 @@ public class Licens extends javax.swing.JFrame {
      */
     public Licens() {
         initComponents();
-        showTable(LicenseTable, MaintenanceTable, LeasingTable);
+        showTable(LicenseTable, MaintenanceTable, LeasingTable, GroupLicenseTable);
     }
     /** fills table <code>LicenseTable</code> with data and shows it in this form
      * 
      */
-    private void showTable(JTable table, JTable table2, JTable table3) {
+    private void showTable(JTable table, JTable table2, JTable table3, JTable table4) {
         try {
             DefaultTableModel defaultTable = (DefaultTableModel) table.getModel();
             DBServiceInvoker invoke = new DBServiceInvoker();
@@ -93,6 +93,30 @@ public class Licens extends javax.swing.JFrame {
         }catch(SQLException sqlex){
             System.out.println("SQL Error : " + sqlex.getMessage());
         }
+        try {
+            DefaultTableModel defaultTable = (DefaultTableModel) table4.getModel();
+            DBServiceInvoker invoke = new DBServiceInvoker();
+            List<String> pers = invoke.invokeSelect("group_license", "");
+            Iterator<String> i = pers.iterator();
+            while (i.hasNext()) {
+                String[] subString = i.next().split(Pattern.quote(" "));
+                String groupLicenseId = subString[0];
+                String currentProductId = subString[1];
+                String perkuId = subString[2];
+                String maintenanceId = subString[3];
+                String key = subString[4];
+                String activated = subString[5];
+                String soldDate = subString[7];
+                String expiry = subString[8];
+                String upgradable = subString[9];
+                String groupSize = subString[6];
+                defaultTable.addRow(new Object[]{groupLicenseId, currentProductId, perkuId, maintenanceId, key, activated, groupSize, soldDate, expiry, upgradable});
+            }
+            invoke.cleanErrorString();
+
+        } catch (SQLException sqlex) {
+            System.out.println("SQL Error : " + sqlex.getMessage());
+        } 
     }
 
     /**
@@ -118,6 +142,10 @@ public class Licens extends javax.swing.JFrame {
         jButtonAddMaintenance = new javax.swing.JButton();
         jButtonEditMaintenance = new javax.swing.JButton();
         jButtonUpdateLicense = new javax.swing.JButton();
+        jButtonUpdateGroupLicense = new javax.swing.JButton();
+        jButtonAddGroupLicense = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        GroupLicenseTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("License");
@@ -238,6 +266,40 @@ public class Licens extends javax.swing.JFrame {
             }
         });
 
+        jButtonUpdateGroupLicense.setText("Update Group Lic");
+        jButtonUpdateGroupLicense.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateGroupLicenseActionPerformed(evt);
+            }
+        });
+
+        jButtonAddGroupLicense.setText("Add new Group License");
+        jButtonAddGroupLicense.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddGroupLicenseActionPerformed(evt);
+            }
+        });
+
+        GroupLicenseTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Group License ID", "Current Product ID", "Perku ID", "Maintenance ID", "Key", "Activated", "Group Size", "Sold Date", "Expiry", "Upgradable"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        GroupLicenseTable.setToolTipText("Group License");
+        GroupLicenseTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane6.setViewportView(GroupLicenseTable);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -245,27 +307,33 @@ public class Licens extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 963, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jButtonAddGroupLicense, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonUpdateGroupLicense, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonAddLeasing, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonEditLeasing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButtonAddLicense, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonAddMaintenance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jButtonAddMaintenance)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButtonEditMaintenance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonUpdateLicense, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonEditMaintenance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 552, Short.MAX_VALUE)
                         .addComponent(jButtonRefresh)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonClose)))
+                        .addComponent(jButtonClose))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonAddLicense, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonUpdateLicense, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane6))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -278,10 +346,16 @@ public class Licens extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAddLicense)
                     .addComponent(jButtonUpdateLicense))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddGroupLicense)
+                    .addComponent(jButtonUpdateGroupLicense))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAddMaintenance)
                     .addComponent(jButtonEditMaintenance))
@@ -309,7 +383,7 @@ public class Licens extends javax.swing.JFrame {
         catch (Exception e){
             System.out.println(e.toString());
         }
-        showTable(LicenseTable, MaintenanceTable, LeasingTable);       
+        showTable(LicenseTable, MaintenanceTable, LeasingTable, GroupLicenseTable);       
     }//GEN-LAST:event_jButtonRefreshActionPerformed
 
     private void jButtonEditLeasingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditLeasingActionPerformed
@@ -350,6 +424,14 @@ public class Licens extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonUpdateLicenseActionPerformed
 
+    private void jButtonUpdateGroupLicenseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateGroupLicenseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonUpdateGroupLicenseActionPerformed
+
+    private void jButtonAddGroupLicenseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddGroupLicenseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAddGroupLicenseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -386,9 +468,11 @@ public class Licens extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable GroupLicenseTable;
     private javax.swing.JTable LeasingTable;
     private javax.swing.JTable LicenseTable;
     private javax.swing.JTable MaintenanceTable;
+    private javax.swing.JButton jButtonAddGroupLicense;
     private javax.swing.JButton jButtonAddLeasing;
     private javax.swing.JButton jButtonAddLicense;
     private javax.swing.JButton jButtonAddMaintenance;
@@ -396,9 +480,11 @@ public class Licens extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEditLeasing;
     private javax.swing.JButton jButtonEditMaintenance;
     private javax.swing.JButton jButtonRefresh;
+    private javax.swing.JButton jButtonUpdateGroupLicense;
     private javax.swing.JButton jButtonUpdateLicense;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     // End of variables declaration//GEN-END:variables
 }
