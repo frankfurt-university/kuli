@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Perku extends javax.swing.JFrame {
     /**
-     * Init public variables
+     * Init variables
      */
     private static String ID;
     private String id;
@@ -37,7 +37,7 @@ public class Perku extends javax.swing.JFrame {
     private static String roomNr = null;
     
     /**
-     * 
+     * Fils the Table with data from the DB
      */
     private void showTable() {
         DefaultTableModel defaultTable = (DefaultTableModel) PerkuTable.getModel();
