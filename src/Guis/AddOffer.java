@@ -415,9 +415,9 @@ public class AddOffer extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
+        Offers newOffer = new Offers();
+        newOffer.setVisible(true);
         this.setVisible(false);
-        CurrentProducts newCurrentProducts = new CurrentProducts();
-        newCurrentProducts.setVisible(true);
     }//GEN-LAST:event_jButtonCloseActionPerformed
 
     private void expiryDateTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expiryDateTextFieldActionPerformed
